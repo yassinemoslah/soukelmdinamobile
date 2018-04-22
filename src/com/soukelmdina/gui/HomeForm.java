@@ -12,22 +12,13 @@ import com.codename1.ui.Label;
  *
  * @author sana
  */
-public class HomeForm {
-
-    Form f;
+public class HomeForm extends Layout {
 
     public HomeForm() {
-        f = new Form("home");
+        f.setTitle("Accueil");
         f.add(new Label("Welcome to Souk El Mdina"));
- 
     }
 
-    public Form getF() {
-        return f;
-    }
-
-    public void setF(Form f) {
-        this.f = f;
-    }
+  
 
 }
