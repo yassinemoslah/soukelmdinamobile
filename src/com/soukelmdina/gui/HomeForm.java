@@ -7,6 +7,7 @@ package com.soukelmdina.gui;
 
 import com.codename1.ui.Form;
 import com.codename1.ui.Label;
+import com.codename1.ui.layouts.BorderLayout;
 
 /**
  *
@@ -17,6 +18,7 @@ public class HomeForm extends Layout {
     public HomeForm() {
         f.setTitle("Accueil");
         f.add(new Label("Welcome to Souk El Mdina"));
+        System.out.println(user);
     }
 
   
