@@ -38,10 +38,12 @@ public class Login extends Layout {
             ServiceUtilisateur su = new ServiceUtilisateur();
             Utilisateur user = su.getUser(tlogin.getText(), tpassword.getText());
             if (user != null) {
-                if (user.getPassword().equals("0")){
+                if (user.getPassword().equals("0")) {
                     Dialog.show("Vérifier votre mot de passe", "Mot de passe invalide", "OK", null);
-                }else{
-                    Layout.user=user;
+                } else {
+                    Layout.user = user;
+                    HomeForm home = new HomeForm();
+                    home.getF().show();
                 }
             } else {
                 Dialog.show("Vérifier CIN ou e-mail", "CIN ou e-mail invalide", "OK", null);

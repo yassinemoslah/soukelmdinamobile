@@ -11,7 +11,9 @@
             <file>file:/D:/esprit/3eme/semestre%202/pi/SoukElMdinaMobile/src/com/soukelmdina/entite/Adresse.java</file>
             <file>file:/D:/esprit/3eme/semestre%202/pi/SoukElMdinaMobile/src/com/soukelmdina/gui/Login.java</file>
             <file>file:/D:/esprit/3eme/semestre%202/pi/SoukElMdinaMobile/src/com/soukelmdina/gui/Layout.java</file>
-            <file>file:/D:/esprit/3eme/semestre%202/pi/SoukElMdinaMobile/src/com/soukelmdina/technique/MD5Encrypt.java</file>
+            <file>jar:file:/D:/esprit/3eme/semestre%202/pi/soukelmdinamobile/lib/CodenameOne_SRC.zip!/com/codename1/ui/EncodedImage.java</file>
+            <file>file:/D:/esprit/3eme/semestre%202/pi/SoukElMdinaMobile/src/com/soukelmdina/service/ServiceUtilisateur.java</file>
+            <file>file:/D:/esprit/3eme/semestre%202/pi/SoukElMdinaMobile/src/com/soukelmdina/gui/Profile.java</file>
         </group>
     </open-files>
 </project-private>
