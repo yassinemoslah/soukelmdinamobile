@@ -30,6 +30,8 @@ public class Layout {
         else{
             f.getToolbar().addMaterialCommandToSideMenu("Profile",  FontImage.MATERIAL_HOME,(e)->{Profile profile=new Profile();
         profile.getF().show();});
+            f.getToolbar().addMaterialCommandToSideMenu("Espace d'exposition",  FontImage.MATERIAL_HOME,(e)->{espaceexpohome es =new espaceexpohome();
+            es.getF().show();});
             f.getToolbar().addMaterialCommandToSideMenu("Déconnexion",  FontImage.MATERIAL_HOME,(e)->{user=null;
             HomeForm home=new HomeForm();
             home.getF().show();});
