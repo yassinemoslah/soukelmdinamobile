@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import com.soukelmdina.entite.Espace_exposition;
+import com.soukelmdina.entite.Souk;
 
 
 /**
@@ -60,4 +61,49 @@ public class ServiceEspaceexpo {
             return null;
         return listespaces;
     }
+     
+      public ArrayList<Souk>  getnomssouks() {
+        ArrayList<Souk> listsoukes = new ArrayList<>();
+        ConnectionRequest con = new ConnectionRequest();
+        con.setUrl(Layout.URL+"/soukelmdinaweb/web/app_dev.php/app/souks/all");
+        con.addResponseListener(e->{
+                JSONParser jsonp = new JSONParser();
+                try {
+                    Map<String, Object> espaces = jsonp.parseJSON(new CharArrayReader(new String(con.getResponseData()).toCharArray()));
+                    List<Map<String, Object>> list = (List<Map<String, Object>>) espaces.get("root");
+                    for (Map<String, Object> obj : list) {
+                    Souk s = new Souk();
+                    //double prix = Float.parseFloat(obj.get("prix").toString());
+                    float id = Float.parseFloat(obj.get("id").toString());
+                    s.setId((int)id);
+                    s.setLibelle(obj.get("libelle").toString());
+                    
+                                 
+                                       
+                        listsoukes.add(s);
+                    }
+                } catch (IOException ex) {
+                }
+
+            
+        });
+        NetworkManager.getInstance().addToQueueAndWait(con); // asynchrone
+        if (listsoukes.size()==0)
+            return null;
+        return listsoukes;
+    }
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
 }

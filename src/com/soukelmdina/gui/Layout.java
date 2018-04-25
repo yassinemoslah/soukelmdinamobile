@@ -32,6 +32,10 @@ public class Layout {
         profile.getF().show();});
             f.getToolbar().addMaterialCommandToSideMenu("Espace d'exposition",  FontImage.MATERIAL_HOME,(e)->{espaceexpohome es =new espaceexpohome();
             es.getF().show();});
+            f.getToolbar().addMaterialCommandToSideMenu("ajouter espace",  FontImage.MATERIAL_HOME,(e)->{ajoutespace es =new ajoutespace();
+            es.getF().show();});
+            
+            
             f.getToolbar().addMaterialCommandToSideMenu("Déconnexion",  FontImage.MATERIAL_HOME,(e)->{user=null;
             HomeForm home=new HomeForm();
             home.getF().show();});
