@@ -36,8 +36,8 @@ public class ServiceEspaceexpo {
                     Espace_exposition es = new Espace_exposition();
                     //double prix = Float.parseFloat(obj.get("prix").toString());
                     es.setLibelle(obj.get("libelle").toString());
-                                      es.setPhoto(obj.get("photo").toString());
-                    es.setDescription("blabla");
+                    es.setPhoto(obj.get("photo").toString());
+                    es.setDescription(obj.get("description").toString());
                     es.setNumTel("24211538");
                     es.setIdsouk(0);
                     es.setCategorie("autre");
@@ -45,7 +45,7 @@ public class ServiceEspaceexpo {
                     es.setLargeur(0);
                     es.setLargeur(0);
                     es.setPrix(0);
-                    es.setEtat("NA");
+                    es.setEtat(obj.get("etat").toString());
                                  
                                        
                         listespaces.add(es);
