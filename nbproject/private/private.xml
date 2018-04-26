@@ -4,10 +4,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/USER/Desktop/pimobile/soukelmdinamobile/src/com/soukelmdina/gui/Login.java</file>
             <file>file:/C:/Users/USER/Desktop/pimobile/soukelmdinamobile/src/com/soukelmdina/gui/HomeForm.java</file>
             <file>file:/C:/Users/USER/Desktop/pimobile/soukelmdinamobile/src/com/soukelmdina/gui/Layout.java</file>
             <file>file:/C:/Users/USER/Desktop/pimobile/soukelmdinamobile/src/com/soukelmdina/gui/Affichageevents.java</file>
+=======
+            <file>file:/D:/esprit/3eme/semestre%202/pi/SoukElMdinaMobile/src/com/soukelmdina/gui/HomeForm.java</file>
+            <file>file:/D:/esprit/3eme/semestre%202/pi/SoukElMdinaMobile/src/com/soukelmdina/app/MyApplication.java</file>
+            <file>file:/D:/esprit/3eme/semestre%202/pi/SoukElMdinaMobile/src/com/soukelmdina/entite/Utilisateur.java</file>
+            <file>file:/D:/esprit/3eme/semestre%202/pi/SoukElMdinaMobile/src/com/soukelmdina/service/ServiceTask.java</file>
+            <file>file:/D:/esprit/3eme/semestre%202/pi/SoukElMdinaMobile/src/com/soukelmdina/entite/Adresse.java</file>
+            <file>file:/D:/esprit/3eme/semestre%202/pi/SoukElMdinaMobile/src/com/soukelmdina/gui/Login.java</file>
+            <file>file:/D:/esprit/3eme/semestre%202/pi/SoukElMdinaMobile/src/com/soukelmdina/gui/Layout.java</file>
+            <file>jar:file:/D:/esprit/3eme/semestre%202/pi/soukelmdinamobile/lib/CodenameOne_SRC.zip!/com/codename1/ui/EncodedImage.java</file>
+            <file>file:/D:/esprit/3eme/semestre%202/pi/SoukElMdinaMobile/src/com/soukelmdina/service/ServiceUtilisateur.java</file>
+            <file>file:/D:/esprit/3eme/semestre%202/pi/SoukElMdinaMobile/src/com/soukelmdina/gui/Profile.java</file>
+>>>>>>> acdac95d45d6e95a7eadb75c72d6163d0c9b56e1
         </group>
     </open-files>
 </project-private>

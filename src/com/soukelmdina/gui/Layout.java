@@ -5,6 +5,7 @@
  */
 package com.soukelmdina.gui;
 
+import com.codename1.ui.FontImage;
 import com.codename1.ui.Form;
 import com.codename1.ui.Label;
 import com.soukelmdina.entite.Utilisateur;
@@ -20,10 +21,21 @@ public class Layout {
       public static Utilisateur user = null;
     public Layout() {
         f = new Form();
-        f.getToolbar().addCommandToSideMenu("Accueil",  null,(e)->{HomeForm home=new HomeForm();
+        f.getToolbar().addMaterialCommandToSideMenu("Accueil",  FontImage.MATERIAL_HOME,(e)->{HomeForm home=new HomeForm();
         home.getF().show();});
-        f.getToolbar().addCommandToSideMenu("Login",  null,(e)->{Login login=new Login();
+        if (user==null){
+        f.getToolbar().addMaterialCommandToSideMenu("Login",  FontImage.MATERIAL_HOME,(e)->{Login login=new Login();
         login.getF().show();});
+        }
+        else{
+            f.getToolbar().addMaterialCommandToSideMenu("Profile",  FontImage.MATERIAL_HOME,(e)->{Profile profile=new Profile();
+        profile.getF().show();});
+            f.getToolbar().addMaterialCommandToSideMenu("Espace d'exposition",  FontImage.MATERIAL_HOME,(e)->{espaceexpohome es =new espaceexpohome();
+            es.getF().show();});
+            f.getToolbar().addMaterialCommandToSideMenu("Déconnexion",  FontImage.MATERIAL_HOME,(e)->{user=null;
+            HomeForm home=new HomeForm();
+            home.getF().show();});
+        }
  
     }
 

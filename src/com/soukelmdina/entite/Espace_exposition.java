@@ -1,5 +1,21 @@
+<<<<<<< HEAD
 package com.soukelmdina.entite;
 public class Espace_exposition {
+=======
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.soukelmdina.entite;
+
+/**
+ *
+ * @author marye
+ */
+public class Espace_exposition {
+
+>>>>>>> acdac95d45d6e95a7eadb75c72d6163d0c9b56e1
   
   private int id; 
   private String libelle; 
@@ -46,6 +62,10 @@ public class Espace_exposition {
         this.etat = etat;
         this.cinlocataire = cinlocataire;
     }
+<<<<<<< HEAD
+=======
+    
+>>>>>>> acdac95d45d6e95a7eadb75c72d6163d0c9b56e1
   
     public void setCategorie(String categorie) {  
         this.categorie = categorie;
@@ -285,3 +305,9 @@ public class Espace_exposition {
     
     
 }
+<<<<<<< HEAD
+=======
+
+    
+
+>>>>>>> acdac95d45d6e95a7eadb75c72d6163d0c9b56e1
