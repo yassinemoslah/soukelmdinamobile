@@ -5,11 +5,11 @@
  */
 package com.soukelmdina.entite;
 
-import java.sql.Blob;
-import java.sql.Time;
+
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import javax.sql.rowset.serial.SerialBlob;
+
 
 /**
  *
@@ -149,7 +149,7 @@ public class Evenement {
         this.photo = photo;
     }
 
-    public Evenement(String text, String text0, java.sql.Date sqlDate, String text1, String text2, int parseInt, double parseDouble, String text3,int id, String text4) {
+    public Evenement(String text, String text0, Date sqlDate, String text1, String text2, int parseInt, double parseDouble, String text3,int id, String text4) {
          this.libelle = text;
         this.description = text0;
         this.date = sqlDate;
