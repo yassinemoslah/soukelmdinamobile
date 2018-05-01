@@ -50,11 +50,17 @@ public class ServiceEspaceexpo {
                     es.setId((int) id);
                     es.setLibelle(obj.get("libelle").toString());
                     es.setPhoto(obj.get("photo").toString());
+
                     String NUMtel=String.valueOf(obj.get("numtel").toString());
                     es.setNumTel(NUMtel);
                     es.setDescription(obj.get("description").toString());
                     //es.setNumTel("24211538");
                     es.setIdsouk((int)Float.parseFloat(idsoukk));
+
+                    es.setDescription("blabla");
+                    es.setNumTel("24211538");
+                    es.setIdsouk(0);
+
                     es.setCategorie("autre");
                     es.setCin("15000987");
                     es.setLargeur(larg);

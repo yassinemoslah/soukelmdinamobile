@@ -7,10 +7,12 @@ package com.soukelmdina.entite;
 
 /**
  *
+<<<<<<< HEAD
  * @author marye
  */
 public class CoordonneesGPS {
       private double latitude;
+
     private double longitude;
 
     public CoordonneesGPS() {
