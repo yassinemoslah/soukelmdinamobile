@@ -46,9 +46,9 @@ public class espacevendeur extends Layout{
         Label btn= new Label(e.getLibelle());
         //btn.addActionListener((act)->{System.out.println(e);});
          
-       // btn.addPointerPressedListener((act)->{detailespace int2 = new detailespace(e.getLibelle(),e.getDescription(),e.getPhoto(),e.getNumTel(),e.getPrix(),e.getIdsouk(),e.getLongeur(),e.getLargeur());
-        //int2.getF().show();
-        //});
+       btn.addPointerPressedListener((act)->{detailvendeur int2 = new detailvendeur(e.getId(),e.getLibelle(),e.getDescription(),e.getPhoto(),e.getNumTel(),e.getPrix(),e.getIdsouk(),e.getLongeur(),e.getLargeur());
+       int2.getF().show();
+       });
         Container  cnt1 = new Container(BoxLayout.y());
        
         cnt1.add(btn);
