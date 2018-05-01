@@ -14,7 +14,6 @@ import com.codename1.ui.layouts.BoxLayout;
 import com.soukelmdina.app.MyApplication;
 import com.soukelmdina.entite.Espace_exposition;
 import com.soukelmdina.entite.Souk;
-import static com.soukelmdina.gui.Layout.user;
 import com.soukelmdina.service.ServiceEspaceexpo;
 import java.util.ArrayList;
 import java.util.List;

@@ -13,7 +13,6 @@ import com.codename1.ui.Label;
 import com.codename1.ui.URLImage;
 import com.codename1.ui.layouts.BoxLayout;
 import com.soukelmdina.app.MyApplication;
-import static com.soukelmdina.gui.Layout.user;
 import java.util.ArrayList;
 import java.util.List;
 import com.soukelmdina.entite.Espace_exposition;

@@ -33,7 +33,7 @@ public class Layout {
 
     public Layout() {
         f = new Form();
-<<<<<<< HEAD
+
         f.getToolbar().setHidden(true, true);
         toolbar = new Container(new BorderLayout());
         Label menu = new Label(MyApplication.theme.getImage("menu.png"));
@@ -42,7 +42,7 @@ public class Layout {
         menu.addPointerPressedListener((e) -> {
             f.getToolbar().openSideMenu();
         });
-        
+
         overflowMenu.addPointerPressedListener((e) -> {
             f.getToolbar().getMenuBar().showMenu();
         });
@@ -61,26 +61,31 @@ public class Layout {
         //f.setScrollableY(false);
         f.add(main);
 
-        
         if (MyApplication.user == null) {
             f.getToolbar().addMaterialCommandToSideMenu("Accueil", FontImage.MATERIAL_HOME, (e) -> {
-            HomeForm home = new HomeForm();
-            home.getF().show();
-        });
+                HomeForm home = new HomeForm();
+                home.getF().show();
+            });
             f.getToolbar().addMaterialCommandToSideMenu("Login", FontImage.MATERIAL_HOME, (e) -> {
                 Login login = new Login();
                 login.getF().show();
             });
+
+            f.getToolbar().addMaterialCommandToSideMenu("Espace d'exposition", FontImage.MATERIAL_HOME, (e) -> {
+                HOMEinternaute es = new HOMEinternaute();
+                es.getF().show();
+            });
+
         } else {
             char c = 'v';
-            f.getToolbar().addMaterialCommandToSideMenu("",c , (e) -> {
+            f.getToolbar().addMaterialCommandToSideMenu("", c, (e) -> {
             });
             enc = EncodedImage.createFromImage(MyApplication.theme.getImage("100x100.png"), false);
             uRLImage = URLImage.createToStorage(enc, MyApplication.user.getPhoto(), Layout.URL + MyApplication.user.getPhoto(), URLImage.RESIZE_SCALE_TO_FILL);
             ImageViewer imgV = new ImageViewer(uRLImage);
             f.getToolbar().addComponentToSideMenu(imgV);
-            
-            f.getToolbar().addMaterialCommandToSideMenu("",c , (e) -> {
+
+            f.getToolbar().addMaterialCommandToSideMenu("", c, (e) -> {
             });
             f.getToolbar().addMaterialCommandToSideMenu("Accueil", FontImage.MATERIAL_HOME, (e) -> {
                 HomeForm home = new HomeForm();
@@ -90,6 +95,21 @@ public class Layout {
                 Profile profile = new Profile();
                 profile.getF().show();
             });
+            String role = MyApplication.user.getRole();
+            if (role.equals("Vendeur")) {
+                f.getToolbar().addMaterialCommandToSideMenu("Espace d'exposition", FontImage.MATERIAL_HOME, (e) -> {
+                    espacevendeur es = new espacevendeur();
+                    es.getF().show();
+                });
+
+            } else if (role.equals("Client")) {
+
+                f.getToolbar().addMaterialCommandToSideMenu("Espace d'exposition", FontImage.MATERIAL_HOME, (e) -> {
+                    espaceexpohome es = new espaceexpohome();
+                    es.getF().show();
+                });
+
+            }
             f.getToolbar().addMaterialCommandToSideMenu("Déconnexion", FontImage.MATERIAL_HOME, (e) -> {
                 MyApplication.user = null;
                 try {
@@ -103,47 +123,6 @@ public class Layout {
         }
 
     }
-=======
-        f.getToolbar().addMaterialCommandToSideMenu("Accueil",  FontImage.MATERIAL_HOME,(e)->{HomeForm home=new HomeForm();
-        home.getF().show();});
-        
-        if (user==null){
-        f.getToolbar().addMaterialCommandToSideMenu("Login",  FontImage.MATERIAL_HOME,(e)->{Login login=new Login();
-        login.getF().show();});
-         f.getToolbar().addMaterialCommandToSideMenu("Espace d'exposition",  FontImage.MATERIAL_HOME,(e)->{HOMEinternaute es =new HOMEinternaute();
-        es.getF().show();});
-        }
-        else{
-            
-        System.out.println("le role est"+user.getRole()+"*******");
-        String role=user.getRole();
-        if (role.equals("Vendeur")) {
-        System.out.println("**********");
-        f.getToolbar().addMaterialCommandToSideMenu("Profile",  FontImage.MATERIAL_HOME,(e)->{Profile profile=new Profile();
-        profile.getF().show();});
-        f.getToolbar().addMaterialCommandToSideMenu("Espace d'exposition",  FontImage.MATERIAL_HOME,(e)->{espacevendeur es =new espacevendeur();
-        es.getF().show();});
-        f.getToolbar().addMaterialCommandToSideMenu("Déconnexion",  FontImage.MATERIAL_HOME,(e)->{user=null;
-        HomeForm home=new HomeForm();
-        home.getF().show();});
-        
-        }
-        else  if(role.equals("Client")){
-   
-             f.getToolbar().addMaterialCommandToSideMenu("Profile",  FontImage.MATERIAL_HOME,(e)->{Profile profile=new Profile();
-             profile.getF().show();});
-             f.getToolbar().addMaterialCommandToSideMenu("Espace d'exposition",  FontImage.MATERIAL_HOME,(e)->{espaceexpohome es =new espaceexpohome();
-             es.getF().show();});
-             f.getToolbar().addMaterialCommandToSideMenu("Déconnexion",  FontImage.MATERIAL_HOME,(e)->{user=null;
-             HomeForm home=new HomeForm();
-             home.getF().show();});
-   
-   
-       }
-        }}
- 
-    
->>>>>>> c157f474b4b1406e8578ad35c49e96507b422009
 
     public Form getF() {
         return f;

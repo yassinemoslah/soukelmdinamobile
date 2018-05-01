@@ -29,7 +29,7 @@ public class espacevendeur extends Layout{
        f.setLayout(BoxLayout.y());
        List<Espace_exposition> li = new ArrayList<>();
        ServiceEspaceexpo ses=new ServiceEspaceexpo();
-       li=ses.getespacevandeur(user.getCin());
+       li=ses.getespacevandeur(MyApplication.user.getCin());
        
         if (li==null){ System.err.println("rien a afficher");;}
         else{
