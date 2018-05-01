@@ -12,24 +12,20 @@ import com.codename1.ui.EncodedImage;
 import com.codename1.ui.URLImage;
 import com.codename1.ui.layouts.BoxLayout;
 import com.soukelmdina.app.MyApplication;
-import com.soukelmdina.entite.Espace_exposition;
 import com.soukelmdina.entite.Souk;
-import static com.soukelmdina.gui.Layout.user;
 import com.soukelmdina.service.ServiceEspaceexpo;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
  * @author marye
  */
-public class detailespace extends Layout {
+public class detailinternaute extends Layout {
    private SpanLabel des,emplacement;
     EncodedImage enc;
     URLImage uRLImage;
    
     
-   public detailespace(String s0,String s1,String s2,String s3,double s4,int idsouk,double larg,double longue){
+   public detailinternaute(String s0,String s1,String s2,String s3,double s4,int idsouk,double larg,double longue){
   ServiceEspaceexpo ses=new ServiceEspaceexpo();
         Souk s=ses.getsouk(idsouk);
    f.setTitle(s0);
@@ -38,8 +34,7 @@ public class detailespace extends Layout {
    enc=EncodedImage.createFromImage(MyApplication.theme.getImage("100x100.png"), false);
    uRLImage=URLImage.createToStorage(enc,s2, Layout.URL+s2,URLImage.RESIZE_SCALE_TO_FILL);
    ImageViewer imgV=new ImageViewer(uRLImage);
-   Calendar cal=new Calendar();
-   Calendar cal1=new Calendar();
+   
    f.setLayout(new BoxLayout(BoxLayout.Y_AXIS));
    f.add(imgV);
    f.add(des);
@@ -48,13 +43,8 @@ public class detailespace extends Layout {
    f.add("largeur de lespace :"+larg);
    f.add("prix de lespace :"+s4);
    f.add(emplacement);
-   f.add(cal);
-   f.add(cal1);
+   }
    }
     
     
     
-    
-    
-    
-}

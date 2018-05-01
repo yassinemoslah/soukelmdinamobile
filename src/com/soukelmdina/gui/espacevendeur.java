@@ -4,37 +4,32 @@
  * and open the template in the editor.
  */
 package com.soukelmdina.gui;
+
 import com.codename1.components.ImageViewer;
-import com.codename1.components.SpanLabel;
-import com.codename1.ui.Component;
 import com.codename1.ui.Container;
 import com.codename1.ui.EncodedImage;
 import com.codename1.ui.Label;
 import com.codename1.ui.URLImage;
 import com.codename1.ui.layouts.BoxLayout;
 import com.soukelmdina.app.MyApplication;
-import static com.soukelmdina.gui.Layout.user;
+import com.soukelmdina.entite.Espace_exposition;
+import com.soukelmdina.service.ServiceEspaceexpo;
 import java.util.ArrayList;
 import java.util.List;
-import com.soukelmdina.entite.Espace_exposition;
-import com.soukelmdina.entite.Souk;
-import com.soukelmdina.service.ServiceEspaceexpo;
 
 /**
  *
  * @author marye
  */
-public class espaceexpohome extends Layout {
-    EncodedImage enc;
-    URLImage uRLImage;
-
-    public espaceexpohome() {
-      
+public class espacevendeur extends Layout{
+       EncodedImage enc;
+       URLImage uRLImage;
+       public espacevendeur() {
        f.setTitle("Nos espaces d'expositions");
        f.setLayout(BoxLayout.y());
        List<Espace_exposition> li = new ArrayList<>();
        ServiceEspaceexpo ses=new ServiceEspaceexpo();
-       li=ses.getespace();
+       li=ses.getespacevandeur(user.getCin());
        
         if (li==null){ System.err.println("rien a afficher");;}
         else{
@@ -51,9 +46,9 @@ public class espaceexpohome extends Layout {
         Label btn= new Label(e.getLibelle());
         //btn.addActionListener((act)->{System.out.println(e);});
          
-        btn.addPointerPressedListener((act)->{detailespace int2 = new detailespace(e.getLibelle(),e.getDescription(),e.getPhoto(),e.getNumTel(),e.getPrix(),e.getIdsouk(),e.getLongeur(),e.getLargeur());
-        int2.getF().show();
-        });
+       // btn.addPointerPressedListener((act)->{detailespace int2 = new detailespace(e.getLibelle(),e.getDescription(),e.getPhoto(),e.getNumTel(),e.getPrix(),e.getIdsouk(),e.getLongeur(),e.getLargeur());
+        //int2.getF().show();
+        //});
         Container  cnt1 = new Container(BoxLayout.y());
        
         cnt1.add(btn);
@@ -67,17 +62,4 @@ public class espaceexpohome extends Layout {
     }
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-    
-    
-    
 }
