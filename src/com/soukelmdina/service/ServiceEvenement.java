@@ -35,7 +35,7 @@ public class ServiceEvenement {
                 for (Map<String, Object> obj : list) {
                     Evenement event = new Evenement();
                     float id = Float.parseFloat(obj.get("id").toString());
-                   // float nbreTickets = Float.parseFloat(obj.get("nbreTickets").toString());
+                   float nbreTickets = Float.parseFloat(obj.get("nbretickets").toString());
                    //double caisse = Double.parseDouble(obj.get("caisse").toString());
                     event.setId((int) id);
                     event.setLibelle(obj.get("libelle").toString());
@@ -43,7 +43,7 @@ public class ServiceEvenement {
                     //event.setDate(obj.get("date"));
                     event.setHeureDebut(null);
                     event.setHeureFin(null);
-                    event.setNbreTickets(100);
+                    event.setNbreTickets((int) nbreTickets);
                     event.setPrixTicket(15.0);
                     event.setCaisse(5000.0);
                     event.setLieu(obj.get("lieu").toString());
