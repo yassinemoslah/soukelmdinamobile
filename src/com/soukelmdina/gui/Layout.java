@@ -75,6 +75,10 @@ public class Layout {
                 HOMEinternaute es = new HOMEinternaute();
                 es.getF().show();
             });
+            f.getToolbar().addMaterialCommandToSideMenu("Evènements", FontImage.MATERIAL_HOME, (e) -> {
+                    HomeEventsInternaure es = new HomeEventsInternaure();
+                    es.getF().show();
+                });
 
         } else {
             char c = 'v';
@@ -106,6 +110,10 @@ public class Layout {
 
                 f.getToolbar().addMaterialCommandToSideMenu("Espace d'exposition", FontImage.MATERIAL_HOME, (e) -> {
                     espaceexpohome es = new espaceexpohome();
+                    es.getF().show();
+                });
+                f.getToolbar().addMaterialCommandToSideMenu("Evènements", FontImage.MATERIAL_HOME, (e) -> {
+                    HomeEvents es = new HomeEvents();
                     es.getF().show();
                 });
 

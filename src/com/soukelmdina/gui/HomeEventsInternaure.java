@@ -13,9 +13,7 @@ import com.codename1.ui.URLImage;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
 import com.soukelmdina.app.MyApplication;
-import com.soukelmdina.entite.Espace_exposition;
 import com.soukelmdina.entite.Evenement;
-import com.soukelmdina.service.ServiceEspaceexpo;
 import com.soukelmdina.service.ServiceEvenement;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,12 +22,11 @@ import java.util.List;
  *
  * @author USER
  */
-public class HomeEvents extends Layout {
-
-    EncodedImage enc;
+public class HomeEventsInternaure extends Layout {
+     EncodedImage enc;
     URLImage uRLImage;
 
-    public HomeEvents() {
+    public HomeEventsInternaure() {
 
         toolbar.add(BorderLayout.CENTER, new Label("Modifier mon profil"));
         content.setLayout(new BoxLayout(BoxLayout.Y_AXIS));
