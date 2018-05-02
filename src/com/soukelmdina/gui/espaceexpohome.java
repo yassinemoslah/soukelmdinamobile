@@ -13,10 +13,10 @@ import com.codename1.ui.Label;
 import com.codename1.ui.URLImage;
 import com.codename1.ui.layouts.BoxLayout;
 import com.soukelmdina.app.MyApplication;
-import static com.soukelmdina.gui.Layout.user;
 import java.util.ArrayList;
 import java.util.List;
 import com.soukelmdina.entite.Espace_exposition;
+import com.soukelmdina.entite.Souk;
 import com.soukelmdina.service.ServiceEspaceexpo;
 
 /**
@@ -34,20 +34,23 @@ public class espaceexpohome extends Layout {
        List<Espace_exposition> li = new ArrayList<>();
        ServiceEspaceexpo ses=new ServiceEspaceexpo();
        li=ses.getespace();
-        
+       
+        if (li==null){ System.err.println("rien a afficher");;}
+        else{
         for (Espace_exposition ee:li){
            
             f.add(addItem(ee));
        }
-    }
+    }}
     public Container addItem(Espace_exposition e){
         enc=EncodedImage.createFromImage(MyApplication.theme.getImage("100x100.png"), false);
         uRLImage=URLImage.createToStorage(enc, e.getPhoto(), Layout.URL+e.getPhoto(),URLImage.RESIZE_SCALE_TO_FILL);
         ImageViewer imgV=new ImageViewer(uRLImage);
-        Label lbimage= new Label(MyApplication.theme.getImage("round.png"));
-        Label btn= new Label("Description "+e.getLibelle());
+        //Label lbimage= new Label(MyApplication.theme.getImage("round.png"));
+        Label btn= new Label(e.getLibelle());
         //btn.addActionListener((act)->{System.out.println(e);});
-        btn.addPointerPressedListener((act)->{detailespace int2 = new detailespace();
+         
+        btn.addPointerPressedListener((act)->{detailespace int2 = new detailespace(e.getLibelle(),e.getDescription(),e.getPhoto(),e.getNumTel(),e.getPrix(),e.getIdsouk(),e.getLongeur(),e.getLargeur());
         int2.getF().show();
         });
         Container  cnt1 = new Container(BoxLayout.y());

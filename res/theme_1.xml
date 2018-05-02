@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resource majorVersion="1" minorVersion="9" useXmlUI="false">
+    <image name="100x100.png"  />
+    <image name="back-command.png" type="multi"  />
+    <image name="back_1.jpg"  />
+    <image name="back_2.jpg"  />
+    <image name="back_3.jpg"  />
+    <image name="border.png"  />
+    <image name="Button.borderBottom_1.png" type="multi"  />
+    <image name="Button.borderBottom_2.png" type="multi"  />
+    <image name="Button.borderBottom_3.png" type="multi"  />
+    <image name="Button.borderBottomL_1.png" type="multi"  />
+    <image name="Button.borderBottomL_2.png" type="multi"  />
+    <image name="Button.borderBottomL_3.png" type="multi"  />
+    <image name="Button.borderBottomR_1.png" type="multi"  />
+    <image name="Button.borderBottomR_2.png" type="multi"  />
+    <image name="Button.borderBottomR_3.png" type="multi"  />
+    <image name="Button.borderCenter_1.png" type="multi"  />
+    <image name="Button.borderCenter_2.png" type="multi"  />
+    <image name="Button.borderCenter_3.png" type="multi"  />
+    <image name="Button.borderLeft_1.png" type="multi"  />
+    <image name="Button.borderLeft_2.png" type="multi"  />
+    <image name="Button.borderLeft_3.png" type="multi"  />
+    <image name="Button.borderRight_1.png" type="multi"  />
+    <image name="Button.borderRight_2.png" type="multi"  />
+    <image name="Button.borderRight_3.png" type="multi"  />
+    <image name="Button.borderTop_1.png" type="multi"  />
+    <image name="Button.borderTop_2.png" type="multi"  />
+    <image name="Button.borderTop_3.png" type="multi"  />
+    <image name="Button.borderTopL_1.png" type="multi"  />
+    <image name="Button.borderTopL_2.png" type="multi"  />
+    <image name="Button.borderTopL_3.png" type="multi"  />
+    <image name="Button.borderTopR_1.png" type="multi"  />
+    <image name="Button.borderTopR_2.png" type="multi"  />
+    <image name="Button.borderTopR_3.png" type="multi"  />
+    <image name="cal_left_arrow.png" type="multi"  />
+    <image name="cal_right_arrow.png" type="multi"  />
+    <image name="chbox1.png" type="multi"  />
+    <image name="chboxv1.png" type="multi"  />
+    <image name="ComboBox.borderBottom_1.png" type="multi"  />
+    <image name="ComboBox.borderBottomL_1.png" type="multi"  />
+    <image name="ComboBox.borderBottomR_1.png" type="multi"  />
+    <image name="ComboBox.borderCenter_1.png" type="multi"  />
+    <image name="ComboBox.borderLeft_1.png" type="multi"  />
+    <image name="ComboBox.borderRight_1.png" type="multi"  />
+    <image name="ComboBox.borderTop_1.png" type="multi"  />
+    <image name="ComboBox.borderTopL_1.png" type="multi"  />
+    <image name="ComboBox.borderTopR_1.png" type="multi"  />
+    <image name="ComboBox.sel#borderBottom_2.png" type="multi"  />
+    <image name="ComboBox.sel#borderBottomL_2.png" type="multi"  />
+    <image name="ComboBox.sel#borderBottomR_2.png" type="multi"  />
+    <image name="ComboBox.sel#borderCenter_2.png" type="multi"  />
+    <image name="ComboBox.sel#borderLeft_2.png" type="multi"  />
+    <image name="ComboBox.sel#borderRight_2.png" type="multi"  />
+    <image name="ComboBox.sel#borderTop_2.png" type="multi"  />
+    <image name="ComboBox.sel#borderTopL_2.png" type="multi"  />
+    <image name="ComboBox.sel#borderTopR_2.png" type="multi"  />
+    <image name="Dialog.borderBottom_1.png" type="multi"  />
+    <image name="Dialog.borderBottomL_1.png" type="multi"  />
+    <image name="Dialog.borderBottomR_1.png" type="multi"  />
+    <image name="Dialog.borderCenter_1.png" type="multi"  />
+    <image name="Dialog.borderLeft_1.png" type="multi"  />
+    <image name="Dialog.borderRight_1.png" type="multi"  />
+    <image name="Dialog.borderTop_1.png" type="multi"  />
+    <image name="Dialog.borderTopL_1.png" type="multi"  />
+    <image name="Dialog.borderTopR_1.png" type="multi"  />
+    <image name="Menu.borderBottom_1.png" type="multi"  />
+    <image name="Menu.borderBottomL_1.png" type="multi"  />
+    <image name="Menu.borderBottomR_1.png" type="multi"  />
+    <image name="Menu.borderCenter_1.png" type="multi"  />
+    <image name="Menu.borderLeft_1.png" type="multi"  />
+    <image name="Menu.borderRight_1.png" type="multi"  />
+    <image name="Menu.borderTop_1.png" type="multi"  />
+    <image name="Menu.borderTopL_1.png" type="multi"  />
+    <image name="Menu.borderTopR_1.png" type="multi"  />
+    <image name="menu.png" type="multi"  />
+    <image name="of_menu.png" type="multi"  />
+    <image name="profil.jpg"  />
+    <theme name="semTheme">
+        <val key="@includeNativeBool" value="true" />
+        <border key="Button.border" type="round" roundBorderColor="16672101" opacity="255" strokeColor="0" strokeOpacity="255" strokeThickness="0.0" strokeMM="false" shadowSpread="10" shadowOpacity="0" shadowX="0.5" shadowY="0.5" shadowBlur="10.0" shadowMM="false" rectangle="true" />
+        <val key="Button.fgColor" value="ffffff" />
+        <font key="Button.font" type="ttf" face="0" style="0" size="0" name="native:MainLight" family="native:MainLight" sizeSettings="3" actualSize="2.0" />
+        <val key="Button.marUnit" value="2,2,2,2" />
+        <val key="Button.margin" value="3.0,3.0,2.0,2.0" />
+        <val key="Button.padUnit" value="2,2,2,2" />
+        <val key="Button.padding" value="2.0,2.0,2.0,2.0" />
+        <val key="CalendarDate.bgColor" value="cc0000" />
+        <val key="CalendarDate.fgColor" value="0" />
+        <val key="CalendarDate.margin" value="0.0,0.0,0.0,0.0" />
+        <val key="CalendarDate.padUnit" value="0,2,0,2" />
+        <val key="CalendarDate.padding" value="0.0,0.0,2.0,2.0" />
+        <val key="CalendarDate.transparency" value="255" />
+        <val key="CheckBox.align" value="4" />
+        <gradient key="CheckBox.bgGradient" color1="0" color2="0" posX="0.5" posY="0.5" radius="1.0" />
+        <val key="CheckBox.bgType" value="0" />
+        <border key="CheckBox.border" type="empty" />
+        <val key="CheckBox.fgColor" value="ffffff" />
+        <font key="CheckBox.font" type="ttf" face="0" style="0" size="0" name="native:MainRegular" family="native:MainRegular" sizeSettings="3" actualSize="3.0" />
+        <val key="CheckBox.marUnit" value="2,2,2,2" />
+        <val key="CheckBox.margin" value="1.0,1.0,1.0,1.0" />
+        <val key="CheckBox.padUnit" value="2,2,2,2" />
+        <val key="CheckBox.padding" value="1.0,1.0,1.0,1.0" />
+        <val key="CheckBox.transparency" value="0" />
+        <border key="ComboBox.border" type="image" i1="ComboBox.borderTop_1.png" i2="ComboBox.borderBottom_1.png" i3="ComboBox.borderLeft_1.png" i4="ComboBox.borderRight_1.png" i5="ComboBox.borderTopL_1.png" i6="ComboBox.borderTopR_1.png" i7="ComboBox.borderBottomL_1.png" i8="ComboBox.borderBottomR_1.png" i9="ComboBox.borderCenter_1.png" />
+        <font key="ComboBox.font" type="ttf" face="0" style="0" size="0" name="native:MainRegular" family="native:MainRegular" sizeSettings="3" actualSize="3.0" />
+        <val key="ComboBox.marUnit" value="2,2,2,2" />
+        <val key="ComboBox.margin" value="1.0,1.0,1.0,1.0" />
+        <val key="ComboBox.padUnit" value="2,2,2,2" />
+        <val key="ComboBox.padding" value="1.0,1.0,1.0,1.0" />
+        <val key="ComboBoxFocus.transparency" value="0" />
+        <val key="ComboBoxItem.fgColor" value="0" />
+        <font key="ComboBoxItem.font" type="ttf" face="0" style="1" size="0" name="native:MainThin" family="native:MainThin" sizeSettings="3" actualSize="3.0" />
+        <val key="ComboBoxItem.transparency" value="0" />
+        <border key="ComboBoxList.border" type="empty" />
+        <val key="ComboBoxList.transparency" value="0" />
+        <val key="ComboBoxPopup.derive" value="Dialog" />
+        <val key="ComboBoxPopup.marUnit" value="0,2,0,2" />
+        <val key="ComboBoxPopup.margin" value="0.0,0.0,1.0,1.0" />
+    </theme>
+    <image name="sliderEmpty.png" type="multi"  />
+    <image name="sliderEmptyLeft.png" type="multi"  />
+    <image name="sliderEmptyRight.png" type="multi"  />
+    <image name="sliderRedCenter.png" type="multi"  />
+    <image name="sliderRedLeft.png" type="multi"  />
+    <image name="sliderRedRight.png" type="multi"  />
+    <image name="switch_mask.png" type="multi"  />
+    <image name="switch_off.png" type="multi"  />
+    <image name="switch_on.png" type="multi"  />
+    <image name="TextField.borderBottom_1.png" type="multi"  />
+    <image name="TextField.borderBottomL_1.png" type="multi"  />
+    <image name="TextField.borderBottomR_1.png" type="multi"  />
+    <image name="TextField.borderCenter_1.png" type="multi"  />
+    <image name="TextField.borderLeft_1.png" type="multi"  />
+    <image name="TextField.borderRight_1.png" type="multi"  />
+    <image name="TextField.borderTop_1.png" type="multi"  />
+    <image name="TextField.borderTopL_1.png" type="multi"  />
+    <image name="TextField.borderTopR_1.png" type="multi"  />
+    <image name="TitleArea.borderBottom_1.png" type="multi"  />
+    <image name="TitleArea.borderBottomL_1.png" type="multi"  />
+    <image name="TitleArea.borderBottomR_1.png" type="multi"  />
+    <image name="TitleArea.borderCenter_1.png" type="multi"  />
+    <image name="TitleArea.borderLeft_1.png" type="multi"  />
+    <image name="TitleArea.borderRight_1.png" type="multi"  />
+    <image name="TitleArea.borderTop_1.png" type="multi"  />
+    <image name="TitleArea.borderTopL_1.png" type="multi"  />
+    <image name="TitleArea.borderTopR_1.png" type="multi"  />
+</resource>

@@ -1,10 +1,18 @@
 
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 package com.soukelmdina.entite;
 
 /**
  *
- * @author moslah yassine
+<<<<<<< HEAD
+ * @author marye
  */
+
 public class Souk {
 
     private int id;
@@ -25,6 +33,14 @@ public class Souk {
         this.photo = photo;
         this.description = description;
     }
+
+
+    public Souk(int id, String libelle) {
+        this.id = id;
+        this.libelle = libelle;
+    }
+    
+
     
      public Souk(String libelle, String gouvernorat, CoordonneesGPS coordonnees, String photo, String description) {
         this.libelle = libelle;
