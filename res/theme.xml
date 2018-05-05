@@ -2,6 +2,7 @@
 
 <resource majorVersion="1" minorVersion="9" useXmlUI="false">
     <image name="100x100.png"  />
+    <image name="avatar.png"  />
     <image name="back-command.png" type="multi"  />
     <image name="back_1.jpg"  />
     <image name="back_2.jpg"  />
@@ -39,6 +40,7 @@
     <image name="cal_right_arrow.png" type="multi"  />
     <image name="chbox1.png" type="multi"  />
     <image name="chboxv1.png" type="multi"  />
+    <image name="cin.png"  />
     <image name="ComboBox.borderBottom_1.png" type="multi"  />
     <image name="ComboBox.borderBottomL_1.png" type="multi"  />
     <image name="ComboBox.borderBottomR_1.png" type="multi"  />
@@ -66,6 +68,8 @@
     <image name="Dialog.borderTop_1.png" type="multi"  />
     <image name="Dialog.borderTopL_1.png" type="multi"  />
     <image name="Dialog.borderTopR_1.png" type="multi"  />
+    <image name="genre.png"  />
+    <image name="marker.png"  />
     <image name="Menu.borderBottom_1.png" type="multi"  />
     <image name="Menu.borderBottomL_1.png" type="multi"  />
     <image name="Menu.borderBottomR_1.png" type="multi"  />
@@ -77,6 +81,8 @@
     <image name="Menu.borderTopR_1.png" type="multi"  />
     <image name="menu.png" type="multi"  />
     <image name="of_menu.png" type="multi"  />
+    <image name="phone.png"  />
+    <image name="role.png"  />
     <image name="sliderEmpty.png" type="multi"  />
     <image name="sliderEmptyLeft.png" type="multi"  />
     <image name="sliderEmptyRight.png" type="multi"  />
@@ -135,6 +141,7 @@
         <val key="@switchOffImage" value="switch_off.png" />
         <val key="@switchOnImage" value="switch_on.png" />
         <val key="@tabPlacementInt" value="0" />
+        <val key="Button.align" value="4" />
         <border key="Button.border" type="round" roundBorderColor="16672101" opacity="255" strokeColor="0" strokeOpacity="255" strokeThickness="0.0" strokeMM="false" shadowSpread="10" shadowOpacity="0" shadowX="0.5" shadowY="0.5" shadowBlur="10.0" shadowMM="false" rectangle="true" />
         <val key="Button.fgColor" value="ffffff" />
         <font key="Button.font" type="ttf" face="0" style="0" size="0" name="native:MainLight" family="native:MainLight" sizeSettings="3" actualSize="2.0" />
@@ -248,13 +255,15 @@
         <val key="CheckBox.sel#padding" value="1.0,1.0,1.0,1.0" />
         <val key="CheckBox.sel#transparency" value="0" />
         <val key="CheckBox.transparency" value="0" />
+        <val key="ComboBox.bgColor" value="ffffff" />
         <border key="ComboBox.border" type="image" i1="ComboBox.borderTop_1.png" i2="ComboBox.borderBottom_1.png" i3="ComboBox.borderLeft_1.png" i4="ComboBox.borderRight_1.png" i5="ComboBox.borderTopL_1.png" i6="ComboBox.borderTopR_1.png" i7="ComboBox.borderBottomL_1.png" i8="ComboBox.borderBottomR_1.png" i9="ComboBox.borderCenter_1.png" />
+        <val key="ComboBox.fgColor" value="ffffff" />
         <font key="ComboBox.font" type="ttf" face="0" style="0" size="0" name="native:MainRegular" family="native:MainRegular" sizeSettings="3" actualSize="3.0" />
         <val key="ComboBox.marUnit" value="2,2,2,2" />
         <val key="ComboBox.margin" value="1.0,1.0,1.0,1.0" />
         <val key="ComboBox.padUnit" value="2,2,2,2" />
         <val key="ComboBox.padding" value="1.0,1.0,1.0,1.0" />
-        <border key="ComboBox.press#border" type="image" i1="ComboBox.sel#borderTop_2.png" i2="ComboBox.sel#borderBottom_2.png" i3="ComboBox.sel#borderLeft_2.png" i4="ComboBox.sel#borderRight_2.png" i5="ComboBox.sel#borderTopL_2.png" i6="ComboBox.sel#borderTopR_2.png" i7="ComboBox.sel#borderBottomL_2.png" i8="ComboBox.sel#borderBottomR_2.png" i9="ComboBox.sel#borderCenter_2.png" />
+        <val key="ComboBox.press#fgColor" value="0" />
         <font key="ComboBox.press#font" type="ttf" face="0" style="0" size="0" name="native:MainRegular" family="native:MainRegular" sizeSettings="3" actualSize="3.0" />
         <val key="ComboBox.press#marUnit" value="2,2,2,2" />
         <val key="ComboBox.press#margin" value="1.0,1.0,1.0,1.0" />
@@ -268,16 +277,23 @@
         <val key="ComboBox.sel#padUnit" value="2,2,2,2" />
         <val key="ComboBox.sel#padding" value="1.0,1.0,1.0,1.0" />
         <val key="ComboBox.sel#transparency" value="0" />
+        <val key="ComboBoxFocus.bgColor" value="ffffff" />
+        <val key="ComboBoxFocus.fgColor" value="ffffff" />
         <val key="ComboBoxFocus.transparency" value="0" />
-        <val key="ComboBoxItem.fgColor" value="0" />
+        <val key="ComboBoxItem.bgColor" value="ffffff" />
+        <val key="ComboBoxItem.fgColor" value="ffffff" />
         <font key="ComboBoxItem.font" type="ttf" face="0" style="1" size="0" name="native:MainThin" family="native:MainThin" sizeSettings="3" actualSize="3.0" />
         <val key="ComboBoxItem.sel#fgColor" value="ffffff" />
         <font key="ComboBoxItem.sel#font" type="ttf" face="0" style="1" size="0" name="native:MainThin" family="native:MainThin" sizeSettings="3" actualSize="3.0" />
         <val key="ComboBoxItem.sel#transparency" value="0" />
         <val key="ComboBoxItem.transparency" value="0" />
+        <val key="ComboBoxList.bgColor" value="ffffff" />
         <border key="ComboBoxList.border" type="empty" />
+        <val key="ComboBoxList.fgColor" value="ffffff" />
         <val key="ComboBoxList.transparency" value="0" />
+        <val key="ComboBoxPopup.bgColor" value="ffffff" />
         <val key="ComboBoxPopup.derive" value="Dialog" />
+        <val key="ComboBoxPopup.fgColor" value="ffffff" />
         <val key="ComboBoxPopup.marUnit" value="0,2,0,2" />
         <val key="ComboBoxPopup.margin" value="0.0,0.0,1.0,1.0" />
         <border key="Command.border" type="empty" />
@@ -406,6 +422,9 @@
         <val key="DialogTitle.fgColor" value="ffffff" />
         <font key="DialogTitle.font" type="ttf" face="0" style="0" size="0" name="native:MainBold" family="native:MainBold" sizeSettings="3" actualSize="4.0" />
         <val key="DialogTitle.transparency" value="0" />
+        <val key="FloatingHint.bgColor" value="f2f2f2" />
+        <val key="FloatingHint.fgColor" value="f2f2f2" />
+        <font key="FloatingHint.font" type="ttf" face="0" style="0" size="0" name="native:ItalicThin" family="native:ItalicThin" sizeSettings="1" actualSize="12.0" />
         <val key="Form.bgColor" value="ffffff" />
         <border key="Form.border" type="empty" />
         <val key="Form.transparency" value="255" />
@@ -522,7 +541,9 @@
         <font key="MultiLine4.sel#font" type="ttf" face="0" style="0" size="8" name="native:ItalicLight" family="native:ItalicLight" sizeSettings="3" actualSize="2.0" />
         <val key="MultiLine4.sel#transparency" value="0" />
         <val key="MultiLine4.transparency" value="0" />
-        <val key="PinkLabel.fgColor" value="ff00ff" />
+        <val key="PinkLabel.align" value="4" />
+        <val key="PinkLabel.fgColor" value="ff69b4" />
+        <font key="PinkLabel.font" type="ttf" face="0" style="0" size="0" name="native:MainRegular" family="native:MainRegular" sizeSettings="3" actualSize="3.0" />
         <val key="PinkLabel.transparency" value="0" />
         <val key="PopupContentPane.marUnit" value="0,2,0,2" />
         <val key="PopupContentPane.margin" value="0.0,0.0,1.0,1.0" />
@@ -578,6 +599,12 @@
         <val key="RadioButton.sel#padding" value="1.0,1.0,1.0,1.0" />
         <val key="RadioButton.sel#transparency" value="0" />
         <val key="RadioButton.transparency" value="0" />
+        <val key="RedLabel.fgColor" value="ff3300" />
+        <font key="RedLabel.font" type="ttf" face="0" style="0" size="0" name="native:ItalicRegular" family="native:ItalicRegular" sizeSettings="0" actualSize="12.0" />
+        <val key="RedLabel.marUnit" value="2,2,2,2" />
+        <val key="RedLabel.margin" value="0.0,0.0,3.0,0.0" />
+        <val key="RedLabel.padUnit" value="2,2,2,2" />
+        <val key="RedLabel.padding" value="0.0,0.0,2.0,0.0" />
         <gradient key="SideCommand.bgGradient" color1="0" color2="0" posX="0.5" posY="0.5" radius="1.0" />
         <val key="SideCommand.bgType" value="0" />
         <border key="SideCommand.border" type="empty" />
@@ -709,8 +736,13 @@
         <val key="TextField.sel#padding" value="2.0,2.0,2.0,2.0" />
         <val key="TextField.sel#transparency" value="0" />
         <val key="TextField.transparency" value="0" />
+        <val key="TextHint.bgColor" value="f2f2f2" />
         <val key="TextHint.fgColor" value="f2f2f2" />
         <font key="TextHint.font" type="ttf" face="0" style="0" size="0" name="native:ItalicThin" family="native:ItalicThin" sizeSettings="3" actualSize="3.0" />
+        <val key="TextHint.marUnit" value="2,2,2,2" />
+        <val key="TextHint.margin" value="3.0,3.0,3.0,3.0" />
+        <val key="TextHint.padUnit" value="2,2,2,2" />
+        <val key="TextHint.padding" value="2.0,2.0,2.0,2.0" />
         <val key="Title.align" value="4" />
         <val key="Title.fgColor" value="ffffff" />
         <font key="Title.font" type="ttf" face="0" style="0" size="0" name="native:MainBold" family="native:MainBold" sizeSettings="3" actualSize="3.5" />

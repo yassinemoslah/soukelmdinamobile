@@ -5,9 +5,7 @@
  */
 package com.soukelmdina.gui;
 
-import com.codename1.db.Database;
 import com.codename1.ui.Button;
-import com.codename1.ui.Component;
 import com.codename1.ui.Dialog;
 import com.codename1.ui.Label;
 import com.codename1.ui.TextField;
@@ -26,33 +24,54 @@ public class Login extends Layout {
 
     private TextField tlogin, tpassword;
     private Button btn;
-    
+    private Label inscription, forgetPassword;
+
     public Login() {
+        ServiceUtilisateur su = new ServiceUtilisateur();
         tpassword = new TextField();
         tpassword.setHint("Mot de passe");
         tpassword.setConstraint(TextField.PASSWORD);
         tlogin = new TextField();
         tlogin.setHint("E-mail ou CIN");
         btn = new Button("Connexion");
-        
+        inscription = new Label("S'inscrire");
+        inscription.addPointerPressedListener((e) -> {
+            Inscription ins = new Inscription();
+            ins.getF().show();
+        });
+
+        forgetPassword = new Label("Mot de passe oublié ?");
+        forgetPassword.addPointerPressedListener((e) -> {
+            su.sendKey(tlogin.getText());
+            forgetPassword rp = new forgetPassword(tlogin.getText());
+            rp.getF().show();
+        });
         toolbar.add(BorderLayout.CENTER, new Label("Login"));
-        
+
         content.setLayout(new BoxLayout(BoxLayout.Y_AXIS));
+
+        content.add(new Label(" "));
+        content.add(new Label(" "));
         content.add(tlogin);
         content.add(tpassword);
         content.add(btn);
-        
+        content.add(forgetPassword);
+        content.add(inscription);
+
         f.getAllStyles().setBgImage(MyApplication.theme.getImage("back_2.jpg"));
         btn.addActionListener((e) -> {
-            ServiceUtilisateur su = new ServiceUtilisateur();
+
             Utilisateur user = su.getUser(tlogin.getText(), tpassword.getText());
             if (user != null) {
                 if (user.getPassword().equals("0")) {
                     Dialog.show("Vérifier votre mot de passe", "Mot de passe invalide", "OK", null);
+                } else if (user.getEtat() == 0) {
+                    confirmationAccount ca = new confirmationAccount(user.getMail());
+                    ca.getF().show();
                 } else {
                     MyApplication.user = user;
                     try {
-                        MyApplication.db.execute("insert into user (id, solde, etat, email, password, token, numtel, nom, prenom, sexe, role, cin, photo, adresse, ville, codepostal) values ("+user.getId()+","+user.getSolde()+","+user.getEtat()+",'" + user.getMail() +"','" + user.getPassword() +"','" + user.getToken()+"','" + user.getNumTel()+"','" + user.getNom()+"','" + user.getPrenom()+"','" + user.getSexe()+"','" + user.getRole()+"','" + user.getCin()+"','" + user.getPhoto()+"','" + user.getAdresse().getAdresse()+"','" + user.getAdresse().getVille()+"'," + user.getAdresse().getCodePostal()+");");
+                        MyApplication.db.execute("insert into user (id, solde, etat, email, password, token, numtel, nom, prenom, sexe, role, cin, photo, adresse, ville, codepostal) values (" + user.getId() + "," + user.getSolde() + "," + user.getEtat() + ",'" + user.getMail() + "','" + user.getPassword() + "','" + user.getToken() + "','" + user.getNumTel() + "','" + user.getNom() + "','" + user.getPrenom() + "','" + user.getSexe() + "','" + user.getRole() + "','" + user.getCin() + "','" + user.getPhoto() + "','" + user.getAdresse().getAdresse() + "','" + user.getAdresse().getVille() + "'," + user.getAdresse().getCodePostal() + ");");
                     } catch (IOException ex) {
                         System.out.println(ex);
                     }
