@@ -29,7 +29,7 @@ public class Layout {
     Container main;
     private EncodedImage enc;
     private URLImage uRLImage;
-    public static String URL = "http://192.168.1.48";
+    public static String URL = "http://127.0.0.1";
 
     public Layout() {
         f = new Form();

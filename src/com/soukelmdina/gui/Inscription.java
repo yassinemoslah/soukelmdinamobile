@@ -6,7 +6,6 @@
 package com.soukelmdina.gui;
 
 import com.codename1.capture.Capture;
-import com.codename1.components.SpanLabel;
 import com.codename1.io.FileSystemStorage;
 import com.codename1.ui.Button;
 import com.codename1.ui.ButtonGroup;

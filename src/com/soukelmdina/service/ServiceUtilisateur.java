@@ -152,15 +152,16 @@ public class ServiceUtilisateur {
             String rep = new String(con.getResponseData());
             System.out.println(rep);
             if (rep.equals("cin")) {
+                ip.dispose();
                 Dialog.show("Vérifier votre cin", "CIN existant", "OK", null);
             } else if (rep.equals("email")) {
+                ip.dispose();
                 Dialog.show("Vérifier votre e-mail", "E-mail existant", "OK", null);
             } else {
+                ip.dispose();
                 confirmationAccount p = new confirmationAccount(email);
                 p.getF().show();
             }
-            ip.dispose();
-
         });
     }
 
