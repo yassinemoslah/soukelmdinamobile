@@ -5,7 +5,6 @@
  */
 package com.soukelmdina.entite;
 
-
 /**
  *
  * @author Amal mabri
@@ -18,9 +17,13 @@ public class CafeResto {
     private String numtel;
     private String photo;
     private int idSouk;
-    private String cinProprio;
+    private int idprprio;
     private int accept;
 
+    public CafeResto() {
+    }
+
+   
     public void setAccept(int accept) {
         this.accept = accept;
     }
@@ -29,37 +32,37 @@ public class CafeResto {
         return accept;
     }
 
-    public CafeResto(int id, String libelle, String description, String numtel, String photo, int idSouk, String cinProprio, int accept) {
+    public CafeResto(int id, String libelle, String description, String numtel, String photo, int idSouk, int cinProprio, int accept) {
         this.id = id;
         this.libelle = libelle;
         this.description = description;
         this.numtel = numtel;
         this.photo = photo;
         this.idSouk = idSouk;
-        this.cinProprio = cinProprio;
+        this.idprprio = cinProprio;
         this.accept = accept;
     }
 
    
    
 
-    public CafeResto(String libelle, String description, String numtel, String photo, int idSouk, String cinProprio) {
+    public CafeResto(String libelle, String description, String numtel, String photo, int idSouk, int cinProprio) {
         this.libelle = libelle;
         this.description = description;
         this.numtel = numtel;
         this.idSouk = idSouk;
-        this.cinProprio = cinProprio;
+        this.idprprio = cinProprio;
         this.photo = photo;
     }
 
-    public CafeResto(int id, String libelle, String description, String numtel, String photo, int idSouk, String cinProprio) {
+    public CafeResto(int id, String libelle, String description, String numtel, String photo, int idSouk, int cinProprio) {
         this.id = id;
         this.libelle = libelle;
         this.description = description;
         this.numtel = numtel;
         this.photo = photo;
         this.idSouk = idSouk;
-        this.cinProprio = cinProprio;
+        this.idprprio = cinProprio;
     }
 
     
@@ -83,9 +86,6 @@ public class CafeResto {
         return idSouk;
     }
 
-    public String getCinProprio() {
-        return cinProprio;
-    }
 
     public String getPhoto() {
         return photo;
@@ -111,17 +111,24 @@ public class CafeResto {
         this.idSouk = idSouk;
     }
 
-    public void setCinProprio(String cinProprio) {
-        this.cinProprio = cinProprio;
+    public int getIdprprio() {
+        return idprprio;
     }
 
+  
+
+    public void setIdprprio(int idprprio) {
+        this.idprprio = idprprio;
+    }
+
+  
     public void setPhoto(String photo) {
         this.photo = photo;
     }
 
     @Override
     public String toString() {
-        return "CafeResto{" + "id=" + id + ", libelle=" + libelle + ", description=" + description + ", numtel=" + numtel + ", idSouk=" + idSouk + ", cinProprio=" + cinProprio + ", photo=" + photo + '}';
+        return "CafeResto{" + "id=" + id + ", libelle=" + libelle + ", description=" + description + ", numtel=" + numtel + ", idSouk=" + idSouk + ", cinProprio=" + idprprio + ", photo=" + photo + '}';
     }
     
     

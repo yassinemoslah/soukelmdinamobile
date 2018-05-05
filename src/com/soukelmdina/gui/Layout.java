@@ -79,7 +79,10 @@ public class Layout {
                     HomeEventsInternaure es = new HomeEventsInternaure();
                     es.getF().show();
                 });
-
+      f.getToolbar().addMaterialCommandToSideMenu("CafeResto", FontImage.MATERIAL_HOME, (e) -> {
+                ListeCafeRestoClient es = new ListeCafeRestoClient();
+                es.getF().show();
+            });
         } else {
             char c = 'v';
             f.getToolbar().addMaterialCommandToSideMenu("", c, (e) -> {
@@ -105,7 +108,10 @@ public class Layout {
                     espacevendeur es = new espacevendeur();
                     es.getF().show();
                 });
-
+       f.getToolbar().addMaterialCommandToSideMenu("CafeResto", FontImage.MATERIAL_HOME, (e) -> {
+                ListeCafeRestoVendeur es = new ListeCafeRestoVendeur();
+                es.getF().show();
+            });
             } else if (role.equals("Client")) {
 
                 f.getToolbar().addMaterialCommandToSideMenu("Espace d'exposition", FontImage.MATERIAL_HOME, (e) -> {
@@ -116,6 +122,10 @@ public class Layout {
                     HomeEvents es = new HomeEvents();
                     es.getF().show();
                 });
+                     f.getToolbar().addMaterialCommandToSideMenu("CafeResto", FontImage.MATERIAL_HOME, (e) -> {
+                ListeCafeRestoClient es = new ListeCafeRestoClient();
+                es.getF().show();
+            });
 
             }
             f.getToolbar().addMaterialCommandToSideMenu("Déconnexion", FontImage.MATERIAL_HOME, (e) -> {
