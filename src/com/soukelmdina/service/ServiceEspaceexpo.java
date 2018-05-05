@@ -19,6 +19,7 @@ import com.soukelmdina.entite.Espace_exposition;
 import com.soukelmdina.entite.Souk;
 
 
+
 /**
  *
  * @author marye
@@ -190,7 +191,17 @@ public class ServiceEspaceexpo {
   
      
      
+     public void supprimerespace(int idESPACE)
+     { 
+    ConnectionRequest con = new ConnectionRequest();
+    con.setUrl(Layout.URL+"/soukelmdinaweb/web/app_dev.php/app/supprimerespacevendeur/"+idESPACE);
+    NetworkManager.getInstance().addToQueueAndWait(con);
+    }
      
-     
-     
+
+
+
+
+
+
 }

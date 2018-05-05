@@ -8,7 +8,6 @@ package com.soukelmdina.gui;
 import com.codename1.components.ImageViewer;
 import com.codename1.components.SpanLabel;
 import com.codename1.ui.Button;
-import com.codename1.ui.Dialog;
 import com.codename1.ui.EncodedImage;
 import com.codename1.ui.Label;
 import com.codename1.ui.URLImage;
@@ -17,21 +16,19 @@ import com.codename1.ui.layouts.BoxLayout;
 import com.soukelmdina.app.MyApplication;
 import com.soukelmdina.entite.Evenement;
 import com.soukelmdina.service.ServiceEvenement;
-import com.soukelmdina.service.ServiceUtilisateur;
 import java.util.ArrayList;
 
 /**
  *
  * @author USER
  */
-public class DetailsEvents extends Layout {
-
-    private SpanLabel des, emplacement, s;
+public class DetailEventsInternaute extends Layout {
+    private SpanLabel des, emplacement;
     EncodedImage enc;
     URLImage uRLImage;
-    Button btn;
+    SpanLabel sp;
 
-    public DetailsEvents(Evenement e) {
+    public DetailEventsInternaute(Evenement e) {
         ServiceEvenement se = new ServiceEvenement();
         ArrayList<Evenement> le = new ArrayList<>();
         le = se.getEvents();
@@ -46,34 +43,15 @@ public class DetailsEvents extends Layout {
         content.add(imgV);
         content.add(e.getDescription());
         // content.add("Date " + e.getDate() );
-        content.add("De :" + e.getHeureDebut());
-        content.add("De :" + e.getHeureFin());
-        content.add("Nombre de tickets disponibles : " + e.getNbreTickets());
-        content.add("Prix ticket :" + e.getPrixTicket());
-        content.add("Lieu :" + e.getLieu());
+        content.add("De " + e.getHeureDebut());
+        content.add("De " + e.getHeureFin());
+        content.add("Nombre de tickets disponibles" + e.getNbreTickets());
+        content.add("Prix ticket " + e.getPrixTicket());
+        content.add("Lieu " + e.getLieu());
         f.getAllStyles().setBgImage(MyApplication.theme.getImage("back_2.jpg"));
-        btn = new Button("Réserver Tickets");
-        content.add(btn);
-        btn.addActionListener(z -> {
-            ServiceEvenement es = new ServiceEvenement();
-            System.out.println(e);
-            if (e.getNbreTickets() == 0) {
-                Dialog.show("Sold OUT", "Plus de tickets", "ok", "cancel");
-                ;
-
-            } else {
-                e.setNbreTickets(e.getNbreTickets() - 1);
-                e.setCaisse(e.getCaisse() + e.getPrixTicket());
-                System.out.println(e);
-                es.updateevent(e);
-                Dialog.show("Confirmation ticket", "Votre ticket a été réservé vous recevrez un sms de confirmation", "ok", "cancel");
-
-                HomeEvents hm = new HomeEvents();
-                hm.getF().show();
-            }
-
-        }
-        );
+        sp.add("Connectez vous pour réserver un ticket");
+         
     }
-
+    
+   
 }

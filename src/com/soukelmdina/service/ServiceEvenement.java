@@ -8,6 +8,7 @@ package com.soukelmdina.service;
 import com.codename1.io.CharArrayReader;
 import com.codename1.io.ConnectionRequest;
 import com.codename1.io.JSONParser;
+import com.codename1.io.MultipartRequest;
 import com.codename1.io.NetworkManager;
 import com.soukelmdina.entite.Evenement;
 import com.soukelmdina.entite.Utilisateur;
@@ -35,15 +36,15 @@ public class ServiceEvenement {
                 for (Map<String, Object> obj : list) {
                     Evenement event = new Evenement();
                     float id = Float.parseFloat(obj.get("id").toString());
-                   // float nbreTickets = Float.parseFloat(obj.get("nbreTickets").toString());
+                   float nbreTickets = Float.parseFloat(obj.get("nbretickets").toString());
                    //double caisse = Double.parseDouble(obj.get("caisse").toString());
                     event.setId((int) id);
                     event.setLibelle(obj.get("libelle").toString());
                     event.setDescription(obj.get("description").toString());
                     //event.setDate(obj.get("date"));
-                    event.setHeureDebut(null);
-                    event.setHeureFin(null);
-                    event.setNbreTickets(100);
+                    event.setHeureDebut(obj.get("heuredebut").toString());
+                    event.setHeureFin(obj.get("heurefin").toString());
+                    event.setNbreTickets((int) nbreTickets);
                     event.setPrixTicket(15.0);
                     event.setCaisse(5000.0);
                     event.setLieu(obj.get("lieu").toString());
@@ -60,4 +61,14 @@ public class ServiceEvenement {
         }
         return listevents;
     }
-}
+    public void updateevent(Evenement e) {
+        ConnectionRequest con = new ConnectionRequest();
+       
+            con.setUrl(Layout.URL + "/soukelmdinaweb/web/app_dev.php/app/updateevent/" + e.getNbreTickets() + "/" + e.getCaisse() + "/" +e.getPrixTicket() + "/" + e.getId());
+            NetworkManager.getInstance().addToQueueAndWait(con);
+           
+        }
+
+    }
+    
+
