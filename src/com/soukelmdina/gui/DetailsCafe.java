@@ -35,10 +35,10 @@ import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
 
 import com.codename1.ui.util.ImageIO;
-import com.restfb.DefaultFacebookClient;
-import com.restfb.FacebookClient;
-import com.restfb.Parameter;
-import com.restfb.types.FacebookType;
+//import com.restfb.DefaultFacebookClient;
+//import com.restfb.FacebookClient;
+//import com.restfb.Parameter;
+//import com.restfb.types.FacebookType;
 import com.soukelmdina.app.MyApplication;
 import com.soukelmdina.entite.CafeResto;
 

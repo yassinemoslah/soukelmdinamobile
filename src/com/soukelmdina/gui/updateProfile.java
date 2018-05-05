@@ -84,7 +84,7 @@ public class updateProfile extends Layout {
         }
         remplirGouvernorat();
         enc = EncodedImage.createFromImage(MyApplication.theme.getImage("100x100.png"), false);
-        uRLImage = URLImage.createToStorage(enc, MyApplication.user.getPhoto(), Layout.URL + MyApplication.user.getPhoto(), URLImage.RESIZE_SCALE_TO_FILL);
+        uRLImage = URLImage.createToStorage(enc, MyApplication.user.getPhoto()+"a", Layout.URL + MyApplication.user.getPhoto(), URLImage.RESIZE_SCALE_TO_FILL);
         changePhoto = new Label(uRLImage);
         changePhoto.addPointerPressedListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -97,7 +97,7 @@ public class updateProfile extends Layout {
                             ByteArrayOutputStream out = new ByteArrayOutputStream();
                             imgIO.save(img, out, ImageIO.FORMAT_JPEG, 1);
                             bytesdata = out.toByteArray();
-                            changePhoto.setIcon(Image.createImage(FileSystemStorage.getInstance().openInputStream(photo)).scaledSmallerRatio(100, 100));
+                            changePhoto.setIcon(Image.createImage(FileSystemStorage.getInstance().openInputStream(photo)).scaledSmallerRatio(250, 250));
 
                         } catch (IOException err) {
                             System.out.println(err);
@@ -116,7 +116,7 @@ public class updateProfile extends Layout {
                                     ByteArrayOutputStream out = new ByteArrayOutputStream();
                                     imgIO.save(img, out, ImageIO.FORMAT_JPEG, 1);
                                     bytesdata = out.toByteArray();
-                                    changePhoto.setIcon(Image.createImage(FileSystemStorage.getInstance().openInputStream(photo)).scaledSmallerRatio(100, 100));
+                                    changePhoto.setIcon(Image.createImage(FileSystemStorage.getInstance().openInputStream(photo)).scaledSmallerRatio(250, 250));
                                 } catch (IOException ex) {
                                     System.out.println(ex);
                                 }
