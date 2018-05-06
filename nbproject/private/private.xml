@@ -1,23 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
-        <group/>
-=======
         <group>
-            <file>file:/E:/soukelmdinamobile/src/com/soukelmdina/service/ServiceUtilisateur.java</file>
-            <file>file:/E:/soukelmdinamobile/src/com/soukelmdina/gui/ListeCafeRestoVendeur.java</file>
-            <file>file:/E:/soukelmdinamobile/src/com/soukelmdina/service/ServiceCafeResto.java</file>
-            <file>file:/E:/soukelmdinamobile/src/com/soukelmdina/gui/Inscription.java</file>
-            <file>file:/E:/soukelmdinamobile/src/com/soukelmdina/gui/AjoutProduitForm.java</file>
-            <file>file:/E:/soukelmdinamobile/src/com/soukelmdina/gui/RatingsForm_1.java</file>
-            <file>file:/E:/soukelmdinamobile/src/com/soukelmdina/gui/DetailsCafe.java</file>
-            <file>file:/E:/soukelmdinamobile/src/com/soukelmdina/gui/ListeBoutiqueProd.java</file>
-            <file>file:/E:/soukelmdinamobile/src/com/soukelmdina/gui/DetailsCafeClient.java</file>
-            <file>file:/E:/soukelmdinamobile/src/com/soukelmdina/gui/AjouterCafe.java</file>
-            <file>file:/E:/soukelmdinamobile/src/com/soukelmdina/gui/modifierCafe.java</file>
+            <file>file:/D:/esprit/3eme/semestre%202/pi/soukelmdinamobile/src/com/soukelmdina/gui/espaceexpohome.java</file>
+            <file>file:/D:/esprit/3eme/semestre%202/pi/soukelmdinamobile/src/com/soukelmdina/gui/confirmationAccount.java</file>
+            <file>file:/D:/esprit/3eme/semestre%202/pi/soukelmdinamobile/src/com/soukelmdina/gui/DetailsEvents.java</file>
+            <file>file:/D:/esprit/3eme/semestre%202/pi/soukelmdinamobile/src/com/soukelmdina/app/MyApplication.java</file>
+            <file>file:/D:/esprit/3eme/semestre%202/pi/soukelmdinamobile/src/com/soukelmdina/gui/espacevendeur.java</file>
+            <file>file:/D:/esprit/3eme/semestre%202/pi/soukelmdinamobile/src/com/soukelmdina/gui/ListeSouks.java</file>
+            <file>file:/D:/esprit/3eme/semestre%202/pi/soukelmdinamobile/src/com/soukelmdina/gui/Login.java</file>
+            <file>file:/D:/esprit/3eme/semestre%202/pi/soukelmdinamobile/src/com/soukelmdina/technique/SpanLabel1.java</file>
+            <file>file:/D:/esprit/3eme/semestre%202/pi/soukelmdinamobile/src/com/soukelmdina/service/SmsSender.java</file>
+            <file>file:/D:/esprit/3eme/semestre%202/pi/soukelmdinamobile/src/com/soukelmdina/gui/updateProfile.java</file>
+            <file>file:/D:/esprit/3eme/semestre%202/pi/soukelmdinamobile/src/com/soukelmdina/gui/Profile.java</file>
+            <file>file:/D:/esprit/3eme/semestre%202/pi/soukelmdinamobile/src/com/soukelmdina/service/ServiceCafeResto.java</file>
+            <file>file:/D:/esprit/3eme/semestre%202/pi/soukelmdinamobile/src/com/soukelmdina/gui/forgetPassword.java</file>
+            <file>file:/D:/esprit/3eme/semestre%202/pi/soukelmdinamobile/src/com/soukelmdina/gui/recupPassword.java</file>
+            <file>file:/D:/esprit/3eme/semestre%202/pi/soukelmdinamobile/src/com/soukelmdina/technique/controleSaisie.java</file>
+            <file>file:/D:/esprit/3eme/semestre%202/pi/soukelmdinamobile/src/com/soukelmdina/gui/detailespace.java</file>
+            <file>file:/D:/esprit/3eme/semestre%202/pi/soukelmdinamobile/src/com/soukelmdina/service/ServiceUtilisateur.java</file>
+            <file>file:/D:/esprit/3eme/semestre%202/pi/soukelmdinamobile/src/com/soukelmdina/gui/DetailsCafe.java</file>
+            <file>jar:file:/D:/esprit/3eme/semestre%202/pi/soukelmdinamobile/lib/CodenameOne_SRC.zip!/com/codename1/ui/Form.java</file>
+            <file>file:/D:/esprit/3eme/semestre%202/pi/soukelmdinamobile/src/com/soukelmdina/gui/DetailsSouk.java</file>
+            <file>file:/D:/esprit/3eme/semestre%202/pi/soukelmdinamobile/src/com/soukelmdina/gui/Inscription.java</file>
+            <file>file:/D:/esprit/3eme/semestre%202/pi/soukelmdinamobile/src/com/soukelmdina/gui/HomeEvents.java</file>
+            <file>file:/D:/esprit/3eme/semestre%202/pi/soukelmdinamobile/src/com/soukelmdina/gui/updatePassword.java</file>
+            <file>file:/D:/esprit/3eme/semestre%202/pi/soukelmdinamobile/src/com/soukelmdina/service/ServiceSouk.java</file>
+            <file>file:/D:/esprit/3eme/semestre%202/pi/soukelmdinamobile/src/com/soukelmdina/gui/Layout.java</file>
+            <file>file:/D:/esprit/3eme/semestre%202/pi/soukelmdinamobile/src/com/soukelmdina/gui/ListeCafeRestoClient.java</file>
         </group>
->>>>>>> 906ad48556bbb913704fbacc32cd8d86ddd6e578
     </open-files>
 </project-private>
