@@ -43,13 +43,16 @@ import com.codename1.ui.plaf.Style;
 import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.util.Resources;
 import com.soukelmdina.app.MyApplication;
+import static com.soukelmdina.app.MyApplication.user;
 import com.soukelmdina.entite.Categorie;
+import com.soukelmdina.entite.CommandeProduit;
 import com.soukelmdina.entite.Produit;
 import com.soukelmdina.entite.Rating;
 import com.soukelmdina.entite.Routes;
 import com.soukelmdina.service.ServiceCategorie;
 import com.soukelmdina.service.serviceProduit;
 import com.soukelmdina.service.serviceRating;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -60,7 +63,7 @@ import java.util.Map;
  */
 public class ProduitForm extends Layout {
     
-    
+Label panier=new Label();
 
     public ProduitForm(Produit produit) {
 
@@ -267,6 +270,34 @@ public class ProduitForm extends Layout {
         f.setScrollable(false);
         f.getAllStyles().setBgImage(MyApplication.theme.getImage("back_2.jpg"));
         t.getAllStyles().setBgImage(MyApplication.theme.getImage("back_2.jpg"));
+               // panier.setIcon(MyApplication.theme.getImage("phone.png"));
+                panier.setText("Ajouter au panier");
+                f.add(panier);
+                 panier.addPointerPressedListener((act) -> {
+                     int verif =0;
+                     for(int i=0;i<MyApplication.listeCommandep.size();i++)
+                         if(MyApplication.listeCommandep.get(i).getIdproduit()==produit.getId())
+                         {verif=1;
+                              MyApplication.listeCommandep.get(i).setQte(MyApplication.listeCommandep.get(i).getQte()+1);
+                             
+                  
+                       
+           }
+                     if(verif==0)
+                     {
+                     CommandeProduit cmp=new CommandeProduit();
+                     cmp.setIdproduit(produit.getId());
+                     cmp.setPhoto(produit.getPhoto());
+                     cmp.setQte(1);
+                     cmp.setPrix(produit.getPrix());
+                     MyApplication.listeCommandep.add(cmp);
+                     }
+                     
+                     System.out.println("men houné "+MyApplication.listeCommandep.toString());
+                 
+                     
+        });
+
         
     }
 

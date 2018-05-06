@@ -11,11 +11,11 @@ package com.soukelmdina.entite;
  */
 public class Routes {
     
-    private static String baseURL = "http://192.168.43.231/soukelmdinaweb/web";
+    private static String baseURL = "http://127.0.0.1/soukelmdinaweb/web";
     
      private static String environnement = "/app_dev.php";
     
-    private static String photoProduits = "http://192.168.43.231/soukelmdina/assets/img/produits";
+    private static String photoProduits = "http://127.0.0.1/soukelmdina/assets/img/produits";
     
     private static String listeProduits = "/app/api/listeproduits";
     

@@ -128,8 +128,8 @@ public class Layout {
                     es.getF().show();
                 });
                      f.getToolbar().addMaterialCommandToSideMenu("CafeResto", FontImage.MATERIAL_HOME, (e) -> {
-                ListeCafeRestoClient es = new ListeCafeRestoClient();
-                es.getF().show();
+                PanierClient es = new PanierClient();  es.getF().show();
+              
             });
 
             }

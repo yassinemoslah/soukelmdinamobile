@@ -81,6 +81,7 @@
     <image name="Menu.borderTopR_1.png" type="multi"  />
     <image name="menu.png" type="multi"  />
     <image name="of_menu.png" type="multi"  />
+    <image name="panier.png"  />
     <image name="phone.png"  />
     <image name="role.png"  />
     <image name="sliderEmpty.png" type="multi"  />
