@@ -28,16 +28,13 @@ import java.util.ArrayList;
  */
 public class ListeCafeRestoClient extends Layout {
 
-    EncodedImage enc;
-    URLImage uRLImage;
+        EncodedImage enc;
+        URLImage uRLImage;
 
     public ListeCafeRestoClient() {
-                toolbar.add(BorderLayout.CENTER, new Label("Liste des cafeResto"));
+        toolbar.add(BorderLayout.CENTER, new Label("Liste des cafeResto"));
 
         Label overflowMenu = new Label(MyApplication.theme.getImage("of_menu.png"));
-
-      
-      
 
         f.setTitle("liste des CafeResto");
         f.getAllStyles().setBgImage(MyApplication.theme.getImage("back_1.jpg"));
@@ -72,16 +69,17 @@ public class ListeCafeRestoClient extends Layout {
             int2.getF().show();
         });
         Label ll = new Label("");
-          Label lll = new Label("");
+        Label lll = new Label("");
         Label llllll = new Label("");
-          Label lllll = new Label("");
+        Label lllll = new Label("");
         Label llll = new Label("");
         Container cnt1 = new Container(BoxLayout.y());
         Container cnt2 = new Container(BoxLayout.x());
         //Container cnt3 = new Container(BoxLayout.x());
 
         cnt2.setScrollableY(true);
-        cnt1.add(ll);        cnt1.add(lll);
+        cnt1.add(ll);
+        cnt1.add(lll);
         cnt1.add(llll);
         cnt1.add(lllll);
         cnt1.add(llllll);
@@ -90,7 +88,7 @@ public class ListeCafeRestoClient extends Layout {
         cnt2.add(imgV);
         //  cnt2.add(ll);
         cnt2.add(cnt1);
-        
+
         // cnt3.add(cnt2);
         //cnt3.add(ll);
         cnt2.setLeadComponent(libelle);
@@ -105,13 +103,12 @@ public class ListeCafeRestoClient extends Layout {
 
         Label ll = new Label("");
         Container cnt1 = new Container(BoxLayout.y());
-       Container cnt3 = new Container(BoxLayout.x());
+        Container cnt3 = new Container(BoxLayout.x());
 
-       
-     cnt1.add(ll);
-       cnt1.add(llll);
+        cnt1.add(ll);
+        cnt1.add(llll);
 
-     cnt1.add(lll);
+        cnt1.add(lll);
 
         //  cnt2.add(ll);
         // cnt3.add(cnt2);

@@ -83,7 +83,7 @@ public class updateProfile extends Layout {
             femme.setSelected(true);
         }
         remplirGouvernorat();
-        enc = EncodedImage.createFromImage(MyApplication.theme.getImage("100x100.png"), false);
+        enc = EncodedImage.createFromImage(MyApplication.theme.getImage("250x250.png"), false);
         uRLImage = URLImage.createToStorage(enc, MyApplication.user.getPhoto()+"a", Layout.URL + MyApplication.user.getPhoto(), URLImage.RESIZE_SCALE_TO_FILL);
         changePhoto = new Label(uRLImage);
         changePhoto.addPointerPressedListener(new ActionListener() {

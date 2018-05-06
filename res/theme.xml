@@ -2,6 +2,7 @@
 
 <resource majorVersion="1" minorVersion="9" useXmlUI="false">
     <image name="100x100.png"  />
+    <image name="250x250.png"  />
     <image name="avatar.png"  />
     <image name="back-command.png" type="multi"  />
     <image name="back_1.jpg"  />
@@ -81,6 +82,7 @@
     <image name="Menu.borderTopR_1.png" type="multi"  />
     <image name="menu.png" type="multi"  />
     <image name="of_menu.png" type="multi"  />
+    <image name="panier.png"  />
     <image name="phone.png"  />
     <image name="role.png"  />
     <image name="sliderEmpty.png" type="multi"  />

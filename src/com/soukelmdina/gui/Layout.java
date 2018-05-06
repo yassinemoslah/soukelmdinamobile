@@ -6,7 +6,9 @@
 package com.soukelmdina.gui;
 
 import com.codename1.components.ImageViewer;
+import com.codename1.notifications.LocalNotification;
 import com.codename1.ui.Container;
+import com.codename1.ui.Display;
 import com.codename1.ui.EncodedImage;
 import com.codename1.ui.FontImage;
 import com.codename1.ui.Form;
@@ -14,7 +16,10 @@ import com.codename1.ui.Label;
 import com.codename1.ui.URLImage;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
+import com.codename1.util.Callback;
 import com.soukelmdina.app.MyApplication;
+import com.soukelmdina.entite.Boutique;
+import com.soukelmdina.service.BackgroundFetchService;
 import java.io.IOException;
 
 /**
@@ -22,7 +27,7 @@ import java.io.IOException;
  * @author mosla
  */
 public class Layout {
-
+   public static Boutique btq;
     Form f;
     Container toolbar;
     Container content;
@@ -70,6 +75,11 @@ public class Layout {
                 Login login = new Login();
                 login.getF().show();
             });
+            
+            f.getToolbar().addMaterialCommandToSideMenu("Souks", FontImage.MATERIAL_HOME, (e) -> {
+                ListeSouks souks = new ListeSouks();
+                souks.getF().show();
+            });
 
             f.getToolbar().addMaterialCommandToSideMenu("Espace d'exposition", FontImage.MATERIAL_HOME, (e) -> {
                 HOMEinternaute es = new HOMEinternaute();
@@ -87,7 +97,7 @@ public class Layout {
             char c = 'v';
             f.getToolbar().addMaterialCommandToSideMenu("", c, (e) -> {
             });
-            enc = EncodedImage.createFromImage(MyApplication.theme.getImage("100x100.png"), false);
+            enc = EncodedImage.createFromImage(MyApplication.theme.getImage("250x250.png"), false);
             uRLImage = URLImage.createToStorage(enc, MyApplication.user.getPhoto(), Layout.URL + MyApplication.user.getPhoto(), URLImage.RESIZE_SCALE_TO_FILL);
             ImageViewer imgV = new ImageViewer(uRLImage);
             f.getToolbar().addComponentToSideMenu(imgV);
@@ -101,6 +111,10 @@ public class Layout {
             f.getToolbar().addMaterialCommandToSideMenu("Profile", FontImage.MATERIAL_HOME, (e) -> {
                 Profile profile = new Profile();
                 profile.getF().show();
+            });
+              f.getToolbar().addMaterialCommandToSideMenu("Souks", FontImage.MATERIAL_HOME, (e) -> {
+                ListeSouks souks = new ListeSouks();
+                souks.getF().show();
             });
             String role = MyApplication.user.getRole();
             if (role.equals("Vendeur")) {
@@ -123,8 +137,8 @@ public class Layout {
                     es.getF().show();
                 });
                      f.getToolbar().addMaterialCommandToSideMenu("CafeResto", FontImage.MATERIAL_HOME, (e) -> {
-                ListeCafeRestoClient es = new ListeCafeRestoClient();
-                es.getF().show();
+                PanierClient es = new PanierClient();  es.getF().show();
+              
             });
 
             }
@@ -140,6 +154,24 @@ public class Layout {
             });
         }
 
+    
+            if (MyApplication.user != null) {
+            if (MyApplication.user.getRole().equals("Client")) {
+                f.getToolbar().addMaterialCommandToSideMenu("Produits", FontImage.MATERIAL_HOME, (e) -> {
+                    new ListeBoutiqueProd().getF().show();
+                });
+            }
+            if (MyApplication.user.getRole().equals("Vendeur")) {
+                f.getToolbar().addMaterialCommandToSideMenu("Produits", FontImage.MATERIAL_HOME, (e) -> {
+                    new ListeBoutiqueProd().getF().show();
+                });
+                f.getToolbar().addMaterialCommandToSideMenu("Ajouter Produit", FontImage.MATERIAL_HOME, (e) -> {
+                    new AjoutProduitForm().getF().show();
+                });
+            }
+        }
+
+       
     }
 
     public Form getF() {

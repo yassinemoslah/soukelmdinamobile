@@ -11,11 +11,11 @@ package com.soukelmdina.entite;
  */
 public class Routes {
     
-    private static String baseURL = "http://localhost/soukelmdinaweb/web";
+    private static String baseURL = "http://127.0.0.1/soukelmdinaweb/web";
     
-    private static String environnement = "/app_dev.php";
+     private static String environnement = "/app_dev.php";
     
-    private static String photoProduits = "http://localhost/soukelmdinaweb/web/image/produits";
+    private static String photoProduits = "http://127.0.0.1/soukelmdina/assets/img/produits";
     
     private static String listeProduits = "/app/api/listeproduits";
     
@@ -40,6 +40,12 @@ public class Routes {
     private static String listeReclamationsProduit = "/app/api/liste/reclamations/produit?id=";
     
     private static String addreclamation = "/app/api/new/reclamation";
+    
+    private static String lastProduct = "/app/api/lastproduct";
+    
+    private static String dernierProduct = "/app/api/lastproduct";
+    
+    private static String listeProduitsVendeur = "/app/api/produits/vendeur?id=";
 
     public static String getBaseURL() {
         return baseURL;
@@ -159,6 +165,22 @@ public class Routes {
 
     public static void setAddreclamation(String addreclamation) {
         Routes.addreclamation = addreclamation;
+    }
+
+    public static String getListeProduitsVendeur() {
+        return listeProduitsVendeur;
+    }
+
+    public static void setListeProduitsVendeur(String listeProduitsVendeur) {
+        Routes.listeProduitsVendeur = listeProduitsVendeur;
+    }
+
+    public static String getDernierProduct() {
+        return dernierProduct;
+    }
+
+    public static void setDernierProduct(String dernierProduct) {
+        Routes.dernierProduct = dernierProduct;
     }
     
     
