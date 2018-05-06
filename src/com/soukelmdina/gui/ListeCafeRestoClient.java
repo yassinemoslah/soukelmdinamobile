@@ -38,7 +38,6 @@ public class ListeCafeRestoClient extends Layout {
 
       
       
-
         f.setTitle("liste des CafeResto");
         f.getAllStyles().setBgImage(MyApplication.theme.getImage("back_1.jpg"));
 

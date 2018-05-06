@@ -70,6 +70,11 @@ public class Layout {
                 Login login = new Login();
                 login.getF().show();
             });
+            
+            f.getToolbar().addMaterialCommandToSideMenu("Souks", FontImage.MATERIAL_HOME, (e) -> {
+                ListeSouks souks = new ListeSouks();
+                souks.getF().show();
+            });
 
             f.getToolbar().addMaterialCommandToSideMenu("Espace d'exposition", FontImage.MATERIAL_HOME, (e) -> {
                 HOMEinternaute es = new HOMEinternaute();
@@ -87,7 +92,7 @@ public class Layout {
             char c = 'v';
             f.getToolbar().addMaterialCommandToSideMenu("", c, (e) -> {
             });
-            enc = EncodedImage.createFromImage(MyApplication.theme.getImage("100x100.png"), false);
+            enc = EncodedImage.createFromImage(MyApplication.theme.getImage("250x250.png"), false);
             uRLImage = URLImage.createToStorage(enc, MyApplication.user.getPhoto(), Layout.URL + MyApplication.user.getPhoto(), URLImage.RESIZE_SCALE_TO_FILL);
             ImageViewer imgV = new ImageViewer(uRLImage);
             f.getToolbar().addComponentToSideMenu(imgV);
@@ -101,6 +106,10 @@ public class Layout {
             f.getToolbar().addMaterialCommandToSideMenu("Profile", FontImage.MATERIAL_HOME, (e) -> {
                 Profile profile = new Profile();
                 profile.getF().show();
+            });
+              f.getToolbar().addMaterialCommandToSideMenu("Souks", FontImage.MATERIAL_HOME, (e) -> {
+                ListeSouks souks = new ListeSouks();
+                souks.getF().show();
             });
             String role = MyApplication.user.getRole();
             if (role.equals("Vendeur")) {
