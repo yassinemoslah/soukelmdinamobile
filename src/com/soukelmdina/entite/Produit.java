@@ -20,6 +20,7 @@ public class Produit {
     private int idcategorie;
     private int idcommande;
     private String date;
+    private Categorie categorie;
 
     public Produit(int id, String libelle, String photo, String description, int quantite, float prix, int idboutique, int idcategorie, int idcommande, String date) {
         this.id = id;
@@ -116,6 +117,16 @@ public class Produit {
     public void setDate(String date) {
         this.date = date;
     }
+
+    public Categorie getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(Categorie categorie) {
+        this.categorie = categorie;
+    }
+    
+    
 
     @Override
     public String toString() {

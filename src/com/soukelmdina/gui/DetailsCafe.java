@@ -39,6 +39,10 @@ import com.restfb.DefaultFacebookClient;
 import com.restfb.FacebookClient;
 import com.restfb.Parameter;
 import com.restfb.types.FacebookType;
+//import com.restfb.DefaultFacebookClient;
+//import com.restfb.FacebookClient;
+//import com.restfb.Parameter;
+//import com.restfb.types.FacebookType;
 import com.soukelmdina.app.MyApplication;
 import com.soukelmdina.entite.CafeResto;
 

@@ -26,11 +26,13 @@ import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.spinner.NumericSpinner;
 import com.codename1.ui.spinner.Picker;
+import com.codename1.ui.util.ImageIO;
 import com.soukelmdina.app.MyApplication;
 import com.soukelmdina.entite.CafeResto;
 import com.soukelmdina.entite.Souk;
 import com.soukelmdina.service.ServiceCafeResto;
 import com.soukelmdina.technique.controleSaisie;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +50,8 @@ public class AjouterCafe extends Layout {
     URLImage uRLImage;
     Label erreurLibelle, erreurDescription, erreurnumtel, erreurPhoto, erreurSouk;
     String photo = "nophoto";
+    private byte[] bytesdata;
+
     List<Souk> li = new ArrayList<>();
     int idsouk = 0;
 
@@ -155,7 +159,7 @@ public class AjouterCafe extends Layout {
                 c.setPhoto("d89f9a06458275cb0a8c32d02f9bb86.jpeg");
                 c.setIdprprio(MyApplication.user.getId());
                 System.out.println("id proprio" + c.getIdprprio());
-                sc.AjouterCafe(c);
+                sc.AjouterCafe(c, bytesdata);
                 Dialog.show("Ajout", "Ajout avec succés", "OK", null);
 
                 ListeCafeRestoVendeur lc = new ListeCafeRestoVendeur();
@@ -172,8 +176,13 @@ public class AjouterCafe extends Layout {
                 public void actionPerformed(ActionEvent ev) {
                     if (ev != null && ev.getSource() != null) {
                         photo = (String) ev.getSource();
-
+                        c.setPhoto(photo);
                         try {
+                            Image img = Image.createImage((String) ev.getSource());
+                            ImageIO imgIO = ImageIO.getImageIO();
+                            ByteArrayOutputStream out = new ByteArrayOutputStream();
+                            imgIO.save(img, out, ImageIO.FORMAT_JPEG, 1);
+                            bytesdata = out.toByteArray();
                             imgV.setImage(Image.createImage(FileSystemStorage.getInstance().openInputStream(photo)));
                         } catch (IOException ex) {
                             System.out.println(ex);
@@ -226,9 +235,8 @@ public class AjouterCafe extends Layout {
             verif = false;
 
         }
-          if (idsouk != 0) {
+        if (idsouk != 0) {
             erreurSouk.setVisible(false);
-           
 
         }
 

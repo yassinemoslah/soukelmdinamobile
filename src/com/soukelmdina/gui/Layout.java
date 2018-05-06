@@ -6,7 +6,9 @@
 package com.soukelmdina.gui;
 
 import com.codename1.components.ImageViewer;
+import com.codename1.notifications.LocalNotification;
 import com.codename1.ui.Container;
+import com.codename1.ui.Display;
 import com.codename1.ui.EncodedImage;
 import com.codename1.ui.FontImage;
 import com.codename1.ui.Form;
@@ -14,7 +16,10 @@ import com.codename1.ui.Label;
 import com.codename1.ui.URLImage;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
+import com.codename1.util.Callback;
 import com.soukelmdina.app.MyApplication;
+import com.soukelmdina.entite.Boutique;
+import com.soukelmdina.service.BackgroundFetchService;
 import java.io.IOException;
 
 /**
@@ -22,7 +27,7 @@ import java.io.IOException;
  * @author mosla
  */
 public class Layout {
-
+   public static Boutique btq;
     Form f;
     Container toolbar;
     Container content;
@@ -149,6 +154,24 @@ public class Layout {
             });
         }
 
+    
+            if (MyApplication.user != null) {
+            if (MyApplication.user.getRole().equals("Client")) {
+                f.getToolbar().addMaterialCommandToSideMenu("Produits", FontImage.MATERIAL_HOME, (e) -> {
+                    new ListeBoutiqueProd().getF().show();
+                });
+            }
+            if (MyApplication.user.getRole().equals("Vendeur")) {
+                f.getToolbar().addMaterialCommandToSideMenu("Produits", FontImage.MATERIAL_HOME, (e) -> {
+                    new ListeBoutiqueProd().getF().show();
+                });
+                f.getToolbar().addMaterialCommandToSideMenu("Ajouter Produit", FontImage.MATERIAL_HOME, (e) -> {
+                    new AjoutProduitForm().getF().show();
+                });
+            }
+        }
+
+       
     }
 
     public Form getF() {
