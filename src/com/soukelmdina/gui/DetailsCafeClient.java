@@ -33,6 +33,7 @@ import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BorderLayout;
 
 import com.codename1.ui.layouts.BoxLayout;
+import com.codename1.ui.table.TableLayout;
 
 import com.codename1.ui.util.ImageIO;
 import com.restfb.DefaultFacebookClient;
@@ -70,27 +71,9 @@ public class DetailsCafeClient extends Layout {
 
         Label overflowMenu = new Label(MyApplication.theme.getImage("of_menu.png"));
 
-        toolbar.add(BorderLayout.EAST, overflowMenu);
-        overflowMenu.addPointerPressedListener((e) -> {
-            f.getToolbar().getMenuBar().showMenu();
-        });
+    
         //   ms.envoyerMail("amal.mabrouk@esprit.tn", "yguhj", "test");
 
-        f.getToolbar().addCommandToOverflowMenu("Modifier", null,
-                (ev) -> {
-                    modifierCafe cf = new modifierCafe(c);
-                    cf.getF().show();
-                });
-
-        f.getToolbar().addCommandToOverflowMenu("Supprimer", null,
-                (ev) -> {
-                    ServiceCafeResto sc = new ServiceCafeResto();
-                    sc.SupprimerCafe(c);
-                    Dialog.show("Suppression", "Le CafeResto est supprimé", "OK", null);
-
-                    ListeCafeRestoVendeur cf = new ListeCafeRestoVendeur();
-                    cf.getF().show();
-                });
         Button devGuide = new Button("Show PDF");
 
         libelle = new SpanLabel(c.getLibelle());
@@ -164,6 +147,12 @@ public class DetailsCafeClient extends Layout {
 
 //        content.add(avis);
 //        content.add(Partage);
+//Container cc = TableLayout.encloseIn(3, new Label("First"),
+//                new Label("Second"),
+//                new Label("Third"),
+//                new Label("Fourth"),
+//                new Label("Fifth"));
+//content.add(cc);
 //        
         content.add(ComponentGroup.enclose(avis));
         content.add(Partage);
@@ -186,9 +175,19 @@ public class DetailsCafeClient extends Layout {
                 }
             }
         });
+        
+        
 
     }
 
+    
+    
+    
+   
+
+
+ 
+  
     public boolean isEmpty(String s) {
 
         if (s.equals("")) {

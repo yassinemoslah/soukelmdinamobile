@@ -21,10 +21,12 @@ import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
+import com.codename1.ui.util.ImageIO;
 import com.soukelmdina.app.MyApplication;
 import com.soukelmdina.entite.CafeResto;
 import com.soukelmdina.service.ServiceCafeResto;
 import com.soukelmdina.technique.controleSaisie;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 /**
@@ -41,6 +43,7 @@ public class modifierCafe extends Layout {
     URLImage uRLImage;
     Label erreurLibelle, erreurDescription, erreurnumtel, erreurPhoto;
     String photo = "nophoto";
+    private byte[] bytesdata;
 
     public modifierCafe(CafeResto c) {
         toolbar.add(BorderLayout.CENTER, new Label("Modifier CafeResto"));
@@ -99,8 +102,13 @@ public class modifierCafe extends Layout {
                 public void actionPerformed(ActionEvent ev) {
                     if (ev != null && ev.getSource() != null) {
                         photo = (String) ev.getSource();
-
+                        c.setPhoto(photo);
                         try {
+                            Image img = Image.createImage((String) ev.getSource());
+                            ImageIO imgIO = ImageIO.getImageIO();
+                            ByteArrayOutputStream out = new ByteArrayOutputStream();
+                            imgIO.save(img, out, ImageIO.FORMAT_JPEG, 1);
+                            bytesdata = out.toByteArray();
                             imgV.setImage(Image.createImage(FileSystemStorage.getInstance().openInputStream(photo)));
                         } catch (IOException ex) {
                             System.out.println(ex);
@@ -118,9 +126,9 @@ public class modifierCafe extends Layout {
                 c.setNumtel(numtel.getText());
                 c.setAccept(1);
                 c.setIdSouk(1);
-                c.setPhoto("d89f9a06458275cb0a8c32d02f9bb86.jpeg");
+              
                 c.setIdprprio(MyApplication.user.getId());
-                sc.ModifierCafe(c);
+                sc.ModifierCafe(c,bytesdata);
                 Dialog.show("Modification", "Le caféresto est modifié avec succés", "OK", null);
 
                 ListeCafeRestoVendeur l = new ListeCafeRestoVendeur();
