@@ -84,13 +84,11 @@ public class updateProfile extends Layout {
         }
         remplirGouvernorat();
         enc = EncodedImage.createFromImage(MyApplication.theme.getImage("100x100.png"), false);
-        uRLImage = URLImage.createToStorage(enc, MyApplication.user.getPhoto(), Layout.URL + MyApplication.user.getPhoto(), URLImage.RESIZE_SCALE_TO_FILL);
-        ImageViewer imgV = new ImageViewer(uRLImage);
-
-        changePhoto = new Label("Changer la photo");
+        uRLImage = URLImage.createToStorage(enc, MyApplication.user.getPhoto()+"a", Layout.URL + MyApplication.user.getPhoto(), URLImage.RESIZE_SCALE_TO_FILL);
+        changePhoto = new Label(uRLImage);
         changePhoto.addPointerPressedListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                if (Dialog.show("Camera or Gallery", "Would you like to use the camera or the gallery for the picture?", "Camera", "Gallery")) {
+                if (Dialog.show("Camera ou Gallerie", "Voulez vous prendre ou choisir une photo ?", "Camera", "Gallerie")) {
                     photo = Capture.capturePhoto();
                     if (photo != null) {
                         try {
@@ -99,7 +97,7 @@ public class updateProfile extends Layout {
                             ByteArrayOutputStream out = new ByteArrayOutputStream();
                             imgIO.save(img, out, ImageIO.FORMAT_JPEG, 1);
                             bytesdata = out.toByteArray();
-                            imgV.setImage(Image.createImage(FileSystemStorage.getInstance().openInputStream(photo)));
+                            changePhoto.setIcon(Image.createImage(FileSystemStorage.getInstance().openInputStream(photo)).scaledSmallerRatio(250, 250));
 
                         } catch (IOException err) {
                             System.out.println(err);
@@ -118,7 +116,7 @@ public class updateProfile extends Layout {
                                     ByteArrayOutputStream out = new ByteArrayOutputStream();
                                     imgIO.save(img, out, ImageIO.FORMAT_JPEG, 1);
                                     bytesdata = out.toByteArray();
-                                    imgV.setImage(Image.createImage(FileSystemStorage.getInstance().openInputStream(photo)));
+                                    changePhoto.setIcon(Image.createImage(FileSystemStorage.getInstance().openInputStream(photo)).scaledSmallerRatio(250, 250));
                                 } catch (IOException ex) {
                                     System.out.println(ex);
                                 }
@@ -144,7 +142,7 @@ public class updateProfile extends Layout {
         );
         toolbar.add(BorderLayout.CENTER, new Label("Modifier mon profil"));
         content.setLayout(new BoxLayout(BoxLayout.Y_AXIS));
-        content.add(imgV);
+//        content.add(imgV);
         content.add(changePhoto);
         content.add(lnom);
         content.add(nom);
