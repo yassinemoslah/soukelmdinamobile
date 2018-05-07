@@ -5,35 +5,12 @@
  */
 package com.soukelmdina.gui;
 
-import com.codename1.capture.Capture;
-import com.codename1.components.ImageViewer;
-import com.codename1.components.SpanLabel;
-import com.codename1.io.FileSystemStorage;
 import com.codename1.ui.Button;
-import com.codename1.ui.ButtonGroup;
-import com.codename1.ui.ComboBox;
-import com.codename1.ui.Component;
-import com.codename1.ui.Dialog;
-import com.codename1.ui.Display;
-import com.codename1.ui.EncodedImage;
-import com.codename1.ui.Image;
-import com.codename1.ui.Label;
-import com.codename1.ui.RadioButton;
-import com.codename1.ui.TextArea;
 import com.codename1.ui.TextField;
-import com.codename1.ui.URLImage;
-import com.codename1.ui.events.ActionEvent;
-import com.codename1.ui.events.ActionListener;
-import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.spinner.Picker;
-import com.codename1.ui.util.ImageIO;
-import com.soukelmdina.app.MyApplication;
 import com.soukelmdina.entite.Souk;
 import com.soukelmdina.service.ServiceEspaceexpo;
-import com.soukelmdina.service.ServiceUtilisateur;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 /**
@@ -41,59 +18,54 @@ import java.util.List;
  * @author marye
  */
 public class ajoutespace extends Layout {
-
-
-    private TextField nom, description, numtel, categorie, larg,longu,prix;
-    private SpanLabel lnom, ldescription, lnumtel, lcategorie, llarg, llongu,lprix,lsouk;
-       private EncodedImage enc;
-    private URLImage uRLImage;
-    private Button btn;
-    private Label changePhoto;
-    private String  photo = "nophoto";
-    private byte[] bytesdata;
+   TextField tnomspace,tdescription,tnumtel,tcategorie,tlongeur,tlargeur,tphoto,tprix;
+    private Button btn; 
+    public ajoutespace(){
     List<Souk> li = new ArrayList<>();
-  public ajoutespace() {
-        lnom = new SpanLabel("Nom :");
-        ldescription = new SpanLabel("Description :");
-        lnumtel = new SpanLabel("N° Tel : ");
-        lcategorie = new SpanLabel("Catégorie : ");
-        lsouk = new SpanLabel("Emplacement : ");
-        llarg = new SpanLabel("largeur espace : ");
-        llongu = new SpanLabel("longeur espace : ");
-        
-    lprix = new SpanLabel("prix espace : ");
-    lnom.setTextBlockAlign(Component.LEFT);
-    lsouk.setTextBlockAlign(Component.LEFT);
-    ldescription.setTextBlockAlign(Component.LEFT);
-    lnumtel.setTextBlockAlign(Component.LEFT);
-    lcategorie.setTextBlockAlign(Component.LEFT);
-    llarg.setTextBlockAlign(Component.LEFT);
-    llongu.setTextBlockAlign(Component.LEFT);
-    lprix.setTextBlockAlign(Component.LEFT);
-    nom = new TextField();
-    description = new TextField();
-    categorie = new TextField();
-    numtel = new TextField();
-    larg=new TextField();
-    longu=new TextField();
-    prix=new TextField();
-        
-              
-//    String [ ] tabsouks = new String[100];
-//    List<String> souks = new ArrayList<>();
-//    ServiceEspaceexpo se=new ServiceEspaceexpo();
-//      li=se.getnomssouks();
-//     for (Souk ee:li){
-//           
-//            souks.add(ee.getLibelle());
-//       }
-//    for(int i=0; i < souks.size(); i++){
-//    tabsouks[i]=souks.get(i);
-//}
-//  
-//    Picker p = new Picker();
-//    p.setStrings(tabsouks);
+    String [ ] tabsouks = new String[100];
+    List<String> souks = new ArrayList<>();
+    ServiceEspaceexpo ses=new ServiceEspaceexpo();
+     li=ses.getnomssouks();
+     for (Souk ee:li){
+           
+            souks.add(ee.getLibelle());
+       }
+    for(int i=0; i < souks.size(); i++){
+    tabsouks[i]=souks.get(i);
+}
+     
+    tnomspace = new TextField();
+    tnomspace.setHint("nom de l'espace");
+    tdescription = new TextField();
+    tdescription.setHint("Description");
+    tnumtel = new TextField();
+    tnumtel.setHint("N° tel");
+    tcategorie = new TextField();
+    tcategorie.setHint("categorie");
+    tlargeur = new TextField();
+    tlargeur.setHint("largeur");
+    tlongeur = new TextField();
+    tlongeur.setHint("longeur");
+    tprix = new TextField();
+    tprix.setHint("prix");
+    Picker p = new Picker();
+    p.setStrings(tabsouks);
+    btn = new Button("deposez annonce");
+    
+    
+    f.setTitle("Créer votre annonce");
+    f.setLayout(new BoxLayout(BoxLayout.Y_AXIS));
+    f.add(tnomspace);
+    f.add(p);
+    f.add(tdescription);
+    f.add(tnumtel);
+    f.add(tlargeur);
+    f.add(tlongeur);
+    f.add(tprix);
+    f.add(btn);
+    
       
+<<<<<<< HEAD
         
         enc = EncodedImage.createFromImage(MyApplication.theme.getImage("100x100.png"), false);
       
@@ -180,11 +152,7 @@ public class ajoutespace extends Layout {
         content.add(prix);
         content.add(btn);
         f.getAllStyles().setBgImage(MyApplication.theme.getImage("back_1.jpg"));
+=======
+>>>>>>> 74783e2ea353b7c3aefd20075725584242c5ce1c
     }
-
-   
-
-    
-}
-
-    
+    }

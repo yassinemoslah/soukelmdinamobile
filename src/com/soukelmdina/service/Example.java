@@ -10,9 +10,13 @@ import com.codename1.io.rest.Rest;
 import static com.codename1.ui.events.ActionEvent.Type.Response;
 import com.codename1.util.Base64;
 import com.soukelmdina.app.MyApplication;
+<<<<<<< HEAD
 //import com.twilio.Twilio;
 //import com.twilio.rest.api.v2010.account.Message;
 //import com.twilio.type.PhoneNumber;
+=======
+
+>>>>>>> 74783e2ea353b7c3aefd20075725584242c5ce1c
 import java.util.Map;
 
 /**

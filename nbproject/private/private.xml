@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/xampp/htdocs/soukelmdinamobile/src/com/soukelmdina/gui/detailespace.java</file>
             <file>file:/C:/xampp/htdocs/soukelmdinamobile/src/com/soukelmdina/gui/HOMEinternaute.java</file>
             <file>file:/C:/xampp/htdocs/soukelmdinamobile/src/com/soukelmdina/gui/HomeForm.java</file>
@@ -12,6 +13,13 @@
             <file>file:/C:/xampp/htdocs/soukelmdinamobile/src/com/soukelmdina/gui/Layout.java</file>
             <file>file:/C:/xampp/htdocs/soukelmdinamobile/src/com/soukelmdina/gui/updateespace.java</file>
             <file>file:/C:/xampp/htdocs/soukelmdinamobile/src/com/soukelmdina/gui/createespace.java</file>
+=======
+            <file>file:/C:/Users/lina9/Documents/GitHub/soukelmdinamobile/src/com/soukelmdina/service/ServiceUtilisateur.java</file>
+            <file>file:/C:/Users/lina9/Documents/GitHub/soukelmdinamobile/src/com/soukelmdina/gui/Layout.java</file>
+            <file>file:/C:/Users/lina9/Documents/GitHub/soukelmdinamobile/src/com/soukelmdina/service/ServiceSouk.java</file>
+            <file>file:/C:/Users/lina9/Documents/GitHub/soukelmdinamobile/src/com/soukelmdina/gui/AjouterCafe.java</file>
+            <file>file:/C:/Users/lina9/Documents/GitHub/soukelmdinamobile/src/com/soukelmdina/entite/Boutique1.java</file>
+>>>>>>> 74783e2ea353b7c3aefd20075725584242c5ce1c
         </group>
     </open-files>
 </project-private>

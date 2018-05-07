@@ -10,7 +10,6 @@ import com.codename1.ui.Container;
 import com.codename1.ui.EncodedImage;
 import com.codename1.ui.Label;
 import com.codename1.ui.URLImage;
-import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
 import com.soukelmdina.app.MyApplication;
 import com.soukelmdina.entite.Espace_exposition;
@@ -27,19 +26,10 @@ public class HOMEinternaute extends Layout {
     URLImage uRLImage;
 
     public HOMEinternaute() {
-//        AdView adView = new AdView(this);
-//        adView.setAdSize(AdSize.BANNER);
-//        adView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
-     // Label overflowMenu = new Label(MyApplication.theme.getImage("of_menu.png"));
-        toolbar.add(BorderLayout.CENTER, new Label("Nos espaces"));
-       //  overflowMenu.addPointerPressedListener((e) -> {
-         //   f.getToolbar().getMenuBar().showMenu();
-       // });
-        //toolbar.add(BorderLayout.EAST, overflowMenu);
-        
-        content.setLayout(new BoxLayout(BoxLayout.Y_AXIS));
-        
-      List<Espace_exposition> li = new ArrayList<>();
+      
+       f.setTitle("Nos espaces d'expositions");
+       f.setLayout(BoxLayout.y());
+       List<Espace_exposition> li = new ArrayList<>();
        ServiceEspaceexpo ses=new ServiceEspaceexpo();
        li=ses.getespace();
        
@@ -47,13 +37,9 @@ public class HOMEinternaute extends Layout {
         else{
         for (Espace_exposition ee:li){
            
-           content.add(addItem(ee));
+            f.add(addItem(ee));
        }
-   f.getAllStyles().setBgImage(MyApplication.theme.getImage("back_2.jpg"));
-    }
-    
-    }
-    
+    }}
     public Container addItem(Espace_exposition e){
         enc=EncodedImage.createFromImage(MyApplication.theme.getImage("100x100.png"), false);
         uRLImage=URLImage.createToStorage(enc, e.getPhoto(), Layout.URL+e.getPhoto(),URLImage.RESIZE_SCALE_TO_FILL);
@@ -77,7 +63,7 @@ public class HOMEinternaute extends Layout {
         return cnt2;
     }
         
-    
+        
 }        
         
         

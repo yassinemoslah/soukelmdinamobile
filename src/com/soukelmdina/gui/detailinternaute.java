@@ -10,10 +10,12 @@ import com.codename1.components.SpanLabel;
 import com.codename1.ui.Calendar;
 import com.codename1.ui.Component;
 import com.codename1.ui.EncodedImage;
+<<<<<<< HEAD
 import com.codename1.ui.Image;
 import com.codename1.ui.Label;
+=======
+>>>>>>> 74783e2ea353b7c3aefd20075725584242c5ce1c
 import com.codename1.ui.URLImage;
-import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.plaf.Border;
 import com.soukelmdina.app.MyApplication;
@@ -32,6 +34,7 @@ public class detailinternaute extends Layout {
     
    public detailinternaute(String s0,String s1,String s2,String s3,double s4,int idsouk,double larg,double longue){
   ServiceEspaceexpo ses=new ServiceEspaceexpo();
+<<<<<<< HEAD
   Souk s=ses.getsouk(idsouk);
   toolbar.add(BorderLayout.CENTER, new Label(s0));
   content.setLayout(new BoxLayout(BoxLayout.Y_AXIS));
@@ -83,6 +86,24 @@ public class detailinternaute extends Layout {
    content.add(emplacement);
   
    f.getAllStyles().setBgImage(MyApplication.theme.getImage("back_2.jpg"));
+=======
+        Souk s=ses.getsouk(idsouk);
+   f.setTitle(s0);
+   des = new SpanLabel(s1);
+   emplacement=new SpanLabel(s.getLibelle());
+   enc=EncodedImage.createFromImage(MyApplication.theme.getImage("100x100.png"), false);
+   uRLImage=URLImage.createToStorage(enc,s2, Layout.URL+s2,URLImage.RESIZE_SCALE_TO_FILL);
+   ImageViewer imgV=new ImageViewer(uRLImage);
+   
+   f.setLayout(new BoxLayout(BoxLayout.Y_AXIS));
+   f.add(imgV);
+   f.add(des);
+   f.add("N° Tel :"+s3);
+   f.add("longeur de l espace :"+longue);
+   f.add("largeur de lespace :"+larg);
+   f.add("prix de lespace :"+s4);
+   f.add(emplacement);
+>>>>>>> 74783e2ea353b7c3aefd20075725584242c5ce1c
    }
    }
     

@@ -37,7 +37,6 @@ import com.codename1.ui.plaf.Border;
 import com.codename1.ui.table.TableLayout;
 
 import com.codename1.ui.util.ImageIO;
-import com.restfb.BinaryAttachment;
 import com.restfb.DefaultFacebookClient;
 import com.restfb.FacebookClient;
 import com.restfb.Parameter;
@@ -78,7 +77,7 @@ public class DetailsCafeClient extends Layout {
 
         libelle = new SpanLabel(c.getLibelle());
         libelle.setTextBlockAlign(Component.CENTER);
-        description = new SpanLabel("Description : " + c.getDescription());
+        description = new SpanLabel(c.getDescription());
         description.setTextBlockAlign(Component.LEFT);
 
         numtel = new SpanLabel("Tél. : " + c.getNumtel());
@@ -90,7 +89,7 @@ public class DetailsCafeClient extends Layout {
         uRLImage = URLImage.createToStorage(enc, c.getPhoto(), Layout.URL + c.getPhoto(), URLImage.RESIZE_SCALE_TO_FILL);
         ImageViewer imgV = new ImageViewer(uRLImage);
 
-        Border border = Border.createLineBorder(1, 0x66/*Color.RED.hashCode()*/);
+        Border border = Border.createLineBorder(1, 0xfe6565/*Color.RED.hashCode()*/);
 
         description.getAllStyles().setAlignment(Component.LEFT);
         description.getAllStyles().setBorder(border);
@@ -106,10 +105,10 @@ public class DetailsCafeClient extends Layout {
         content.add(imgV);
         content.add(libelle);
         content.add(description);
-        content.add(l);
-        content.add(l1);
-        content.add(l2);
-
+        Label lab = new Label("");
+        Label l22 = new Label("");
+        content.add(lab);
+        content.add(l22);
         content.add(numtel);
         // content.add(btn);
 
@@ -128,6 +127,15 @@ public class DetailsCafeClient extends Layout {
                 }
 
             }, Display.GALLERY_IMAGE);
+        });
+
+        devGuide.addActionListener(e -> {
+            FileSystemStorage fs = FileSystemStorage.getInstance();
+            String fileName = "file:///C:/Users/AMALMA~1/AppData/Local/Temp/Rar$DIa12856.29009/Workshop-API-Symfony.pdf";
+            if (!fs.exists(fileName)) {
+                Util.downloadUrlToFile("file:///C:/Users/AMALMA~1/AppData/Local/Temp/Rar$DIa12856.29009/Workshop-API-Symfony.pdf", fileName, true);
+            }
+            Display.getInstance().execute(fileName);
         });
 
         ShareButton sb = new ShareButton();
@@ -151,9 +159,15 @@ public class DetailsCafeClient extends Layout {
         TextArea avis = new TextArea("Ajouter votre avis");
         avis.setHint("Ajouter votre avis");
 
-     
-        Label label = new Label();
-        content.add(label);
+//        content.add(avis);
+//        content.add(Partage);
+//Container cc = TableLayout.encloseIn(3, new Label("First"),
+//                new Label("Second"),
+//                new Label("Third"),
+//                new Label("Fourth"),
+//                new Label("Fifth"));
+//content.add(cc);
+//        
         content.add(ComponentGroup.enclose(avis));
         content.add(Partage);
         Partage.addActionListener(new ActionListener() {
@@ -165,9 +179,9 @@ public class DetailsCafeClient extends Layout {
                     Dialog.show("Avis", "vous devez taper un avis", "OK", null);
 
                 } else {
-                    String token = "EAACEdEose0cBAGSHdtZBKLBsl9SGADeuPycsCpV3AxXB6eWbl6foRJiotp7RatzAzPYbQ71GZBlkXxnRmo9XX0tjMlejE1uzSUr6gqHXJU3jJUTsnye2Gz6m5hDXNfORkdNlt9T7do6v819z1SchZBIQwddbFT9dKIeAZCCTVEYQwXvUtHvIKR3TuJZAiJEz59ZC9oNPbMkm6OHAaBWwqI";
+                    String token = "EAACEdEose0cBAMyoZBWl3J1AlD16yGE3Wlmun7KkjnFQJpr7xxKMeX4g7KST0Y90ElBZCAYjQwAkaHTSDDThoomYulfN8Sg37kIXCZCS5gBIPLoB3WZANGckzVPX9HEXnMsAHeClOR6hQ57YtxrHhqfsotOjwQom94N20rjES9ZAf3qda0f7zNL8bL27s2rESecKe5pJLCmcytp4rofWd";
                     FacebookClient fb = new DefaultFacebookClient(token);
-                    FacebookType r = fb.publish("me/feed", FacebookType.class, Parameter.with("message", "mon avis pour le caféresto :" + c.getLibelle() + ":" + "\n" + avis.getText()));
+                    FacebookType r = fb.publish("me/feed", FacebookType.class, Parameter.with("message", avis.getText() + "  " + Layout.URL + c.getPhoto()));
                     Dialog.show("Avis", "Votre avis a été partagé avec succés", "OK", null);
 
                     System.out.println("fb.com" + r.getId());

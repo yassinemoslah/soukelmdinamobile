@@ -9,6 +9,7 @@
     <image name="back_2.jpg"  />
     <image name="back_3.jpg"  />
     <image name="back_4.jpg"  />
+    <image name="back_5.jpg"  />
     <image name="border.png"  />
     <image name="Button.borderBottom_1.png" type="multi"  />
     <image name="Button.borderBottom_2.png" type="multi"  />
@@ -39,9 +40,12 @@
     <image name="Button.borderTopR_3.png" type="multi"  />
     <image name="cal_left_arrow.png" type="multi"  />
     <image name="cal_right_arrow.png" type="multi"  />
+    <image name="car.png"  />
+    <image name="car_50.png"  />
     <image name="chbox1.png" type="multi"  />
     <image name="chboxv1.png" type="multi"  />
     <image name="cin.png"  />
+    <image name="cin_50.png"  />
     <image name="ComboBox.borderBottom_1.png" type="multi"  />
     <image name="ComboBox.borderBottomL_1.png" type="multi"  />
     <image name="ComboBox.borderBottomR_1.png" type="multi"  />
@@ -70,8 +74,9 @@
     <image name="Dialog.borderTopL_1.png" type="multi"  />
     <image name="Dialog.borderTopR_1.png" type="multi"  />
     <image name="genre.png"  />
-    <image name="line.png"  />
+    <image name="genre_50.png"  />
     <image name="marker.png"  />
+    <image name="marker_50.png"  />
     <image name="Menu.borderBottom_1.png" type="multi"  />
     <image name="Menu.borderBottomL_1.png" type="multi"  />
     <image name="Menu.borderBottomR_1.png" type="multi"  />
@@ -85,13 +90,17 @@
     <image name="of_menu.png" type="multi"  />
     <image name="panier.png"  />
     <image name="phone.png"  />
+    <image name="phone_50.png"  />
     <image name="role.png"  />
+    <image name="role_50.png"  />
     <image name="sliderEmpty.png" type="multi"  />
     <image name="sliderEmptyLeft.png" type="multi"  />
     <image name="sliderEmptyRight.png" type="multi"  />
     <image name="sliderRedCenter.png" type="multi"  />
     <image name="sliderRedLeft.png" type="multi"  />
     <image name="sliderRedRight.png" type="multi"  />
+    <image name="soukelmdina.png"  />
+    <image name="soukelmdinamobile.png"  />
     <image name="supp.png"  />
     <image name="switch_mask.png" type="multi"  />
     <image name="switch_off.png" type="multi"  />
@@ -807,4 +816,6 @@
     <image name="TitleArea.borderTop_1.png" type="multi"  />
     <image name="TitleArea.borderTopL_1.png" type="multi"  />
     <image name="TitleArea.borderTopR_1.png" type="multi"  />
+    <image name="walking.png"  />
+    <image name="walking_50.png"  />
 </resource>
