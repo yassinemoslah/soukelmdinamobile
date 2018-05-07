@@ -70,6 +70,7 @@
     <image name="Dialog.borderTopL_1.png" type="multi"  />
     <image name="Dialog.borderTopR_1.png" type="multi"  />
     <image name="genre.png"  />
+    <image name="line.png"  />
     <image name="marker.png"  />
     <image name="Menu.borderBottom_1.png" type="multi"  />
     <image name="Menu.borderBottomL_1.png" type="multi"  />
@@ -91,6 +92,7 @@
     <image name="sliderRedCenter.png" type="multi"  />
     <image name="sliderRedLeft.png" type="multi"  />
     <image name="sliderRedRight.png" type="multi"  />
+    <image name="supp.png"  />
     <image name="switch_mask.png" type="multi"  />
     <image name="switch_off.png" type="multi"  />
     <image name="switch_on.png" type="multi"  />

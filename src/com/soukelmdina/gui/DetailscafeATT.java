@@ -25,6 +25,7 @@ import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
+import com.codename1.ui.plaf.Border;
 import com.codename1.ui.util.ImageIO;
 import com.restfb.DefaultFacebookClient;
 import com.restfb.FacebookClient;
@@ -51,9 +52,9 @@ public class DetailscafeATT extends Layout {
     }
 
     DetailscafeATT(CafeResto c) {
-                                toolbar.add(BorderLayout.CENTER, new Label("Détails du caféResto"));
+        toolbar.add(BorderLayout.CENTER, new Label("Détails du caféResto"));
 
-                f.setLayout(new BoxLayout(BoxLayout.Y_AXIS));
+        f.setLayout(new BoxLayout(BoxLayout.Y_AXIS));
 
         f.getAllStyles().setBgImage(MyApplication.theme.getImage("back_1.jpg"));
 
@@ -86,12 +87,23 @@ public class DetailscafeATT extends Layout {
         enc = EncodedImage.createFromImage(MyApplication.theme.getImage("100x100.png"), false);
         uRLImage = URLImage.createToStorage(enc, c.getPhoto(), Layout.URL + c.getPhoto(), URLImage.RESIZE_SCALE_TO_FILL);
         ImageViewer imgV = new ImageViewer(uRLImage);
+        Border border = Border.createLineBorder(1, 0x66/*Color.RED.hashCode()*/);
 
+        description.getAllStyles().setAlignment(Component.LEFT);
+        description.getAllStyles().setBorder(border);
+        numtel.getAllStyles().setAlignment(Component.LEFT);
+        numtel.getAllStyles().setBorder(border);
+        Label l = new Label("");
+        Label l1 = new Label("");
+        Label l2 = new Label("");
         f.setTitle("CafeResto");
         content.setLayout(new BoxLayout(BoxLayout.Y_AXIS));
         content.add(imgV);
         content.add(libelle);
         content.add(description);
+        content.add(l);
+        content.add(l1);
+        content.add(l2);
         content.add(numtel);
         // content.add(btn);
 
@@ -139,48 +151,41 @@ public class DetailscafeATT extends Layout {
         sb.setImageToShare(imageFile, "image/png");
 
         Button Partage = new Button("partager votre avis sur Facebook");
-            TextArea avis = new TextArea("Ajouter votre avis");
-       avis.setHint("Ajouter votre avis");
+        TextArea avis = new TextArea("Ajouter votre avis");
+        avis.setHint("Ajouter votre avis");
 
 //        content.add(avis);
 //        content.add(Partage);
 //        
-        
-       // content.add(ComponentGroup.enclose(avis ));
+        // content.add(ComponentGroup.enclose(avis ));
         //content.add(Partage);
         Partage.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent evt) {
-                
-                
-                
-                
-                
-                if(isEmpty(avis.getText()))
-{
-                            Dialog.show("Avis", "vous devez taper un avis", "OK", null);
 
+                if (isEmpty(avis.getText())) {
+                    Dialog.show("Avis", "vous devez taper un avis", "OK", null);
 
+                } else {
+                    String token = "EAACEdEose0cBAMyoZBWl3J1AlD16yGE3Wlmun7KkjnFQJpr7xxKMeX4g7KST0Y90ElBZCAYjQwAkaHTSDDThoomYulfN8Sg37kIXCZCS5gBIPLoB3WZANGckzVPX9HEXnMsAHeClOR6hQ57YtxrHhqfsotOjwQom94N20rjES9ZAf3qda0f7zNL8bL27s2rESecKe5pJLCmcytp4rofWd";
+                    FacebookClient fb = new DefaultFacebookClient(token);
+                    FacebookType r = fb.publish("me/feed", FacebookType.class, Parameter.with("message", avis.getText() + "  " + Layout.URL + c.getPhoto()));
+                    Dialog.show("Avis", "Votre avis a été partagé avec succés", "OK", null);
 
-}else
-                {
-                String token = "EAACEdEose0cBAMyoZBWl3J1AlD16yGE3Wlmun7KkjnFQJpr7xxKMeX4g7KST0Y90ElBZCAYjQwAkaHTSDDThoomYulfN8Sg37kIXCZCS5gBIPLoB3WZANGckzVPX9HEXnMsAHeClOR6hQ57YtxrHhqfsotOjwQom94N20rjES9ZAf3qda0f7zNL8bL27s2rESecKe5pJLCmcytp4rofWd";
-                FacebookClient fb = new DefaultFacebookClient(token);
-                FacebookType r = fb.publish("me/feed", FacebookType.class, Parameter.with("message", avis.getText()+"  "+Layout.URL + c.getPhoto()));
-                        Dialog.show("Avis", "Votre avis a été partagé avec succés", "OK", null);
-                        
-                System.out.println("fb.com" + r.getId());
+                    System.out.println("fb.com" + r.getId());
 
-            }  }
+                }
+            }
         });
-    
+
     }
-  public  boolean isEmpty(String s)
-{
-    
-          if(s.equals("")) 
-               return true;
-     return false;
-}
+
+    public boolean isEmpty(String s) {
+
+        if (s.equals("")) {
+            return true;
+        }
+        return false;
+    }
 }

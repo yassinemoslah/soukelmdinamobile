@@ -97,7 +97,8 @@ public class Layout {
             char c = 'v';
             f.getToolbar().addMaterialCommandToSideMenu("", c, (e) -> {
             });
-            enc = EncodedImage.createFromImage(MyApplication.theme.getImage("250x250.png"), false);
+            
+            enc = EncodedImage.createFromImage(MyApplication.theme.getImage("100x100.png"), false);
             uRLImage = URLImage.createToStorage(enc, MyApplication.user.getPhoto(), Layout.URL + MyApplication.user.getPhoto(), URLImage.RESIZE_SCALE_TO_FILL);
             ImageViewer imgV = new ImageViewer(uRLImage);
             f.getToolbar().addComponentToSideMenu(imgV);
@@ -136,10 +137,14 @@ public class Layout {
                     HomeEvents es = new HomeEvents();
                     es.getF().show();
                 });
-                     f.getToolbar().addMaterialCommandToSideMenu("CafeResto", FontImage.MATERIAL_HOME, (e) -> {
-                PanierClient es = new PanierClient();  es.getF().show();
-              
-            });
+                f.getToolbar().addMaterialCommandToSideMenu("Caferesto", FontImage.MATERIAL_HOME, (e) -> {
+                    ListeCafeRestoClient es = new ListeCafeRestoClient();
+                    es.getF().show();
+                });
+                     f.getToolbar().addMaterialCommandToSideMenu("Panier", FontImage.MATERIAL_HOME, (e) -> {
+                    PanierClient es = new PanierClient();
+                    es.getF().show();
+                });
 
             }
             f.getToolbar().addMaterialCommandToSideMenu("Déconnexion", FontImage.MATERIAL_HOME, (e) -> {

@@ -62,15 +62,14 @@ import java.util.Map;
  * @author TAOUFIK
  */
 public class ProduitForm extends Layout {
-    
-Label panier=new Label();
+
+    Label panier = new Label();
 
     public ProduitForm(Produit produit) {
 
         f.setLayout(new BoxLayout(BoxLayout.Y_AXIS));
 
         toolbar.add(BorderLayout.CENTER, new Label(produit.getLibelle()));
-
 
         Label overflowMenu = new Label(MyApplication.theme.getImage("of_menu.png"));
 
@@ -80,19 +79,18 @@ Label panier=new Label();
         FontImage icon2 = FontImage.createMaterial(FontImage.MATERIAL_PHOTO, s1);
         FontImage icon22 = FontImage.createMaterial(FontImage.MATERIAL_NAVIGATE_BEFORE, s1);
 
-            
         overflowMenu.addPointerPressedListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-                try{
-                f.getToolbar().getMenuBar().showMenu();
-                } catch(Exception e){
-                    
+                try {
+                    f.getToolbar().getMenuBar().showMenu();
+                } catch (Exception e) {
+
                 }
             }
         });
         toolbar.add(BorderLayout.EAST, overflowMenu);
-        
+
         if (MyApplication.user != null) {
             if (MyApplication.user.getRole().equals("Vendeur"));
             f.getToolbar().addCommandToOverflowMenu("Editer Détail", icon30, (ev) -> {
@@ -104,7 +102,7 @@ Label panier=new Label();
         f.getToolbar().addCommandToOverflowMenu("Revenir", icon22, (ev) -> {
             new ListeProduitsByBoutiqueForm(btq).getF().show();
         });
-       
+
         //Toolbar.setGlobalToolbar(false);
         EncodedImage placeholder = EncodedImage.createFromImage(Image.createImage(f.getWidth(), f.getHeight(), 0xffff0000), true);
 
@@ -117,7 +115,7 @@ Label panier=new Label();
         Style s = UIManager.getInstance().getComponentStyle("Tab");
         FontImage icon1 = FontImage.createMaterial(FontImage.MATERIAL_CAMERA_FRONT, s);
         FontImage icon3 = FontImage.createMaterial(FontImage.MATERIAL_CARD_GIFTCARD, s);
-         FontImage icon6 = FontImage.createMaterial(FontImage.MATERIAL_RATE_REVIEW, s);
+        FontImage icon6 = FontImage.createMaterial(FontImage.MATERIAL_RATE_REVIEW, s);
 
         Container container1 = new Container(new BoxLayout(BoxLayout.Y_AXIS));
 
@@ -141,7 +139,7 @@ Label panier=new Label();
         container1.add(descval);
         Label categ = new Label("Categorie :");
         categ.getAllStyles().setFgColor(0xff000);
-        
+
         categ.getAllStyles().setAlignment(Component.LEFT);
         container1.add(categ);
         Label categval = new Label(categorie);
@@ -162,7 +160,7 @@ Label panier=new Label();
         EncodedImage placeholderview = EncodedImage.createFromImage(Image.createImage(deviceWidth, deviceWidth, 0xffff0000), true);
 
         Storage.getInstance().deleteStorageFile(produit.getPhoto());
-        Image image = URLImage.createToStorage(placeholderview, produit.getPhoto() ,
+        Image image = URLImage.createToStorage(placeholderview, produit.getPhoto(),
                 routes.getPhotoProduits() + "/" + produit.getPhoto());
 
         l.setImage(image);
@@ -174,11 +172,10 @@ Label panier=new Label();
         Slider slider = createStarRankSlider();
         TextField ratingdesc = new TextField("", "ERCRIRE UN AVIS", 20, TextArea.ANY);
         if (MyApplication.user != null) {
-            if (MyApplication.user.getRole().equals("Client") ) {
-               
+            if (MyApplication.user.getRole().equals("Client")) {
+
                 container6.add(ratingdesc);
                 container6.add(FlowLayout.encloseCenter(slider));
-               
 
                 Button addavis = new Button("Ajouter");
                 addavis.addActionListener(new ActionListener() {
@@ -200,10 +197,10 @@ Label panier=new Label();
                 container6.add(addavis);
             }
         }
-        
+
         Container container8 = new Container(new BoxLayout(BoxLayout.Y_AXIS));
         Rating[] ratings = new serviceRating().getRatings(produit.getId());
-        if(ratings.length == 0){
+        if (ratings.length == 0) {
             container8.add(new SpanLabel("Auccun Avis"));
         }
         ArrayList<HashMap<String, Object>> dataavis = new ArrayList<>();
@@ -239,16 +236,16 @@ Label panier=new Label();
                 starcontainer.add(fullStar);
             }
             item.add(starcontainer);
-            item.getAllStyles().setBgColor(0xfff/*Color.WHITE.hashCode()*/,true);
+            item.getAllStyles().setBgColor(0xfff/*Color.WHITE.hashCode()*/, true);
             container9.add(item);
             dataavis.add(listeavis(rating.getDescription(), rating.getNom(), rating.getEtoiles()));
         }
         //
         container9.setScrollable(true);
-        container9.getAllStyles().setBgColor(0xfff/*Color.WHITE.hashCode()*/,true);
+        container9.getAllStyles().setBgColor(0xfff/*Color.WHITE.hashCode()*/, true);
         container9.getAllStyles().setBgTransparency(100);
         container8.add(container9);
-        container8.getAllStyles().setBgColor(0xfff/*Color.WHITE.hashCode()*/,true);
+        container8.getAllStyles().setBgColor(0xfff/*Color.WHITE.hashCode()*/, true);
 
         container6.add(container8);
 
@@ -257,7 +254,7 @@ Label panier=new Label();
         t.addTab("Photos", icon1, container5);
         t.addTab("Avis", icon6, container6);
 
-      // t.getAllStyles().setBgImage(MyApplication.theme.getImage("back_1.jpg"));
+        // t.getAllStyles().setBgImage(MyApplication.theme.getImage("back_1.jpg"));
         Container cfinal = new Container();
 
         cfinal.setLayout(new BorderLayout());
@@ -270,35 +267,42 @@ Label panier=new Label();
         f.setScrollable(false);
         f.getAllStyles().setBgImage(MyApplication.theme.getImage("back_2.jpg"));
         t.getAllStyles().setBgImage(MyApplication.theme.getImage("back_2.jpg"));
-               // panier.setIcon(MyApplication.theme.getImage("phone.png"));
-                panier.setText("Ajouter au panier");
-                f.add(panier);
-                 panier.addPointerPressedListener((act) -> {
-                     int verif =0;
-                     for(int i=0;i<MyApplication.listeCommandep.size();i++)
-                         if(MyApplication.listeCommandep.get(i).getIdproduit()==produit.getId())
-                         {verif=1;
-                              MyApplication.listeCommandep.get(i).setQte(MyApplication.listeCommandep.get(i).getQte()+1);
-                             
-                  
-                       
-           }
-                     if(verif==0)
-                     {
-                     CommandeProduit cmp=new CommandeProduit();
-                     cmp.setIdproduit(produit.getId());
-                     cmp.setPhoto(produit.getPhoto());
-                     cmp.setQte(1);
-                     cmp.setPrix(produit.getPrix());
-                     MyApplication.listeCommandep.add(cmp);
-                     }
-                     
-                     System.out.println("men houné "+MyApplication.listeCommandep.toString());
-                 
-                     
+      
+        panier.setIcon(MyApplication.theme.getImage("panier.png"));
+        panier.setText("Ajouter au panier");
+if(MyApplication.user.getRole().equals("Client"))
+        f.add(panier);
+        panier.addPointerPressedListener((act) -> {
+            int verif = 0;
+            for (int i = 0; i < MyApplication.listeCommandep.size(); i++) {
+                if (MyApplication.listeCommandep.get(i).getIdproduit() == produit.getId()) {
+                    verif = 1;
+                    if (MyApplication.listeCommandep.get(i).getQte() < produit.getQuantite()) {
+
+                        MyApplication.listeCommandep.get(i).setQte(MyApplication.listeCommandep.get(i).getQte() + 1);
+                        Dialog.show("Panier!!", "Produit ajouté au panier ", "OK", null);
+
+                    } else {
+                        Dialog.show("Quantité indisponible!!", "Vous avez dépassez la quantité disponible", "OK", null);
+
+                    }
+
+                }
+            }
+            if (verif == 0) {
+                CommandeProduit cmp = new CommandeProduit();
+                cmp.setIdproduit(produit.getId());
+                cmp.setPhoto(produit.getPhoto());
+                cmp.setQte(1);
+                cmp.setPrix(produit.getPrix());
+                MyApplication.listeCommandep.add(cmp);
+                Dialog.show("Panier!!", "Produit ajouté au panier ", "OK", null);
+            }
+
+            System.out.println("men houné " + MyApplication.listeCommandep.toString());
+
         });
 
-        
     }
 
 //-- DON'T EDIT ABOVE THIS LINE!!!

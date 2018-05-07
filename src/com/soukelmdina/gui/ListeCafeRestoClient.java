@@ -12,6 +12,7 @@ import com.codename1.ui.Component;
 import com.codename1.ui.Container;
 import com.codename1.ui.Display;
 import com.codename1.ui.EncodedImage;
+import com.codename1.ui.Image;
 import com.codename1.ui.Label;
 import com.codename1.ui.URLImage;
 import com.codename1.ui.layouts.BorderLayout;
@@ -28,8 +29,8 @@ import java.util.ArrayList;
  */
 public class ListeCafeRestoClient extends Layout {
 
-        EncodedImage enc;
-        URLImage uRLImage;
+    EncodedImage enc;
+    URLImage uRLImage;
 
     public ListeCafeRestoClient() {
         toolbar.add(BorderLayout.CENTER, new Label("Liste des cafeResto"));
@@ -54,8 +55,8 @@ public class ListeCafeRestoClient extends Layout {
 
     public Container addItem(CafeResto c) {
         //Label lbimage= new Label(MyApplication.theme.getImage("round.png"));
-
-        enc = EncodedImage.createFromImage(MyApplication.theme.getImage("100x100.png"), false);
+        Image screenshot = Image.createImage(160, 160);
+        enc = EncodedImage.createFromImage(screenshot, false);
         System.out.println(c.getPhoto() + "taswiraaaa");
         uRLImage = URLImage.createToStorage(enc, c.getPhoto(), Layout.URL + c.getPhoto(), URLImage.RESIZE_SCALE_TO_FILL);
         ImageViewer imgV = new ImageViewer(uRLImage);
@@ -100,7 +101,6 @@ public class ListeCafeRestoClient extends Layout {
         //Label lbimage= new Label(MyApplication.theme.getImage("round.png"));
         Label lll = new Label("");
         Label llll = new Label("");
-
         Label ll = new Label("");
         Container cnt1 = new Container(BoxLayout.y());
         Container cnt3 = new Container(BoxLayout.x());

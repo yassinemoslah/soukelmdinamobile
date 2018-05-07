@@ -156,7 +156,7 @@ public class AjouterCafe extends Layout {
                 c.setNumtel(numtel.getText());
                 c.setAccept(0);
                 c.setIdSouk(idsouk);
-                c.setPhoto("d89f9a06458275cb0a8c32d02f9bb86.jpeg");
+                c.setPhoto(photo);
                 c.setIdprprio(MyApplication.user.getId());
                 System.out.println("id proprio" + c.getIdprprio());
                 sc.AjouterCafe(c, bytesdata);

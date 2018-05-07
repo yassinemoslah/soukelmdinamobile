@@ -66,15 +66,15 @@ public class AjoutProduitForm extends Layout {
         TextArea descriptionProduit = new TextArea("", 255);
         TextField prixProduit = new TextField("", "1234", 4, TextArea.NUMERIC);
         TextField quantiteProduit = new TextField("", "1234", 4, TextArea.NUMERIC);
-        
+
         EncodedImage enc;
         URLImage uRLImage;
         enc = EncodedImage.createFromImage(MyApplication.theme.getImage("100x100.png"), false);
-            uRLImage = URLImage.createToStorage(enc, MyApplication.user.getPhoto(), Layout.URL + MyApplication.user.getPhoto(), URLImage.RESIZE_SCALE_TO_FILL);
-            ImageViewer imgV = new ImageViewer(uRLImage);
-            content.add(imgV);
-            Label gallerie = new Label("Choisir Photo");
-            gallerie.addPointerPressedListener(new ActionListener() {
+        uRLImage = URLImage.createToStorage(enc, MyApplication.user.getPhoto(), Layout.URL + MyApplication.user.getPhoto(), URLImage.RESIZE_SCALE_TO_FILL);
+        ImageViewer imgV = new ImageViewer(uRLImage);
+        content.add(imgV);
+        Label gallerie = new Label("Choisir Photo");
+        gallerie.addPointerPressedListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent evt) {
@@ -89,7 +89,7 @@ public class AjoutProduitForm extends Layout {
                 }, Display.GALLERY_IMAGE);
             }
         });
-            content.add(gallerie);
+        content.add(gallerie);
 
         ComboBox<HashMap<String, Object>> combocategories = new ComboBox<>();
 
@@ -123,40 +123,39 @@ public class AjoutProduitForm extends Layout {
 
         Label overflowMenu = new Label(MyApplication.theme.getImage("of_menu.png"));
 
-        
-        
- f.getToolbar().addCommandToOverflowMenu("Retour à la list ",null, (ev) -> {
-               new ListeProduitsByBoutiqueForm(btq);});
-            f.getToolbar().addCommandToOverflowMenu("Gallerie",null, (ev) -> {
-                Display.getInstance().openGallery(e -> {
-                    if (e == null || e.getSource() == null) {
-                        showToast("Gallerie fermée");
-                        return;
-                    }
-                    path = (String) e.getSource();
-                    setImage(path, imgV);
-                }, Display.GALLERY_IMAGE);
-            });
-            overflowMenu.addPointerPressedListener(new ActionListener() {
+        f.getToolbar().addCommandToOverflowMenu("Retour à la list ", null, (ev) -> {
+            new ListeProduitsByBoutiqueForm(btq);
+        });
+        f.getToolbar().addCommandToOverflowMenu("Gallerie", null, (ev) -> {
+            Display.getInstance().openGallery(e -> {
+                if (e == null || e.getSource() == null) {
+                    showToast("Gallerie fermée");
+                    return;
+                }
+                path = (String) e.getSource();
+                setImage(path, imgV);
+            }, Display.GALLERY_IMAGE);
+        });
+        overflowMenu.addPointerPressedListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-                try{
-                f.getToolbar().getMenuBar().showMenu();
-                } catch(Exception e){
-                    
+                try {
+                    f.getToolbar().getMenuBar().showMenu();
+                } catch (Exception e) {
+
                 }
             }
         });
-            
-        toolbar.add(BorderLayout.EAST,overflowMenu);
 
-Container prod = new Container(BoxLayout.x());
+        toolbar.add(BorderLayout.EAST, overflowMenu);
+
+        Container prod = new Container(BoxLayout.x());
         Container px = new Container(BoxLayout.x());
         Container qnt = new Container(BoxLayout.x());
         Container desc = new Container(BoxLayout.x());
         Container cate = new Container(BoxLayout.x());
         Container btk = new Container(BoxLayout.x());
-         Label x = new Label("Nom Produits");
+        Label x = new Label("Nom Produits");
         x.setAlignment(Component.LEFT);
         x.getAllStyles().setFgColor(0x01E8C9);
         prod.add(x).add(nomProduit);
@@ -192,23 +191,21 @@ Container prod = new Container(BoxLayout.x());
         x.setAlignment(Component.LEFT);
         btk.add(x).add(comboboutiques);
         content.add(btk);
-  Button reset = new Button("Annuler");
+        Button reset = new Button("Annuler");
         Container cn = new Container(BoxLayout.x());
         cn.add(reset).add(submit);
         content.addComponent(cn);
-        
+
         reset.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent evt) {
-               nomProduit.setText("");
-               descriptionProduit.setText("");
-               quantiteProduit.setText("");
-               prixProduit.setText("");
+                nomProduit.setText("");
+                descriptionProduit.setText("");
+                quantiteProduit.setText("");
+                prixProduit.setText("");
             }
         });
-        
-        
 
         submit.addActionListener(new ActionListener() {
             @Override

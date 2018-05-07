@@ -70,8 +70,8 @@ public class Profile extends Layout {
             updatePassword upwd = new updatePassword();
             upwd.getF().show();
         });
-
-        enc = EncodedImage.createFromImage(MyApplication.theme.getImage("250x250.png"), false);
+Image screenshot = Image.createImage(150,150);
+        enc = EncodedImage.createFromImage(screenshot, false);
         uRLImage = URLImage.createToStorage(enc, MyApplication.user.getPhoto(), Layout.URL + MyApplication.user.getPhoto(), URLImage.RESIZE_SCALE_TO_FILL);
         ImageViewer imgV = new ImageViewer(uRLImage);
 

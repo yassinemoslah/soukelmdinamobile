@@ -81,35 +81,35 @@ public class MyApplication {
             System.out.println(ex);
         }
 
-        try {
-            Boolean test = Database.exists("pidev.db");
-            db = Database.openOrCreate("pidev.db");
-            if (!test) {
-                db.execute("create table CommandeProduit (id INTEGER, photo TEXT, qte INTEGER, prix REAL);");
-                System.out.println("d5alna");
-
-            }
-
-            Cursor cur1 = db.executeQuery("select * from CommandeProduit");
-
-            while (cur1.next()) {
-
-                CommandeProduit cp = new CommandeProduit();
-
-                Row row = cur1.getRow();
-
-                cp.setIdproduit(row.getInteger(0));
-                cp.setPhoto(row.getString(1));
-                cp.setQte(row.getInteger(2));
-                cp.setPrix(row.getDouble(3));
-                listeCommandep.add(cp);
-
-            }
-        } catch (IOException ex) {
-
-            System.out.println(ex);
-        }
-        System.out.println("baw  +" + listeCommandep);
+//        try {
+//            Boolean test = Database.exists("pidev.db");
+//            db = Database.openOrCreate("pidev.db");
+//            if (!test) {
+//                db.execute("create table CommandeProduit (id INTEGER, photo TEXT, qte INTEGER, prix REAL);");
+//                System.out.println("d5alna");
+//
+//            }
+//
+//            Cursor cur1 = db.executeQuery("select * from CommandeProduit");
+//
+//            while (cur1.next()) {
+//
+//                CommandeProduit cp = new CommandeProduit();
+//
+//                Row row = cur1.getRow();
+//
+//                cp.setIdproduit(row.getInteger(0));
+//                cp.setPhoto(row.getString(1));
+//                cp.setQte(row.getInteger(2));
+//                cp.setPrix(row.getDouble(3));
+//                listeCommandep.add(cp);
+//
+//            }
+//        } catch (IOException ex) {
+//
+//            System.out.println(ex);
+//        }
+//        System.out.println("baw  +" + listeCommandep);
 
     }
 

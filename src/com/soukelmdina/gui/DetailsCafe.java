@@ -33,6 +33,7 @@ import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BorderLayout;
 
 import com.codename1.ui.layouts.BoxLayout;
+import com.codename1.ui.plaf.Border;
 
 import com.codename1.ui.util.ImageIO;
 import com.restfb.DefaultFacebookClient;
@@ -99,22 +100,30 @@ public class DetailsCafe extends Layout {
 
         libelle = new SpanLabel(c.getLibelle());
         libelle.setTextBlockAlign(Component.CENTER);
-        Label des= new Label("Description:");
+        Label des = new Label("Description:");
         des.setUIID("PinkLabel");
-        description = new SpanLabel("Description:"+ c.getDescription());
-       description.setTextBlockAlign(Component.LEFT);
-       // description.setIconPosition(BorderLayout.NORTH);
-
+        description = new SpanLabel("Description:" + c.getDescription());
+        description.setTextBlockAlign(Component.LEFT);
+        // description.setIconPosition(BorderLayout.NORTH);
 
         numtel = new SpanLabel("Tél. : " + c.getNumtel());
         numtel.setTextBlockAlign(Component.LEFT);
-       // numtel.setIconPosition(BorderLayout.NORTH);
+        // numtel.setIconPosition(BorderLayout.NORTH);
 
         Button btn = new Button("img");
 
         enc = EncodedImage.createFromImage(MyApplication.theme.getImage("100x100.png"), false);
         uRLImage = URLImage.createToStorage(enc, c.getPhoto(), Layout.URL + c.getPhoto(), URLImage.RESIZE_SCALE_TO_FILL);
         ImageViewer imgV = new ImageViewer(uRLImage);
+        Border border = Border.createLineBorder(1, 0x66/*Color.RED.hashCode()*/);
+
+        description.getAllStyles().setAlignment(Component.LEFT);
+        description.getAllStyles().setBorder(border);
+        numtel.getAllStyles().setAlignment(Component.LEFT);
+        numtel.getAllStyles().setBorder(border);
+        Label l = new Label("");
+        Label l1 = new Label("");
+        Label l2 = new Label("");
 
         f.setTitle("CafeResto");
         content.setLayout(new BoxLayout(BoxLayout.Y_AXIS));
@@ -122,6 +131,9 @@ public class DetailsCafe extends Layout {
         content.add(libelle);
 
         content.add(description);
+        content.add(l);
+        content.add(l1);
+        content.add(l2);
         content.add(numtel);
         // content.add(btn);
 
