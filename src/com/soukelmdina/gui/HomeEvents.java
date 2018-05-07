@@ -10,6 +10,7 @@ import com.codename1.ui.Container;
 import com.codename1.ui.EncodedImage;
 import com.codename1.ui.Label;
 import com.codename1.ui.URLImage;
+import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
 import com.soukelmdina.app.MyApplication;
 import com.soukelmdina.entite.Espace_exposition;
@@ -30,28 +31,29 @@ public class HomeEvents extends Layout {
 
     public HomeEvents() {
 
-        f.setTitle("Les évenements");
-        f.setLayout(BoxLayout.y());
+        toolbar.add(BorderLayout.CENTER, new Label("Modifier mon profil"));
+        content.setLayout(new BoxLayout(BoxLayout.Y_AXIS));
+
         List<Evenement> li = new ArrayList<>();
         ServiceEvenement se = new ServiceEvenement();
         li = se.getEvents();
 
         for (Evenement ee : li) {
 
-            f.add(addItem(ee));
+            content.add(addItem(ee));
         }
-
+        f.getAllStyles().setBgImage(MyApplication.theme.getImage("back_1.jpg"));
     }
 
     public Container addItem(Evenement e) {
-      enc=EncodedImage.createFromImage(MyApplication.theme.getImage("100x100.png"), false);
-        uRLImage=URLImage.createToStorage(enc, e.getPhoto(), Layout.URL+e.getPhoto(),URLImage.RESIZE_SCALE_TO_FILL);
-        ImageViewer imgV=new ImageViewer(uRLImage);
+        enc = EncodedImage.createFromImage(MyApplication.theme.getImage("100x100.png"), false);
+        uRLImage = URLImage.createToStorage(enc, e.getPhoto(), Layout.URL + e.getPhoto(), URLImage.RESIZE_SCALE_TO_FILL);
+        ImageViewer imgV = new ImageViewer(uRLImage);
         Label lbimage = new Label(MyApplication.theme.getImage("round.png"));
         Label lblib = new Label(e.getLibelle());
         //btn.addActionListener((act)->{System.out.println(e);});
         lblib.addPointerPressedListener((act) -> {
-            DetailsEvents intdesc = new DetailsEvents();
+            DetailsEvents intdesc = new DetailsEvents(e);
             intdesc.getF().show();
         });
         Container cnt1 = new Container(BoxLayout.y());

@@ -9,7 +9,10 @@ import com.codename1.components.ImageViewer;
 import com.codename1.components.SpanLabel;
 import com.codename1.ui.Button;
 import com.codename1.ui.Component;
+import com.codename1.ui.Container;
 import com.codename1.ui.EncodedImage;
+import com.codename1.ui.Graphics;
+import com.codename1.ui.Image;
 import com.codename1.ui.Label;
 import com.codename1.ui.URLImage;
 import com.codename1.ui.layouts.BorderLayout;
@@ -22,54 +25,71 @@ import com.soukelmdina.app.MyApplication;
  */
 public class Profile extends Layout {
 
-    private SpanLabel nomprenom, mail, numtel, cin, sexe, role, adresse, ville, codePostal;
+    private SpanLabel mail, numtel, cin, sexe, role, adresse, ville, codePostal;
+    private Label nomprenom;
     private EncodedImage enc;
     private URLImage uRLImage;
-    private Button btn;
+    private Button btn, btn1;
 
     public Profile() {
-        nomprenom = new SpanLabel(MyApplication.user.getNom() + " " + MyApplication.user.getPrenom());
-        nomprenom.setTextBlockAlign(Component.CENTER);
-        mail = new SpanLabel("E-mail : " + MyApplication.user.getMail());
-        mail.setTextBlockAlign(Component.LEFT);
-        numtel = new SpanLabel("Tél. : " + MyApplication.user.getNumTel());
-        numtel.setTextBlockAlign(Component.LEFT);
-        cin = new SpanLabel("CIN : " + MyApplication.user.getCin());
-        cin.setTextBlockAlign(Component.LEFT);
-        sexe = new SpanLabel("Genre : " + MyApplication.user.getSexe());
-        sexe.setTextBlockAlign(Component.LEFT);
-        role = new SpanLabel("Rôle : " + MyApplication.user.getRole());
-        role.setTextBlockAlign(Component.LEFT);
-        adresse = new SpanLabel("Adresse : " + MyApplication.user.getAdresse().getAdresse());
-        adresse.setTextBlockAlign(Component.LEFT);
-        ville = new SpanLabel("Gouvernorat : " + MyApplication.user.getAdresse().getVille());
-        ville.setTextBlockAlign(Component.LEFT);
-        codePostal = new SpanLabel("Code postal : " + MyApplication.user.getAdresse().getCodePostal());
-        codePostal.setTextBlockAlign(Component.LEFT);
+        nomprenom = new Label(MyApplication.user.getNom() + " " + MyApplication.user.getPrenom());
+        nomprenom.setUIID("PinkLabel");
+        mail = new SpanLabel(MyApplication.user.getMail());
+        mail.setTextBlockAlign(Component.CENTER);
 
-        btn = new Button("Modifier mon profil");
+        numtel = new SpanLabel(MyApplication.user.getNumTel());
+        numtel.setIcon(MyApplication.theme.getImage("phone.png"));
+        cin = new SpanLabel(MyApplication.user.getCin());
+        cin.setIcon(MyApplication.theme.getImage("cin.png"));
+        cin.setTextBlockAlign(Component.RIGHT);
+        Container cnt1 = new Container(new BorderLayout());
+        cnt1.add(BorderLayout.EAST, cin);
+        cnt1.add(BorderLayout.WEST, numtel);
+
+        sexe = new SpanLabel(MyApplication.user.getSexe());
+        sexe.setIcon(MyApplication.theme.getImage("genre.png"));
+        role = new SpanLabel(MyApplication.user.getRole());
+        role.setIcon(MyApplication.theme.getImage("role.png"));
+
+        Container cnt2 = new Container(new BorderLayout());
+        cnt2.add(BorderLayout.EAST, sexe);
+        cnt2.add(BorderLayout.WEST, role);
+
+        adresse = new SpanLabel(MyApplication.user.getAdresse().getAdresse() + ", " + MyApplication.user.getAdresse().getVille() + ", " + MyApplication.user.getAdresse().getCodePostal());
+        adresse.setIcon(MyApplication.theme.getImage("marker.png"));
+
+        btn = new Button("Modifier mon profile");
+        btn1 = new Button("Modifier mon mot de passe");
 
         btn.addActionListener((e) -> {
             updateProfile up = new updateProfile();
             up.getF().show();
         });
 
-        enc = EncodedImage.createFromImage(MyApplication.theme.getImage("100x100.png"), false);
+        btn1.addActionListener((e) -> {
+            updatePassword upwd = new updatePassword();
+            upwd.getF().show();
+        });
+Image screenshot = Image.createImage(150,150);
+        enc = EncodedImage.createFromImage(screenshot, false);
         uRLImage = URLImage.createToStorage(enc, MyApplication.user.getPhoto(), Layout.URL + MyApplication.user.getPhoto(), URLImage.RESIZE_SCALE_TO_FILL);
         ImageViewer imgV = new ImageViewer(uRLImage);
+
         toolbar.add(BorderLayout.CENTER, new Label("Profile"));
-        content.setLayout(new BoxLayout(BoxLayout.Y_AXIS));
-        content.add(imgV);
-        content.add(nomprenom);
-        content.add(mail);
-        content.add(cin);
-        content.add(numtel);
-        content.add(sexe);
-        content.add(role);
-        content.add(adresse);
-        content.add(codePostal);
-        content.add(ville);
-        content.add(btn);
+        f.setLayout(new BoxLayout(BoxLayout.Y_AXIS));
+        f.add(new Label(" "));
+        f.add(imgV);
+        f.add(nomprenom);
+        f.add(mail);
+        f.add(new Label(" "));
+        f.add(cnt1);
+        f.add(new Label(" "));
+        f.add(cnt2);
+        f.add(new Label(" "));
+        f.add(adresse);
+        f.add(new Label(" "));
+        f.add(btn);
+        f.add(btn1);
         f.getAllStyles().setBgImage(MyApplication.theme.getImage("back_1.jpg"));
     }
 
