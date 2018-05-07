@@ -34,7 +34,7 @@ public class Layout {
     Container main;
     private EncodedImage enc;
     private URLImage uRLImage;
-    public static String URL = "http://127.0.0.1";
+    public static String URL = "http://192.168.1.48";
 
     public Layout() {
         f = new Form();
@@ -67,6 +67,7 @@ public class Layout {
         f.add(main);
 
         if (MyApplication.user == null) {
+            f.getToolbar().addComponentToSideMenu(new Label(MyApplication.theme.getImage("soukelmdina.png")));
             f.getToolbar().addMaterialCommandToSideMenu("Accueil", FontImage.MATERIAL_HOME, (e) -> {
                 HomeForm home = new HomeForm();
                 home.getF().show();
@@ -97,7 +98,7 @@ public class Layout {
             char c = 'v';
             f.getToolbar().addMaterialCommandToSideMenu("", c, (e) -> {
             });
-            enc = EncodedImage.createFromImage(MyApplication.theme.getImage("250x250.png"), false);
+            enc = EncodedImage.createFromImage(MyApplication.theme.getImage("100x100.png"), false);
             uRLImage = URLImage.createToStorage(enc, MyApplication.user.getPhoto(), Layout.URL + MyApplication.user.getPhoto(), URLImage.RESIZE_SCALE_TO_FILL);
             ImageViewer imgV = new ImageViewer(uRLImage);
             f.getToolbar().addComponentToSideMenu(imgV);

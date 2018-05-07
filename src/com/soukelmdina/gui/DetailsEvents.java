@@ -18,9 +18,9 @@ import com.soukelmdina.app.MyApplication;
 import com.soukelmdina.entite.Evenement;
 import com.soukelmdina.service.ServiceEvenement;
 import com.soukelmdina.service.ServiceUtilisateur;
-import com.soukelmdina.service.SmsSender;
+//import com.soukelmdina.service.SmsSender;
 import java.util.ArrayList;
-import no.vianett.sms.Sms;
+//import no.vianett.sms.Sms;
 
 /**
  *
@@ -72,7 +72,7 @@ public class DetailsEvents extends Layout {
 
                 HomeEvents hm = new HomeEvents();
                 hm.getF().show();
-                SmsSender ss = new SmsSender();
+              //  SmsSender ss = new SmsSender();
                 
             }
 

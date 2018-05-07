@@ -102,7 +102,7 @@ public class Inscription extends Layout {
 
         remplirGouvernorat();
 
-        changePhoto = new Label(MyApplication.theme.getImage("avatar.png").scaledLargerRatio(250, 250));
+        changePhoto = new Label(MyApplication.theme.getImage("avatar.png").scaledLargerRatio(100, 100));
         changePhoto.addPointerPressedListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 if (Dialog.show("Camera ou Gallerie", "Voulez vous prendre ou choisir une photo ?", "Camera", "Gallerie")) {
@@ -114,7 +114,7 @@ public class Inscription extends Layout {
                             ByteArrayOutputStream out = new ByteArrayOutputStream();
                             imgIO.save(img, out, ImageIO.FORMAT_JPEG, 1);
                             bytesdata = out.toByteArray();
-                            changePhoto.setIcon(Image.createImage(FileSystemStorage.getInstance().openInputStream(photo)).scaledSmallerRatio(250, 250));
+                            changePhoto.setIcon(Image.createImage(FileSystemStorage.getInstance().openInputStream(photo)).scaledSmallerRatio(100, 100));
                             f.revalidate();
 
                         } catch (IOException err) {
@@ -134,7 +134,7 @@ public class Inscription extends Layout {
                                     ByteArrayOutputStream out = new ByteArrayOutputStream();
                                     imgIO.save(img, out, ImageIO.FORMAT_JPEG, 1);
                                     bytesdata = out.toByteArray();
-                                    changePhoto.setIcon(Image.createImage(FileSystemStorage.getInstance().openInputStream(photo)).scaledSmallerRatio(250, 250));
+                                    changePhoto.setIcon(Image.createImage(FileSystemStorage.getInstance().openInputStream(photo)).scaledSmallerRatio(100, 100));
                                     f.revalidate();
                                 } catch (IOException ex) {
                                     System.out.println(ex);

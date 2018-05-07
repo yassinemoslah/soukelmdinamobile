@@ -6,7 +6,7 @@
 package com.soukelmdina.service;
 
 
-import com.soukelmdina.app.MyApplication;
+/*import com.soukelmdina.app.MyApplication;
 import com.soukelmdina.entite.Utilisateur;
 import no.vianett.sms.SmsEventListener;
 import no.vianett.sms.Sms;
@@ -59,3 +59,4 @@ public class SmsSender implements SmsEventListener
     
    
 }
+*/
