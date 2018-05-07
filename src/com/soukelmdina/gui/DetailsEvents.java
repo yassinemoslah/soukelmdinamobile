@@ -16,6 +16,7 @@ import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
 import com.soukelmdina.app.MyApplication;
 import com.soukelmdina.entite.Evenement;
+import com.soukelmdina.service.Example;
 import com.soukelmdina.service.ServiceEvenement;
 import com.soukelmdina.service.ServiceUtilisateur;
 import java.util.ArrayList;
@@ -70,6 +71,11 @@ public class DetailsEvents extends Layout {
 
                 HomeEvents hm = new HomeEvents();
                 hm.getF().show();
+<<<<<<< HEAD
+                //SmsSender ss = new SmsSender();
+                Example ex = new Example();
+=======
+>>>>>>> 5888cd07c0efc721124cb76856678b8d8f3b9086
                 
             }
 
