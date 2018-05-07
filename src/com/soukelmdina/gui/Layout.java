@@ -93,6 +93,10 @@ public class Layout {
                 ListeCafeRestoClient es = new ListeCafeRestoClient();
                 es.getF().show();
             });
+      f.getToolbar().addMaterialCommandToSideMenu("Boutiques", FontImage.MATERIAL_HOME, (e) -> {
+                    AffichageBoutique1 es = new AffichageBoutique1();
+                    es.getF().show();
+                });
         } else {
             char c = 'v';
             f.getToolbar().addMaterialCommandToSideMenu("", c, (e) -> {
@@ -127,6 +131,10 @@ public class Layout {
                 ListeCafeRestoVendeur es = new ListeCafeRestoVendeur();
                 es.getF().show();
             });
+       f.getToolbar().addMaterialCommandToSideMenu("Boutiques", FontImage.MATERIAL_HOME, (e) -> {
+                    AffichageBoutique2 es = new AffichageBoutique2();
+                    es.getF().show();
+                });
             } else if (role.equals("Client")) {
 
                 f.getToolbar().addMaterialCommandToSideMenu("Espace d'exposition", FontImage.MATERIAL_HOME, (e) -> {
@@ -143,6 +151,10 @@ public class Layout {
                 });
                      f.getToolbar().addMaterialCommandToSideMenu("Panier", FontImage.MATERIAL_HOME, (e) -> {
                     PanierClient es = new PanierClient();
+                    es.getF().show();
+                });
+                     f.getToolbar().addMaterialCommandToSideMenu("Boutiques", FontImage.MATERIAL_HOME, (e) -> {
+                    AffichageBoutique1 es = new AffichageBoutique1();
                     es.getF().show();
                 });
 
