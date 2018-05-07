@@ -72,12 +72,12 @@ public class Layout {
                 HomeForm home = new HomeForm();
                 home.getF().show();
             });
-            f.getToolbar().addMaterialCommandToSideMenu("Login", FontImage.MATERIAL_HOME, (e) -> {
+            f.getToolbar().addMaterialCommandToSideMenu("Login", FontImage.MATERIAL_OPEN_IN_NEW, (e) -> {
                 Login login = new Login();
                 login.getF().show();
             });
             
-            f.getToolbar().addMaterialCommandToSideMenu("Souks", FontImage.MATERIAL_HOME, (e) -> {
+            f.getToolbar().addMaterialCommandToSideMenu("Souks", FontImage.MATERIAL_ACCOUNT_BALANCE, (e) -> {
                 ListeSouks souks = new ListeSouks();
                 souks.getF().show();
             });
@@ -109,11 +109,11 @@ public class Layout {
                 HomeForm home = new HomeForm();
                 home.getF().show();
             });
-            f.getToolbar().addMaterialCommandToSideMenu("Profile", FontImage.MATERIAL_HOME, (e) -> {
+            f.getToolbar().addMaterialCommandToSideMenu("Profile", FontImage.MATERIAL_PERM_IDENTITY, (e) -> {
                 Profile profile = new Profile();
                 profile.getF().show();
             });
-              f.getToolbar().addMaterialCommandToSideMenu("Souks", FontImage.MATERIAL_HOME, (e) -> {
+              f.getToolbar().addMaterialCommandToSideMenu("Souks", FontImage.MATERIAL_ACCOUNT_BALANCE, (e) -> {
                 ListeSouks souks = new ListeSouks();
                 souks.getF().show();
             });
@@ -143,7 +143,7 @@ public class Layout {
             });
 
             }
-            f.getToolbar().addMaterialCommandToSideMenu("Déconnexion", FontImage.MATERIAL_HOME, (e) -> {
+            f.getToolbar().addMaterialCommandToSideMenu("Déconnexion", FontImage.MATERIAL_SUBDIRECTORY_ARROW_LEFT, (e) -> {
                 MyApplication.user = null;
                 try {
                     MyApplication.db.execute("delete from user");
