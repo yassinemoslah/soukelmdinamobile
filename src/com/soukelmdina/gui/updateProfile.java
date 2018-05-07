@@ -71,7 +71,7 @@ public class updateProfile extends Layout {
         prenom = new TextField(MyApplication.user.getPrenom());
         numtel = new TextField(MyApplication.user.getNumTel());
         adresse = new TextField(MyApplication.user.getAdresse().getAdresse());
-        codePostal = new TextField(String.valueOf(MyApplication.user.getAdresse().getCodePostal()), "Code postal", 4, TextArea.NUMERIC);
+        codePostal = new TextField(String.valueOf(MyApplication.user.getAdresse().getCodePostal()));
 
         homme = new RadioButton("Homme");
         femme = new RadioButton("Femme");
@@ -83,8 +83,8 @@ public class updateProfile extends Layout {
             femme.setSelected(true);
         }
         remplirGouvernorat();
-        enc = EncodedImage.createFromImage(MyApplication.theme.getImage("250x250.png"), false);
-        uRLImage = URLImage.createToStorage(enc, MyApplication.user.getPhoto()+"a", Layout.URL + MyApplication.user.getPhoto(), URLImage.RESIZE_SCALE_TO_FILL);
+        enc = EncodedImage.createFromImage(MyApplication.theme.getImage("100x100.png"), false);
+        uRLImage = URLImage.createToStorage(enc, MyApplication.user.getPhoto(), Layout.URL + MyApplication.user.getPhoto(), URLImage.RESIZE_SCALE_TO_FILL);
         changePhoto = new Label(uRLImage);
         changePhoto.addPointerPressedListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -97,7 +97,7 @@ public class updateProfile extends Layout {
                             ByteArrayOutputStream out = new ByteArrayOutputStream();
                             imgIO.save(img, out, ImageIO.FORMAT_JPEG, 1);
                             bytesdata = out.toByteArray();
-                            changePhoto.setIcon(Image.createImage(FileSystemStorage.getInstance().openInputStream(photo)).scaledSmallerRatio(250, 250));
+                            changePhoto.setIcon(Image.createImage(FileSystemStorage.getInstance().openInputStream(photo)).scaledSmallerRatio(100, 100));
 
                         } catch (IOException err) {
                             System.out.println(err);
@@ -116,7 +116,7 @@ public class updateProfile extends Layout {
                                     ByteArrayOutputStream out = new ByteArrayOutputStream();
                                     imgIO.save(img, out, ImageIO.FORMAT_JPEG, 1);
                                     bytesdata = out.toByteArray();
-                                    changePhoto.setIcon(Image.createImage(FileSystemStorage.getInstance().openInputStream(photo)).scaledSmallerRatio(250, 250));
+                                    changePhoto.setIcon(Image.createImage(FileSystemStorage.getInstance().openInputStream(photo)).scaledSmallerRatio(100, 100));
                                 } catch (IOException ex) {
                                     System.out.println(ex);
                                 }

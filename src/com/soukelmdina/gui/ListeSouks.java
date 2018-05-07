@@ -36,7 +36,7 @@ public class ListeSouks extends Layout {
         f.getAllStyles().setBgImage(MyApplication.theme.getImage("back_1.jpg"));
 
         content.setLayout(BoxLayout.y());
-
+        content.add(new Label(" "));
         ServiceSouk ss = new ServiceSouk();
         listeSouks = ss.getListSouks();
 

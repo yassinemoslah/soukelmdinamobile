@@ -5,7 +5,10 @@
  */
 package com.soukelmdina.gui;
 
+import com.codename1.location.Location;
+import com.codename1.location.LocationManager;
 import com.codename1.ui.Container;
+import com.codename1.ui.Dialog;
 import com.codename1.ui.Image;
 import com.codename1.ui.Label;
 import com.codename1.ui.layouts.BorderLayout;

@@ -1,2 +1,5 @@
 /SoukElMdinaMobile/nbproject/private/
 /dist/
+*.class
+*.class
+build/classes/com/soukelmdina/entite/Commande.class

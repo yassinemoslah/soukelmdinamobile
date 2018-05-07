@@ -42,10 +42,12 @@ public class Boutique1 {
         this.nbD = nbD;
     }
 
-    public Boutique1(String libelle, String description, String numtel) {
+    public Boutique1(String libelle, String description, String numtel, int n, String s) {
         this.libelle = libelle;
         this.description=description;
         this.numTel=numtel;
+        this.idSouk=n;
+        this.photo=s;
     }
     
     

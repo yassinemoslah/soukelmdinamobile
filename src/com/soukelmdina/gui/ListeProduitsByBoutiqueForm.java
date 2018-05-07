@@ -35,14 +35,14 @@ import java.util.HashMap;
  * @author TAOUFIK
  */
 public class ListeProduitsByBoutiqueForm extends Layout {
-
+    
     public Produit[] produits = null;
-
-    public ListeProduitsByBoutiqueForm(Boutique boutique) {
-        f.setLayout(new BoxLayout(BoxLayout.Y_AXIS));
+    
+public ListeProduitsByBoutiqueForm(Boutique boutique) {
+    f.setLayout(new BoxLayout(BoxLayout.Y_AXIS));
 
         toolbar.add(BorderLayout.CENTER, new Label("Liste des Produits "));
-
+        
         f.removeComponent(main);
         main.removeComponent(toolbar);
         f.add(toolbar);
@@ -58,7 +58,7 @@ public class ListeProduitsByBoutiqueForm extends Layout {
             Storage.getInstance().deleteStorageFile(produit.getPhoto());
             Image icon = URLImage.createToStorage(placeholder, produit.getPhoto(), routes.getPhotoProduits() + "/" + produit.getPhoto());
             data.add(createListEntry(produit.getLibelle(), "" + produit.getPrix(), icon, produit.getId()));
-
+           
         }
 
         DefaultListModel<HashMap<String, Object>> model = new DefaultListModel<>(data);
@@ -67,58 +67,63 @@ public class ListeProduitsByBoutiqueForm extends Layout {
         ml.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-
+                
                 int i = ml.getSelectedIndex();
-
+              
                 ToastBar.Status status = ToastBar.getInstance().createStatus();
-                status.setMessage("produit" + produits[i].getId());
-                status.setExpires(2000);
-                status.show();
-
+        status.setMessage("produit" + produits[i].getId());
+        status.setExpires(2000);
+        status.show();
+                
+                
                 new ProduitForm(produits[i]).getF().show();
-
+          
             }
         });
-
-        Label overflowMenu = new Label(MyApplication.theme.getImage("of_menu.png"));
-        f.getToolbar().addCommandToOverflowMenu("Revenir", null, (ev) -> {
-            new ListeBoutiqueProd().getF().show();
-        });
-        toolbar.add(BorderLayout.EAST, overflowMenu);
-        overflowMenu.addPointerPressedListener(new ActionListener() {
+        
+            
+     Label overflowMenu = new Label(MyApplication.theme.getImage("of_menu.png"));
+         f.getToolbar().addCommandToOverflowMenu("Revenir", null, (ev) -> {
+                 new ListeBoutiqueProd().getF().show();
+            });
+         toolbar.add(BorderLayout.EAST, overflowMenu);
+          overflowMenu.addPointerPressedListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-                try {
-                    f.getToolbar().getMenuBar().showMenu();
-                } catch (Exception e) {
-
+                try{
+                f.getToolbar().getMenuBar().showMenu();
+                } catch(Exception e){
+                    
                 }
             }
         });
-
+          
         Container c = new Container(new BorderLayout());
-
+       
         //ml.getStyle().setBgColor(0x01E8C9);
         ml.getAllStyles().setBgImage(MyApplication.theme.getImage("back_1.jpg"));
+        
 
-        c.add(BorderLayout.CENTER, ml);
+        
+        c.add(BorderLayout.CENTER,ml);
         c.setScrollableY(true);
 
+        
         main.removeComponent(content);
-
+       
         c.setScrollable(false);
         content.setScrollable(false);
         f.setScrollable(false);
         f.getAllStyles().setBgImage(MyApplication.theme.getImage("back_1.jpg"));
         //content.getAllStyles().setBgImage(MyApplication.theme.getImage("back_2.jpg"));
-
-        f.add(c);
+        
+          f.add(c);
     }
 
     private HashMap<String, Object> createListEntry(String libelle, String prix, Image icon, int id) {
         HashMap<String, Object> entry = new HashMap<>();
         entry.put("Line1", libelle);
-        entry.put("Line2", prix + " DT");
+        entry.put("Line2", prix+" DT");
         entry.put("id", id);
         entry.put("icon", icon);
         return entry;
