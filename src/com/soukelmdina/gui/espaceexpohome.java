@@ -39,9 +39,9 @@ public class espaceexpohome extends Layout {
         else{
         for (Espace_exposition ee:li){
            
-            f.add(addItem(ee));
+           content.add(addItem(ee));
        }
-    }}
+    }  f.getAllStyles().setBgImage(MyApplication.theme.getImage("back_2.jpg"));}
     public Container addItem(Espace_exposition e){
         enc=EncodedImage.createFromImage(MyApplication.theme.getImage("100x100.png"), false);
         uRLImage=URLImage.createToStorage(enc, e.getPhoto(), Layout.URL+e.getPhoto(),URLImage.RESIZE_SCALE_TO_FILL);
@@ -50,7 +50,7 @@ public class espaceexpohome extends Layout {
         Label btn= new Label(e.getLibelle());
         //btn.addActionListener((act)->{System.out.println(e);});
          
-        btn.addPointerPressedListener((act)->{detailespace int2 = new detailespace(e.getLibelle(),e.getDescription(),e.getPhoto(),e.getNumTel(),e.getPrix(),e.getIdsouk(),e.getLongeur(),e.getLargeur());
+        btn.addPointerPressedListener((act)->{detailespace int2 = new detailespace(e.getId(),e.getLibelle(),e.getDescription(),e.getPhoto(),e.getNumTel(),e.getPrix(),e.getIdsouk(),e.getLongeur(),e.getLargeur());
         int2.getF().show();
         });
         Container  cnt1 = new Container(BoxLayout.y());
