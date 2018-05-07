@@ -40,7 +40,7 @@ import java.util.Map;
  */
 public class DetailsSouk extends Layout {
 
-    private SpanLabel description, gouvernorat;
+    private SpanLabel description, gouvernorat; 
     private Label libelle;
     EncodedImage enc;
     URLImage uRLImage;
