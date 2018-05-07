@@ -100,9 +100,9 @@ public class DetailsCafe extends Layout {
 
         libelle = new SpanLabel(c.getLibelle());
         libelle.setTextBlockAlign(Component.CENTER);
-        Label des = new Label("Description:");
-        des.setUIID("PinkLabel");
-        description = new SpanLabel("Description:" + c.getDescription());
+      //  Label des = new Label("Description:");
+       // des.setUIID("PinkLabel");
+        description = new SpanLabel( c.getDescription());
         description.setTextBlockAlign(Component.LEFT);
         // description.setIconPosition(BorderLayout.NORTH);
 
@@ -115,7 +115,7 @@ public class DetailsCafe extends Layout {
         enc = EncodedImage.createFromImage(MyApplication.theme.getImage("100x100.png"), false);
         uRLImage = URLImage.createToStorage(enc, c.getPhoto(), Layout.URL + c.getPhoto(), URLImage.RESIZE_SCALE_TO_FILL);
         ImageViewer imgV = new ImageViewer(uRLImage);
-        Border border = Border.createLineBorder(1, 0x66/*Color.RED.hashCode()*/);
+        Border border = Border.createLineBorder(1, 0xfe6565/*Color.RED.hashCode()*/);
 
         description.getAllStyles().setAlignment(Component.LEFT);
         description.getAllStyles().setBorder(border);
@@ -128,7 +128,13 @@ public class DetailsCafe extends Layout {
         f.setTitle("CafeResto");
         content.setLayout(new BoxLayout(BoxLayout.Y_AXIS));
         content.add(imgV);
+        //SpanLabel lablibelle = new SpanLabel("Description");
+        //lablibelle.setTextBlockAlign(Component.LEFT);
+
+        //lablibelle.setUIID("RedLabel");
         content.add(libelle);
+      //
+    //  content.add(lablibelle);
 
         content.add(description);
         content.add(l);

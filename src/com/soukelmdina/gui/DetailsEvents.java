@@ -71,11 +71,10 @@ public class DetailsEvents extends Layout {
 
                 HomeEvents hm = new HomeEvents();
                 hm.getF().show();
-<<<<<<< HEAD
+
                 //SmsSender ss = new SmsSender();
                 Example ex = new Example();
-=======
->>>>>>> 5888cd07c0efc721124cb76856678b8d8f3b9086
+
                 
             }
 

@@ -5,8 +5,10 @@
  */
 package com.soukelmdina.gui;
 
+import com.codename1.components.FloatingActionButton;
 import com.codename1.components.ImageViewer;
 import com.codename1.components.SpanLabel;
+import com.codename1.components.ToastBar;
 import com.codename1.io.FileSystemStorage;
 import com.codename1.ui.Button;
 import com.codename1.ui.Component;
@@ -14,6 +16,7 @@ import com.codename1.ui.Container;
 import com.codename1.ui.Dialog;
 import com.codename1.ui.Display;
 import com.codename1.ui.EncodedImage;
+import com.codename1.ui.FontImage;
 import com.codename1.ui.Image;
 import com.codename1.ui.Label;
 import com.codename1.ui.TextArea;
@@ -57,7 +60,6 @@ public class AjouterCafe extends Layout {
 
     public AjouterCafe() {
         toolbar.add(BorderLayout.CENTER, new Label("Ajouter CafeResto"));
-
         f.getAllStyles().setBgImage(MyApplication.theme.getImage("back_1.jpg"));
 
         libelle = new TextField();
@@ -114,10 +116,12 @@ public class AjouterCafe extends Layout {
         erreurSouk.setVisible(false);
         p.setName("souk");
         p.setStrings(tabsouks);
+//fab.bindFabToContainer(content.getContentPane());
 
         content.add(imgV);
         content.add(erreurPhoto);
         erreurPhoto.setUIID("RedLabel");
+
         content.add(container);
         content.add(libelle);
         content.add(erreurLibelle);

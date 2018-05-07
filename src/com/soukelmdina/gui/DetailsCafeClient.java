@@ -78,7 +78,7 @@ public class DetailsCafeClient extends Layout {
 
         libelle = new SpanLabel(c.getLibelle());
         libelle.setTextBlockAlign(Component.CENTER);
-        description = new SpanLabel("Description : " + c.getDescription());
+        description = new SpanLabel( c.getDescription());
         description.setTextBlockAlign(Component.LEFT);
 
         numtel = new SpanLabel("Tél. : " + c.getNumtel());
@@ -90,7 +90,7 @@ public class DetailsCafeClient extends Layout {
         uRLImage = URLImage.createToStorage(enc, c.getPhoto(), Layout.URL + c.getPhoto(), URLImage.RESIZE_SCALE_TO_FILL);
         ImageViewer imgV = new ImageViewer(uRLImage);
 
-        Border border = Border.createLineBorder(1, 0x66/*Color.RED.hashCode()*/);
+        Border border = Border.createLineBorder(1, 0xfe6565/*Color.RED.hashCode()*/);
 
         description.getAllStyles().setAlignment(Component.LEFT);
         description.getAllStyles().setBorder(border);
