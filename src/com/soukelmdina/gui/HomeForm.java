@@ -28,11 +28,11 @@ import java.io.IOException;
 public class HomeForm extends Layout {
 
     public HomeForm() {
-        f.setLayout(new BoxLayout(BoxLayout.Y_AXIS));
+        //f.setLayout(new BorderLayout());
 
         toolbar.add(BorderLayout.CENTER, new Label("Accueil"));
         Label lbl = new Label("Welcome to Souk El Mdina");
-        content.add(lbl);
+        
 Label overflowMenu = new Label(MyApplication.theme.getImage("of_menu.png")); 
  
  overflowMenu.addPointerPressedListener((e) -> {f.getToolbar().getMenuBar().showMenu();
@@ -47,7 +47,8 @@ Label overflowMenu = new Label(MyApplication.theme.getImage("of_menu.png"));
                     Media video = MediaManager.createMedia("file:/C:/Users/marye/Desktop/Medina.mp4", true);
 //                    hi.setLayout(new BorderLayout());
 
-content.setLayout(new BorderLayout());
+                content.setLayout(new BorderLayout());
+                content.add(BorderLayout.NORTH,lbl);
                 content.add(BorderLayout.SOUTH,new MediaPlayer(video));
 //                  
                 content.revalidate();

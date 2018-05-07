@@ -62,14 +62,22 @@ public class espacevendeur extends Layout{
     ImageViewer imgV=new ImageViewer(uRLImage);
         //Label lbimage= new Label(MyApplication.theme.getImage("round.png"));
     Label btn= new Label(e.getLibelle());
+ 
+         Label btn1= new Label(String.valueOf(e.getPrix())+" DT/J");
+         Label lab1= new Label("");
+         Label lab2= new Label("");
         //btn.addActionListener((act)->{System.out.println(e);});
          
     btn.addPointerPressedListener((act)->{detailvendeur int2 = new detailvendeur(e.getId(),e.getLibelle(),e.getDescription(),e.getPhoto(),e.getNumTel(),e.getPrix(),e.getIdsouk(),e.getLongeur(),e.getLargeur());
     int2.getF().show();
        });
     Container  cnt1 = new Container(BoxLayout.y());
-       
-    cnt1.add(btn);
+         cnt1.add(lab1);
+        cnt1.add(lab2);
+    
+        cnt1.add(btn);
+         cnt1.add(btn1);
+
     Container cnt2= new Container(BoxLayout.x());
         //Container cnt2= BorderLayout.center(cnt1);
         //cnt2.add(BorderLayout.EAST, lbimage);

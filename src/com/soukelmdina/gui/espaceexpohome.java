@@ -9,6 +9,7 @@ import com.codename1.components.SpanLabel;
 import com.codename1.ui.Component;
 import com.codename1.ui.Container;
 import com.codename1.ui.EncodedImage;
+import com.codename1.ui.Image;
 import com.codename1.ui.Label;
 import com.codename1.ui.URLImage;
 import com.codename1.ui.layouts.BoxLayout;
@@ -40,22 +41,32 @@ public class espaceexpohome extends Layout {
         for (Espace_exposition ee:li){
            
            content.add(addItem(ee));
+            content.add(addItem1());
        }
     }  f.getAllStyles().setBgImage(MyApplication.theme.getImage("back_2.jpg"));}
     public Container addItem(Espace_exposition e){
-        enc=EncodedImage.createFromImage(MyApplication.theme.getImage("100x100.png"), false);
+        
+        Image screenshot = Image.createImage(160, 160);
+        enc = EncodedImage.createFromImage(screenshot, false);
         uRLImage=URLImage.createToStorage(enc, e.getPhoto(), Layout.URL+e.getPhoto(),URLImage.RESIZE_SCALE_TO_FILL);
         ImageViewer imgV=new ImageViewer(uRLImage);
         //Label lbimage= new Label(MyApplication.theme.getImage("round.png"));
         Label btn= new Label(e.getLibelle());
+         Label btn1= new Label(String.valueOf(e.getPrix())+" DT/J");
+         Label lab1= new Label("");
+         Label lab2= new Label("");
         //btn.addActionListener((act)->{System.out.println(e);});
          
         btn.addPointerPressedListener((act)->{detailespace int2 = new detailespace(e.getId(),e.getLibelle(),e.getDescription(),e.getPhoto(),e.getNumTel(),e.getPrix(),e.getIdsouk(),e.getLongeur(),e.getLargeur());
         int2.getF().show();
         });
         Container  cnt1 = new Container(BoxLayout.y());
-       
+        
+            cnt1.add(lab1);
+        cnt1.add(lab2);
+    
         cnt1.add(btn);
+         cnt1.add(btn1);
         Container cnt2= new Container(BoxLayout.x());
         //Container cnt2= BorderLayout.center(cnt1);
         //cnt2.add(BorderLayout.EAST, lbimage);
@@ -68,7 +79,23 @@ public class espaceexpohome extends Layout {
         
         
         
-        
+          public Container addItem1() {
+        //Label lbimage= new Label(MyApplication.theme.getImage("round.png"));
+        Label lll = new Label("");
+        Label llll = new Label("");
+        Label ll = new Label("");
+        Container cnt1 = new Container(BoxLayout.y());
+        Container cnt3 = new Container(BoxLayout.x());
+
+        cnt1.add(ll);
+        cnt1.add(llll);
+
+        cnt1.add(lll);
+
+        //  cnt2.add(ll);
+        // cnt3.add(cnt2);
+        return cnt1;
+    }
         
         
         

@@ -82,6 +82,17 @@ public class controleSaisie {
         return false;
     }
 
+       public boolean isValidFloat(String str) {
+		try {
+			Double.parseDouble(str);
+		} catch (NumberFormatException nfe) {
+			return false;
+		}
+		return true;		
+	}
+    
+    
+    
     public boolean controleMailFormat(String chaine) {
         if (chaine.length() != 0) {
             if (chaine.charAt(chaine.length() - 1) == '.') {

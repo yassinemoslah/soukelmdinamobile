@@ -29,6 +29,7 @@ import com.soukelmdina.app.MyApplication;
 import com.soukelmdina.entite.Souk;
 import com.soukelmdina.gui.Layout;
 import com.soukelmdina.service.ServiceEspaceexpo;
+import com.soukelmdina.technique.controleSaisie;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -42,6 +43,8 @@ public class createespace extends Layout{
   
     private TextField nom, description, numtel, categorie, larg,longu,prix,cat;
     private SpanLabel lnom, ldescription, lnumtel, lcategorie, llarg, llongu,lprix;
+    Label erreurLibelle, erreurDescription, erreurnumtel, erreurPhoto, erreurSouk,erreurlarg,erreurlong,erreurprix,erreurcat ;
+       
    List<Souk> li = new ArrayList<>();
    Button btn;
     private EncodedImage enc;
@@ -89,7 +92,37 @@ public class createespace extends Layout{
         larg=new TextField();
         longu=new TextField();
         prix=new TextField();
+            erreurLibelle = new Label();
+        erreurLibelle.setVisible(false);
+        erreurDescription = new Label();
+        erreurDescription.setVisible(false);
+        erreurnumtel = new Label();
+        erreurnumtel.setVisible(false);
+        erreurPhoto = new Label();
+        erreurPhoto.setVisible(false);
+        erreurLibelle.setVisible(false);
+        erreurDescription.setVisible(false);
+        erreurnumtel.setVisible(false);
+        erreurPhoto.setVisible(false);
+         erreurSouk = new Label();
+        erreurSouk.setVisible(false);
+         erreurlarg = new Label();
+        erreurlarg.setVisible(false);
+          erreurlong = new Label();
+        erreurlong.setVisible(false);
+          erreurprix = new Label();
+        erreurprix.setVisible(false);
+         erreurcat = new Label();
+        erreurcat.setVisible(false);
+        
         btn = new Button("ajouter annonce");
+          
+        
+        
+        
+        
+        
+        
 enc = EncodedImage.createFromImage(MyApplication.theme.getImage("100x100.png"), false);
  uRLImage = URLImage.createToStorage(enc,photo, Layout.URL + photo, URLImage.RESIZE_SCALE_TO_FILL);
 ImageViewer imgV = new ImageViewer(uRLImage);
@@ -136,38 +169,103 @@ ImageViewer imgV = new ImageViewer(uRLImage);
             }
         }
         );
+             controleSaisie ctrl = new controleSaisie();
              btn.addActionListener(
                (e) -> {
                    int nb=0;
                    if(photo.equals("nophoto")){System.out.println("champs photo vide");
-                    Dialog.show("Alerte","champs photo vide", "cancel", "ok");
+                  
+                    erreurPhoto.setText("champs photo vide");
+                    erreurPhoto.setVisible(true);
                    nb++;
                    }
                    if(nom.getText().equals("")){System.out.println("champs nom vide");
-                   Dialog.show("Alerte","champs photo vide", "cancel", "ok");
+                    erreurLibelle.setText("champs nom vide");
+                    erreurLibelle.setVisible(true);
                    nb++;
                    }
                    if(longu.getText().equals("")){System.out.println("champs longeur vide");
+                   erreurlong.setText("champs longeur vide");
+                   erreurlong.setVisible(true);
                    nb++;
                    }
                    
                    if(larg.getText().equals("")){System.out.println("champs largeur vide");
+                    erreurlarg.setText("champs largeur vide");
+                    erreurlarg.setVisible(true);
+                   nb++;
+                   }
+                     if(description.getText().equals("")){System.out.println("champs largeur vide");
+                    erreurDescription.setText("champs description vide");
+                  erreurDescription.setVisible(true);
                    nb++;
                    }
                    
                    if(prix.getText().equals("")){System.out.println("champs prix vide");
+                    erreurprix.setText("champs prix vide");
+                    erreurprix.setVisible(true);
                    nb++;
                    }
                    
                    if(cat.getText().equals("")){System.out.println("champs categorie vide");
+                    erreurcat.setText("champs categorie vide");
+                    erreurcat.setVisible(true);
                    nb++;
                    }
-                   
-                 if(p.getValue()==null){System.out.println("champs categorie vide");
+                   if(ctrl.controleNumTelLongueur(numtel.getText())){
+                   erreurnumtel.setText("Repllir avec 8 chiffre");
+                    erreurnumtel.setVisible(true);
                    nb++;
+                   
+                   
+                   }
+                    if(numtel.getText().equals("")){
+                   erreurnumtel.setText("champs N° tel vide");
+                    erreurnumtel.setVisible(true);
+                   nb++;
+                   
+                   
+                   }
+                 if(p.getValue()==null){System.out.println("champs souk vide");
+                  erreurSouk.setText("champs souk vide");
+                  erreurSouk.setVisible(true);  
+                 nb++;
                    }
                    
-                   
+                 if(!ctrl.isValidFloat(prix.getText())){
+                       erreurprix.setText("remplir avec des chiffres");
+                   erreurprix.setVisible(true);  
+                 nb++;
+                      
+                      
+                  }
+                  if(!ctrl.isValidFloat(longu.getText())){
+                      
+                      
+                       erreurlong.setText("remplir avec des chiffres");
+                   erreurlong.setVisible(true);  
+                 nb++;
+                  }
+                  if(!ctrl.isValidFloat(larg.getText())){
+                       erreurlarg.setText("remplir avec des chiffres");
+                  erreurlarg.setVisible(true);  
+                 nb++;
+                      
+                  }
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
                    if(nb==0)
                    {
                    System.out.println(photo);
@@ -194,25 +292,45 @@ ImageViewer imgV = new ImageViewer(uRLImage);
        
         toolbar.add(BorderLayout.CENTER, new Label("Ajouter un nouveau espace"));
         content.setLayout(new BoxLayout(BoxLayout.Y_AXIS));
-      content.add(imgV);
+        content.add(imgV);
         content.add(changePhoto);
+        content.add(erreurPhoto);
+        erreurPhoto.setUIID("RedLabel");
         content.add(lnom);
         content.add(nom);
+        content.add(erreurLibelle);
+        erreurLibelle.setUIID("RedLabel");
         content.add(ldescription);
-        content.add(description);
+                content.add(description);
+        content.add(erreurDescription);
+        erreurDescription.setUIID("RedLabel");
         content.add(lcategorie);
         content.add(cat);
+        content.add( erreurcat);
+         erreurcat.setUIID("RedLabel");
         content.add(lnumtel);
         content.add(numtel);
+        content.add(erreurnumtel);
+        erreurnumtel.setUIID("RedLabel");
         content.add(llarg);
+        
         content.add(larg);
+        content.add(erreurlarg);
+        erreurlarg.setUIID("RedLabel");
+        
         content.add(llongu);
         content.add(longu);
+        content.add(erreurlong);
+        erreurlong.setUIID("RedLabel");
         content.add(lprix);
         content.add(prix);
-        content.add(p);
-        content.add(btn);
-        f.getAllStyles().setBgImage(MyApplication.theme.getImage("back_1.jpg"));
+         content.add(erreurprix);
+         erreurprix.setUIID("RedLabel");
+         content.add(p);
+         content.add(erreurSouk);
+         erreurSouk.setUIID("RedLabel");
+         content.add(btn);
+         f.getAllStyles().setBgImage(MyApplication.theme.getImage("back_1.jpg"));
     }
 
    

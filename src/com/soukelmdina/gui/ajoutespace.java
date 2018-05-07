@@ -96,6 +96,7 @@ public class ajoutespace extends Layout {
       
         
         enc = EncodedImage.createFromImage(MyApplication.theme.getImage("100x100.png"), false);
+      
        // uRLImage = URLImage.createToStorage(enc,urloldphoto, Layout.URL + urloldphoto, URLImage.RESIZE_SCALE_TO_FILL);
         ImageViewer imgV = new ImageViewer(uRLImage);
 
