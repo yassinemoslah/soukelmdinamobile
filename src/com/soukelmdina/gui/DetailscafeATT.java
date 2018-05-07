@@ -25,6 +25,7 @@ import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
+import com.codename1.ui.plaf.Border;
 import com.codename1.ui.util.ImageIO;
 import com.restfb.DefaultFacebookClient;
 import com.restfb.FacebookClient;
@@ -75,7 +76,7 @@ public class DetailscafeATT extends Layout {
 
         libelle = new SpanLabel(c.getLibelle());
         libelle.setTextBlockAlign(Component.CENTER);
-        description = new SpanLabel("Description : " + c.getDescription());
+        description = new SpanLabel(c.getDescription());
         description.setTextBlockAlign(Component.LEFT);
 
         numtel = new SpanLabel("Tél. : " + c.getNumtel());
@@ -87,11 +88,25 @@ public class DetailscafeATT extends Layout {
         uRLImage = URLImage.createToStorage(enc, c.getPhoto(), Layout.URL + c.getPhoto(), URLImage.RESIZE_SCALE_TO_FILL);
         ImageViewer imgV = new ImageViewer(uRLImage);
 
+        Border border = Border.createLineBorder(1, 0xfe6565/*Color.RED.hashCode()*/);
+
+        description.getAllStyles().setAlignment(Component.LEFT);
+        description.getAllStyles().setBorder(border);
+        numtel.getAllStyles().setAlignment(Component.LEFT);
+        numtel.getAllStyles().setBorder(border);
+        Label l = new Label("");
+        Label l1 = new Label("");
+        
+
         f.setTitle("CafeResto");
         content.setLayout(new BoxLayout(BoxLayout.Y_AXIS));
         content.add(imgV);
         content.add(libelle);
         content.add(description);
+        Label lab = new Label ("");
+        Label l2 = new Label("");
+        content.add(lab);
+        content.add(l2);
         content.add(numtel);
         // content.add(btn);
 

@@ -141,6 +141,10 @@ public class Layout {
                 ListeCafeRestoClient es = new ListeCafeRestoClient();
                 es.getF().show();
             });
+                             f.getToolbar().addMaterialCommandToSideMenu("Panier", FontImage.MATERIAL_HOME, (e) -> {
+                PanierClient es = new PanierClient();
+                es.getF().show();
+            });
 
             }
             f.getToolbar().addMaterialCommandToSideMenu("Déconnexion", FontImage.MATERIAL_SUBDIRECTORY_ARROW_LEFT, (e) -> {

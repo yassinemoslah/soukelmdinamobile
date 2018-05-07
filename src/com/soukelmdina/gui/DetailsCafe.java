@@ -33,6 +33,7 @@ import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BorderLayout;
 
 import com.codename1.ui.layouts.BoxLayout;
+import com.codename1.ui.plaf.Border;
 
 import com.codename1.ui.util.ImageIO;
 import com.restfb.DefaultFacebookClient;
@@ -99,16 +100,22 @@ public class DetailsCafe extends Layout {
 
         libelle = new SpanLabel(c.getLibelle());
         libelle.setTextBlockAlign(Component.CENTER);
-        Label des= new Label("Description:");
-        des.setUIID("PinkLabel");
-        description = new SpanLabel("Description:"+ c.getDescription());
-       description.setTextBlockAlign(Component.LEFT);
-       // description.setIconPosition(BorderLayout.NORTH);
 
+        //  Label des = new Label("Description:");
+        // des.setUIID("PinkLabel");
+        description = new SpanLabel(c.getDescription());
+        description.setTextBlockAlign(Component.LEFT);
+        // description.setIconPosition(BorderLayout.NORTH);
+
+        Label des = new Label("Description:");
+        des.setUIID("PinkLabel");
+        description = new SpanLabel("Description:" + c.getDescription());
+        description.setTextBlockAlign(Component.LEFT);
+        // description.setIconPosition(BorderLayout.NORTH);
 
         numtel = new SpanLabel("Tél. : " + c.getNumtel());
         numtel.setTextBlockAlign(Component.LEFT);
-       // numtel.setIconPosition(BorderLayout.NORTH);
+        // numtel.setIconPosition(BorderLayout.NORTH);
 
         Button btn = new Button("img");
 
@@ -116,12 +123,32 @@ public class DetailsCafe extends Layout {
         uRLImage = URLImage.createToStorage(enc, c.getPhoto(), Layout.URL + c.getPhoto(), URLImage.RESIZE_SCALE_TO_FILL);
         ImageViewer imgV = new ImageViewer(uRLImage);
 
+        Border border = Border.createLineBorder(1, 0xfe6565/*Color.RED.hashCode()*/);
+
+        description.getAllStyles().setAlignment(Component.LEFT);
+        description.getAllStyles().setBorder(border);
+        numtel.getAllStyles().setAlignment(Component.LEFT);
+        numtel.getAllStyles().setBorder(border);
+        Label l = new Label("");
+        Label l1 = new Label("");
+        Label l2 = new Label("");
+
         f.setTitle("CafeResto");
         content.setLayout(new BoxLayout(BoxLayout.Y_AXIS));
         content.add(imgV);
+        SpanLabel lablibelle = new SpanLabel();
+        //lablibelle.setTextBlockAlign(Component.LEFT);
+
+        //lablibelle.setUIID("RedLabel");
         content.add(libelle);
+        //
 
         content.add(description);
+         Label lab = new Label ("");
+        Label l222 = new Label("");
+        content.add(lab);
+        content.add(l222);
+
         content.add(numtel);
         // content.add(btn);
 
