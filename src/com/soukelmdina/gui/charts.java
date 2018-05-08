@@ -17,6 +17,7 @@ import com.codename1.ui.Form;
 import com.codename1.ui.Label;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
+import com.soukelmdina.app.MyApplication;
 import com.soukelmdina.service.ServiceBoutique;
 import java.util.Random;
 
@@ -30,6 +31,31 @@ public class charts extends Layout {
     ServiceBoutique sb = new ServiceBoutique();
 
     public charts(int k) {
+        
+        Label overflowMenu = new Label(MyApplication.theme.getImage("of_menu.png"));
+        
+        toolbar.add(BorderLayout.EAST, overflowMenu);
+        overflowMenu.addPointerPressedListener((e) -> {
+            f.getToolbar().getMenuBar().showMenu();
+        });
+        
+        
+        f.getToolbar().addCommandToOverflowMenu("Toutes les boutiques", null,
+                (ev) -> {
+                    AffichageBoutique2 home = new AffichageBoutique2(); home.getF().show();
+                });
+        f.getToolbar().addCommandToOverflowMenu("Mes Boutiques", null,
+                (ev) -> {
+                    BoutiqueParVendeur cf = new BoutiqueParVendeur();
+                    cf.getF().show();
+                });
+        
+        f.getToolbar().addCommandToOverflowMenu("Ajouter", null,
+                (ev) -> {
+                    AjoutBoutique home = new AjoutBoutique(); home.getF().show();
+                });
+        
+        
        ServiceBoutique serviceTask = new ServiceBoutique();
        //toolbar.add(BorderLayout.NORTH, new Label("charts"));
       

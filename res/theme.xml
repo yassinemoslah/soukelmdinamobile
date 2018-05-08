@@ -88,7 +88,6 @@
     <image name="Menu.borderTopR_1.png" type="multi"  />
     <image name="menu.png" type="multi"  />
     <image name="of_menu.png" type="multi"  />
-    <image name="panier.png"  />
     <image name="phone.png"  />
     <image name="phone_50.png"  />
     <image name="role.png"  />
@@ -101,7 +100,6 @@
     <image name="sliderRedRight.png" type="multi"  />
     <image name="soukelmdina.png"  />
     <image name="soukelmdinamobile.png"  />
-    <image name="supp.png"  />
     <image name="switch_mask.png" type="multi"  />
     <image name="switch_off.png" type="multi"  />
     <image name="switch_on.png" type="multi"  />

@@ -48,9 +48,37 @@ public class AjoutBoutique extends Layout {
     EncodedImage enc;
     URLImage uRLImage;private byte[] bytesdata;
 
-    String photo = "nophoto";
+    String photo = "";
     Label erreurLibelle, erreurDescription, erreurnumtel, erreurPhoto, erreurSouk;
     public AjoutBoutique() {
+        
+        
+        
+        Label overflowMenu = new Label(MyApplication.theme.getImage("of_menu.png"));
+        
+        toolbar.add(BorderLayout.EAST, overflowMenu);
+        overflowMenu.addPointerPressedListener((e) -> {
+            f.getToolbar().getMenuBar().showMenu();
+        });
+        
+        
+        f.getToolbar().addCommandToOverflowMenu("Toutes les boutiques", null,
+                (ev) -> {
+                    AffichageBoutique2 home = new AffichageBoutique2(); home.getF().show();
+                });
+        f.getToolbar().addCommandToOverflowMenu("Mes Boutiques", null,
+                (ev) -> {
+                    BoutiqueParVendeur cf = new BoutiqueParVendeur();
+                    cf.getF().show();
+                });
+        
+        f.getToolbar().addCommandToOverflowMenu("Stat", null,
+                (ev) -> {
+                    ChoixStat home = new ChoixStat(); home.getF().show();
+                });
+        
+        
+        
         toolbar.add(BorderLayout.CENTER, new Label("Ajouter Boutique"));
         f.setLayout(new BoxLayout(BoxLayout.Y_AXIS));
         content.setLayout(new BoxLayout(BoxLayout.Y_AXIS));
@@ -140,12 +168,16 @@ Container container = new Container();
                             else
                             {if(act.getText()=="")
                                     Dialog.show("Alerte", "Choisissez souk", "OK", null); 
+                            else{if(photo=="")
+                               Dialog.show("Alerte", "Choisissez Photo", "OK", null);
                             else{
-                               
                                 number=ser.findSouksJson2(chch); 
                                 System.out.println("number : "+number);
-                                Boutique1 t = new Boutique1(tnom.getText(), tdes.getText(), numtel.getText(),number,photo);
+                                Boutique1 t = new Boutique1(tnom.getText(), tdes.getText(), numtel.getText(),number,photo, MyApplication.user.getId());
                                 ser.ajoutTask(t, bytesdata);
+                                BoutiqueParVendeur cf = new BoutiqueParVendeur();
+                    cf.getF().show();
+                            }
                             }
                           }                            
                         }
@@ -172,8 +204,7 @@ Container container = new Container();
                 @Override
                 public void actionPerformed(ActionEvent ev) {
                     if (ev != null && ev.getSource() != null) {
-                        photo = (String) ev.getSource();
-                        
+                        photo = (String) ev.getSource();                        
                         try {
                             Image img = Image.createImage((String) ev.getSource());
                             ImageIO imgIO = ImageIO.getImageIO();

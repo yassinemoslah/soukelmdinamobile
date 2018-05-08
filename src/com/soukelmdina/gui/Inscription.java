@@ -102,11 +102,13 @@ public class Inscription extends Layout {
 
         remplirGouvernorat();
 
+       
         changePhoto = new Label(MyApplication.theme.getImage("avatar.png").scaledLargerRatio(100, 100));
         changePhoto.addPointerPressedListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 if (Dialog.show("Camera ou Gallerie", "Voulez vous prendre ou choisir une photo ?", "Camera", "Gallerie")) {
                     photo = Capture.capturePhoto();
+                    System.out.println(photo);
                     if (photo != null) {
                         try {
                             Image img = Image.createImage(photo);

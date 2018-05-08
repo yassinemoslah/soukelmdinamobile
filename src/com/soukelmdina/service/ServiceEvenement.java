@@ -5,11 +5,13 @@
  */
 package com.soukelmdina.service;
 
+import com.codename1.components.InfiniteProgress;
 import com.codename1.io.CharArrayReader;
 import com.codename1.io.ConnectionRequest;
 import com.codename1.io.JSONParser;
 import com.codename1.io.MultipartRequest;
 import com.codename1.io.NetworkManager;
+import com.codename1.ui.Dialog;
 import com.soukelmdina.entite.Evenement;
 import com.soukelmdina.entite.Utilisateur;
 import com.soukelmdina.gui.Layout;
@@ -25,10 +27,12 @@ import java.util.Map;
 public class ServiceEvenement {
 
     public ArrayList<Evenement>  getEvents() {
+        Dialog ip = new InfiniteProgress().showInifiniteBlocking();
         ArrayList<Evenement> listevents = new ArrayList<>();
         ConnectionRequest con = new ConnectionRequest();
         con.setUrl(Layout.URL + "/soukelmdinaweb/web/app_dev.php/app/AllEvents");
         con.addResponseListener(e -> {
+            ip.dispose();
             JSONParser jsonp = new JSONParser();
             try {
                 Map<String, Object> evenements = jsonp.parseJSON(new CharArrayReader(new String(con.getResponseData()).toCharArray()));
@@ -62,10 +66,14 @@ public class ServiceEvenement {
         return listevents;
     }
     public void updateevent(Evenement e) {
+        Dialog ip = new InfiniteProgress().showInifiniteBlocking();
         ConnectionRequest con = new ConnectionRequest();
        
             con.setUrl(Layout.URL + "/soukelmdinaweb/web/app_dev.php/app/updateevent/" + e.getNbreTickets() + "/" + e.getCaisse() + "/" +e.getPrixTicket() + "/" + e.getId());
             NetworkManager.getInstance().addToQueueAndWait(con);
+            con.addResponseListener((ev)->{
+            ip.dispose();
+            });
            
         }
 

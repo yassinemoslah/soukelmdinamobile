@@ -32,6 +32,8 @@ import com.codename1.ui.util.ImageIO;
 import com.soukelmdina.app.MyApplication;
 import com.soukelmdina.entite.Utilisateur;
 import com.soukelmdina.service.ServiceUtilisateur;
+import com.soukelmdina.technique.SpanLabel1;
+import com.soukelmdina.technique.controleSaisie;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
@@ -51,8 +53,26 @@ public class updateProfile extends Layout {
     private Label changePhoto;
     private String genre = "Homme", photo = "nophoto";
     private byte[] bytesdata;
+    private Label erreurNom, erreurPrenom, erreurNumtel, erreurAdresse, erreurCodePostal;
 
     public updateProfile() {
+        erreurNom = new Label();
+        erreurNom.setVisible(false);
+        erreurPrenom = new Label();
+        erreurPrenom.setVisible(false);
+        erreurNumtel = new Label();
+        erreurNumtel.setVisible(false);
+        erreurAdresse = new Label();
+        erreurAdresse.setVisible(false);
+        erreurCodePostal = new Label();
+        erreurCodePostal.setVisible(false);
+
+        erreurNom.setUIID("RedLabel");
+        erreurPrenom.setUIID("RedLabel");
+        erreurNumtel.setUIID("RedLabel");
+        erreurAdresse.setUIID("RedLabel");
+        erreurCodePostal.setUIID("RedLabel");
+
         lnom = new SpanLabel("Nom :");
         lprenom = new SpanLabel("Prénom :");
         lnumtel = new SpanLabel("Tél. : ");
@@ -133,11 +153,13 @@ public class updateProfile extends Layout {
 
         btn.addActionListener(
                 (e) -> {
-                    ServiceUtilisateur su = new ServiceUtilisateur();
-                    if (femme.isSelected()) {
-                        genre = "Femme";
+                    if (!controle()) {
+                        ServiceUtilisateur su = new ServiceUtilisateur();
+                        if (femme.isSelected()) {
+                            genre = "Femme";
+                        }
+                        su.updateUser(photo, nom.getText(), prenom.getText(), genre, numtel.getText(), adresse.getText(), gouvernorat.getSelectedItem(), codePostal.getText(), bytesdata);
                     }
-                    su.updateUser(photo, nom.getText(), prenom.getText(), genre, numtel.getText(), adresse.getText(), gouvernorat.getSelectedItem(), codePostal.getText(), bytesdata);
                 }
         );
         toolbar.add(BorderLayout.CENTER, new Label("Modifier mon profil"));
@@ -146,18 +168,23 @@ public class updateProfile extends Layout {
         content.add(changePhoto);
         content.add(lnom);
         content.add(nom);
+        content.add(erreurNom);
         content.add(lprenom);
         content.add(prenom);
+        content.add(erreurPrenom);
         content.add(homme);
         content.add(femme);
         content.add(lnumtel);
         content.add(numtel);
+        content.add(erreurNumtel);
         content.add(ladresse);
         content.add(adresse);
+        content.add(erreurAdresse);
         content.add(lville);
         content.add(gouvernorat);
         content.add(lCodePostal);
         content.add(codePostal);
+        content.add(erreurCodePostal);
         content.add(btn);
         f.getAllStyles().setBgImage(MyApplication.theme.getImage("back_1.jpg"));
     }
@@ -173,4 +200,75 @@ public class updateProfile extends Layout {
         gouvernorat.setSelectedItem(MyApplication.user.getAdresse().getVille());
     }
 
+    private boolean controle() {
+        erreurNom.setVisible(false);
+        erreurPrenom.setVisible(false);
+        erreurNumtel.setVisible(false);
+        erreurAdresse.setVisible(false);
+        erreurCodePostal.setVisible(false);
+
+        boolean verif = false;
+        controleSaisie ctrl = new controleSaisie();
+
+        if (ctrl.controleTextFieldVide(nom.getText())) {
+            erreurNom.setText("Vous devez saisir votre nom");
+            erreurNom.setVisible(true);
+            verif = true;
+        } else if (ctrl.controleTextFieldOnlyLetters(nom.getText())) {
+            erreurNom.setText("Le nom est composé des lettres");
+            erreurNom.setVisible(true);
+            verif = true;
+        }
+
+        if (ctrl.controleTextFieldVide(prenom.getText())) {
+            erreurPrenom.setText("Vous devez saisir votre prénom");
+            erreurPrenom.setVisible(true);
+            verif = true;
+        } else if (ctrl.controleTextFieldOnlyLetters(prenom.getText())) {
+            erreurPrenom.setText("Le prénom est composé des lettres");
+            erreurPrenom.setVisible(true);
+            verif = true;
+        }
+
+        if (ctrl.controleTextFieldVide(numtel.getText())) {
+            erreurNumtel.setText("Vous devez saisir votre N° Tél.");
+            erreurNumtel.setVisible(true);
+            verif = true;
+        } else if (numtel.getText().length() != 8) {
+            erreurNumtel.setText("Le N° Tél. est composé des 8 chiffres");
+            erreurNumtel.setVisible(true);
+            verif = true;
+        } else if (ctrl.controleTextFieldChiffres(numtel.getText())) {
+            erreurNumtel.setText("Le N° Tél. est composé des 8 chiffres");
+            erreurNumtel.setVisible(true);
+            verif = true;
+        } else if (ctrl.controleNumTelFormat(numtel.getText())) {
+            erreurNumtel.setText("N° Tél. n'est pas valide");
+            erreurNumtel.setVisible(true);
+            verif = true;
+        }
+
+        if (ctrl.controleTextFieldVide(adresse.getText())) {
+            erreurAdresse.setText("Vous devez saisir votre adresse");
+            erreurAdresse.setVisible(true);
+            verif = true;
+        }
+
+        if (ctrl.controleTextFieldVide(codePostal.getText())) {
+            erreurCodePostal.setText("Vous devez saisir le code postal");
+            erreurCodePostal.setVisible(true);
+            verif = true;
+        } else if (ctrl.controleTextFieldChiffres(codePostal.getText()) || codePostal.getText().length() != 4) {
+            erreurCodePostal.setText("Le code postal est composé de 4 chiffres.");
+            erreurCodePostal.setVisible(true);
+            verif = true;
+        } else if (codePostal.getText().equals("0000")) {
+            erreurCodePostal.setText("Code postal incorrect.");
+            erreurCodePostal.setVisible(true);
+            verif = true;
+        }
+
+        f.revalidate();
+        return verif;
+    }
 }

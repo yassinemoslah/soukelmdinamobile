@@ -29,6 +29,29 @@ public class PieChartt extends Layout{
 
     public Form PieChartt(int k) {
         
+        Label overflowMenu = new Label(MyApplication.theme.getImage("of_menu.png"));
+        
+        toolbar.add(BorderLayout.EAST, overflowMenu);
+        overflowMenu.addPointerPressedListener((e) -> {
+            f.getToolbar().getMenuBar().showMenu();
+        });
+        
+        
+        f.getToolbar().addCommandToOverflowMenu("Toutes les boutiques", null,
+                (ev) -> {
+                    AffichageBoutique2 home = new AffichageBoutique2(); home.getF().show();
+                });
+        f.getToolbar().addCommandToOverflowMenu("Mes Boutiques", null,
+                (ev) -> {
+                    BoutiqueParVendeur cf = new BoutiqueParVendeur();
+                    cf.getF().show();
+                });
+        
+        f.getToolbar().addCommandToOverflowMenu("Ajouter", null,
+                (ev) -> {
+                    AjoutBoutique home = new AjoutBoutique(); home.getF().show();
+                });
+        
         ServiceBoutique sb = new ServiceBoutique();           
         // Generate the values
         double[] values = new double[]{sb.Like(k), sb.DisLike(k)};

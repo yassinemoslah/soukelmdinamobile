@@ -20,38 +20,41 @@ import com.soukelmdina.gui.Layout;
  * @author Amal Mabrouk
  */
 public class ServiceCommande {
-    
-       public void ajoutCommande(Commande c) {
+
+    public void ajoutCommande(Commande c) {
+        Dialog ip = new InfiniteProgress().showInifiniteBlocking();
         ConnectionRequest con = new ConnectionRequest();
-        String Url = Layout.URL +"/soukelmdinaweb/web/app_dev.php/app/ajoutCommande/"+ MyApplication.user.getId() + "/" +c.getTotalPrix();
+        String Url = Layout.URL + "/soukelmdinaweb/web/app_dev.php/app/ajoutCommande/" + MyApplication.user.getId() + "/" + c.getTotalPrix();
         con.setUrl(Url);
 
         System.out.println("tt");
 
         con.addResponseListener(e -> {
+            ip.dispose();
             String str = new String(con.getResponseData());
             System.out.println(str);
         });
         NetworkManager.getInstance().addToQueueAndWait(con);
-                System.out.println("tt1");
+        System.out.println("tt1");
 
     }
-       
-       
-           public void ModifierQte(int qte,int id) {
+
+    public void ModifierQte(int qte, int id) {
+        Dialog ip = new InfiniteProgress().showInifiniteBlocking();
         ConnectionRequest con = new ConnectionRequest();
-        String Url = Layout.URL +"/soukelmdinaweb/web/app_dev.php/app/ModifierQte/"+id + "/" +qte;
+        String Url = Layout.URL + "/soukelmdinaweb/web/app_dev.php/app/ModifierQte/" + id + "/" + qte;
         con.setUrl(Url);
 
         System.out.println("tt");
 
         con.addResponseListener(e -> {
+            ip.dispose();
             String str = new String(con.getResponseData());
             System.out.println(str);
         });
         NetworkManager.getInstance().addToQueueAndWait(con);
-                System.out.println("tt1");
+        System.out.println("tt1");
 
     }
-    
+
 }

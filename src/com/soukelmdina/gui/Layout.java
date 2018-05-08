@@ -21,6 +21,7 @@ import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.util.Callback;
 import com.soukelmdina.app.MyApplication;
 import com.soukelmdina.entite.Boutique;
+import static com.soukelmdina.gui.HomeForm.player;
 import com.soukelmdina.service.BackgroundFetchService;
 import java.io.IOException;
 
@@ -72,30 +73,47 @@ public class Layout {
         if (MyApplication.user == null) {
             f.getToolbar().addComponentToSideMenu(new Label(MyApplication.theme.getImage("soukelmdina.png")));
             f.getToolbar().addMaterialCommandToSideMenu("Accueil", FontImage.MATERIAL_HOME, (e) -> {
+                player.setPage("<html><head></head><body></body></html>", null);
                 HomeForm home = new HomeForm();
                 home.getF().show();
             });
             f.getToolbar().addMaterialCommandToSideMenu("Login", FontImage.MATERIAL_OPEN_IN_NEW, (e) -> {
+                player.setPage("<html><head></head><body></body></html>", null);
                 Login login = new Login();
                 login.getF().show();
             });
 
             f.getToolbar().addMaterialCommandToSideMenu("Souks", FontImage.MATERIAL_ACCOUNT_BALANCE, (e) -> {
+                player.setPage("<html><head></head><body></body></html>", null);
                 ListeSouks souks = new ListeSouks();
                 souks.getF().show();
             });
 
+            f.getToolbar().addMaterialCommandToSideMenu("Boutiques", FontImage.MATERIAL_SHOPPING_BASKET, (e) -> {
+                player.setPage("<html><head></head><body></body></html>", null);
+                AffichageBoutique1 es = new AffichageBoutique1();
+                es.getF().show();
+            });
+
             f.getToolbar().addMaterialCommandToSideMenu("Espace d'exposition", FontImage.MATERIAL_DOMAIN, (e) -> {
+                player.setPage("<html><head></head><body></body></html>", null);
                 HOMEinternaute es = new HOMEinternaute();
                 es.getF().show();
             });
             f.getToolbar().addMaterialCommandToSideMenu("Evènements", FontImage.MATERIAL_EVENT, (e) -> {
+                player.setPage("<html><head></head><body></body></html>", null);
                 HomeEventsInternaure es = new HomeEventsInternaure();
                 es.getF().show();
             });
             f.getToolbar().addMaterialCommandToSideMenu("CafeResto", FontImage.MATERIAL_LOCAL_CAFE, (e) -> {
+                player.setPage("<html><head></head><body></body></html>", null);
                 ListeCafeRestoClient es = new ListeCafeRestoClient();
                 es.getF().show();
+
+            });
+            f.getToolbar().addMaterialCommandToSideMenu("Produits", FontImage.MATERIAL_REDEEM, (e) -> {
+                player.setPage("<html><head></head><body></body></html>", null);
+                new ListeBoutiqueProd().getF().show();
             });
         } else {
             char c = 'v';
@@ -109,48 +127,78 @@ public class Layout {
             f.getToolbar().addMaterialCommandToSideMenu("", c, (e) -> {
             });
             f.getToolbar().addMaterialCommandToSideMenu("Accueil", FontImage.MATERIAL_HOME, (e) -> {
+                player.setPage("<html><head></head><body></body></html>", null);
                 HomeForm home = new HomeForm();
                 home.getF().show();
             });
             f.getToolbar().addMaterialCommandToSideMenu("Profile", FontImage.MATERIAL_PERM_IDENTITY, (e) -> {
+                player.setPage("<html><head></head><body></body></html>", null);
                 Profile profile = new Profile();
                 profile.getF().show();
             });
             f.getToolbar().addMaterialCommandToSideMenu("Souks", FontImage.MATERIAL_ACCOUNT_BALANCE, (e) -> {
+                player.setPage("<html><head></head><body></body></html>", null);
                 ListeSouks souks = new ListeSouks();
                 souks.getF().show();
             });
             String role = MyApplication.user.getRole();
             if (role.equals("Vendeur")) {
+
+                f.getToolbar().addMaterialCommandToSideMenu("Boutiques", FontImage.MATERIAL_SHOPPING_BASKET, (e) -> {
+                    player.setPage("<html><head></head><body></body></html>", null);
+                    AffichageBoutique2 es = new AffichageBoutique2();
+                    es.getF().show();
+                });
+
                 f.getToolbar().addMaterialCommandToSideMenu("Espace d'exposition", FontImage.MATERIAL_DOMAIN, (e) -> {
+                    player.setPage("<html><head></head><body></body></html>", null);
                     espacevendeur es = new espacevendeur();
                     es.getF().show();
                 });
                 f.getToolbar().addMaterialCommandToSideMenu("CafeResto", FontImage.MATERIAL_LOCAL_CAFE, (e) -> {
+                    player.setPage("<html><head></head><body></body></html>", null);
                     ListeCafeRestoVendeur es = new ListeCafeRestoVendeur();
                     es.getF().show();
                 });
+                f.getToolbar().addMaterialCommandToSideMenu("Produits", FontImage.MATERIAL_REDEEM, (e) -> {
+                    player.setPage("<html><head></head><body></body></html>", null);
+                    new ListeBoutiqueProd().getF().show();
+                });
             } else if (role.equals("Client")) {
-                
+                f.getToolbar().addMaterialCommandToSideMenu("Boutiques", FontImage.MATERIAL_SHOPPING_BASKET, (e) -> {
+                    player.setPage("<html><head></head><body></body></html>", null);
+                    AffichageBoutique1 es = new AffichageBoutique1();
+                    es.getF().show();
+                });
+
                 f.getToolbar().addMaterialCommandToSideMenu("Espace d'exposition", FontImage.MATERIAL_DOMAIN, (e) -> {
+                    player.setPage("<html><head></head><body></body></html>", null);
                     espaceexpohome es = new espaceexpohome();
                     es.getF().show();
                 });
                 f.getToolbar().addMaterialCommandToSideMenu("Evènements", FontImage.MATERIAL_EVENT, (e) -> {
+                    player.setPage("<html><head></head><body></body></html>", null);
                     HomeEvents es = new HomeEvents();
                     es.getF().show();
                 });
                 f.getToolbar().addMaterialCommandToSideMenu("CafeResto", FontImage.MATERIAL_LOCAL_CAFE, (e) -> {
+                    player.setPage("<html><head></head><body></body></html>", null);
                     ListeCafeRestoClient es = new ListeCafeRestoClient();
                     es.getF().show();
                 });
+                f.getToolbar().addMaterialCommandToSideMenu("Produits", FontImage.MATERIAL_REDEEM, (e) -> {
+                    player.setPage("<html><head></head><body></body></html>", null);
+                    new ListeBoutiqueProd().getF().show();
+                });
                 f.getToolbar().addMaterialCommandToSideMenu("Panier", FontImage.MATERIAL_LOCAL_GROCERY_STORE, (e) -> {
+                    player.setPage("<html><head></head><body></body></html>", null);
                     PanierClient es = new PanierClient();
                     es.getF().show();
                 });
 
             }
             f.getToolbar().addMaterialCommandToSideMenu("Déconnexion", FontImage.MATERIAL_SUBDIRECTORY_ARROW_LEFT, (e) -> {
+                player.setPage("<html><head></head><body></body></html>", null);
                 MyApplication.user = null;
                 try {
                     MyApplication.db.execute("delete from user");
@@ -160,19 +208,6 @@ public class Layout {
                 HomeForm home = new HomeForm();
                 home.getF().show();
             });
-        }
-
-        if (MyApplication.user != null) {
-            if (MyApplication.user.getRole().equals("Client")) {
-                f.getToolbar().addMaterialCommandToSideMenu("Produits", FontImage.MATERIAL_HOME, (e) -> {
-                    new ListeBoutiqueProd().getF().show();
-                });
-            }
-            if (MyApplication.user.getRole().equals("Vendeur")) {
-                f.getToolbar().addMaterialCommandToSideMenu("Produits", FontImage.MATERIAL_HOME, (e) -> {
-                    new ListeBoutiqueProd().getF().show();
-                });
-            }
         }
 
     }

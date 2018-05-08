@@ -99,7 +99,7 @@ public class AjouterCafe extends Layout {
         Label l = new Label("");
         container.add(BorderLayout.CENTER, lbl);
 
-        String[] tabsouks = new String[2];
+        String[] tabsouks = new String[6];
         List<String> souks = new ArrayList<>();
         ServiceCafeResto se = new ServiceCafeResto();
         li = se.getnomssouks();

@@ -42,6 +42,29 @@ public class BoutiqueParVendeur extends Layout{
 
     public BoutiqueParVendeur() {
         
+        Label overflowMenu = new Label(MyApplication.theme.getImage("of_menu.png"));
+        
+        toolbar.add(BorderLayout.EAST, overflowMenu);
+        overflowMenu.addPointerPressedListener((e) -> {
+            f.getToolbar().getMenuBar().showMenu();
+        });
+        
+        
+        f.getToolbar().addCommandToOverflowMenu("Toutes les boutiques", null,
+                (ev) -> {
+                    AffichageBoutique2 home = new AffichageBoutique2(); home.getF().show();
+                });
+        f.getToolbar().addCommandToOverflowMenu("Ajouter", null,
+                (ev) -> {
+                    AjoutBoutique cf = new AjoutBoutique();
+                    cf.getF().show();
+                });
+        
+        f.getToolbar().addCommandToOverflowMenu("Stat", null,
+                (ev) -> {
+                    ChoixStat home = new ChoixStat(); home.getF().show();
+                });
+        
         toolbar.add(BorderLayout.CENTER, new Label("Toutes les Boutiques"));
         
         content.setLayout(new BoxLayout(BoxLayout.Y_AXIS));
@@ -54,13 +77,13 @@ public class BoutiqueParVendeur extends Layout{
         ServiceBoutique serviceb = new ServiceBoutique();
         //String ss = serviceb.chartss();
         //System.out.println(ss);
-        ArrayList<Boutique1> lis = serviceb.getListParIdProprio(22);
+        ArrayList<Boutique1> lis = serviceb.getListParIdProprio(MyApplication.user.getId());
         if (lis.size()==0)
             lb.setText("ya rien");
         else{
             
         
-        for (int j = 0; j < lis.size() - 1; j++) {
+        for (int j = 0; j < lis.size(); j++) {
             li.add(lis.get(j));
         }
 
@@ -89,7 +112,7 @@ public class BoutiqueParVendeur extends Layout{
         url = "http://localhost" + e.getPhoto();
         System.out.println(url + "\n");
         //fileNameInStorage
-        Image i = URLImage.createToStorage(placeholder, e.getLibelle(), url, ada);
+        Image i = URLImage.createToStorage(placeholder, e.getPhoto(), Layout.URL+e.getPhoto(), ada);
 
         //Label lbtexte = new Label(String.valueOf(e.getId()));
         SpanLabel btn = new SpanLabel("Libelle " + e.getLibelle());

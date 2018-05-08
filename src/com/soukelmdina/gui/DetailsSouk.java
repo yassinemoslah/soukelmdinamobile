@@ -40,7 +40,7 @@ import java.util.Map;
  */
 public class DetailsSouk extends Layout {
 
-    private SpanLabel description, gouvernorat; 
+    private SpanLabel description, gouvernorat;
     private Label libelle;
     EncodedImage enc;
     URLImage uRLImage;
@@ -61,7 +61,7 @@ public class DetailsSouk extends Layout {
         });
 
         f.getAllStyles().setBgImage(MyApplication.theme.getImage("back_1.jpg"));
-        enc = EncodedImage.createFromImage(MyApplication.theme.getImage("250x250.png"), false);
+        enc = EncodedImage.createFromImage(MyApplication.theme.getImage("100x100.png"), false);
         uRLImage = URLImage.createToStorage(enc, s.getPhoto(), Layout.URL + s.getPhoto(), URLImage.RESIZE_SCALE_TO_FILL);
         ImageViewer imgV = new ImageViewer(uRLImage);
         libelle = new Label(s.getLibelle());
@@ -70,7 +70,7 @@ public class DetailsSouk extends Layout {
         gouvernorat = new SpanLabel(s.getGouvernorat());
 
         final MapContainer cnt = new MapContainer(new GoogleMapsProvider(HTML_API_KEY));
-        cnt.zoom(new Coord(s.getCoordonnees().getLatitude(), s.getCoordonnees().getLongitude()), 13);        
+        cnt.zoom(new Coord(s.getCoordonnees().getLatitude(), s.getCoordonnees().getLongitude()), 13);
         Style style = new Style();
         style.setFgColor(0xff0000);
         style.setBgTransparency(0);
@@ -105,9 +105,9 @@ public class DetailsSouk extends Layout {
                     }
             );
             cnt.addPath(
-                    new Coord(s.getCoordonnees().getLatitude(),s.getCoordonnees().getLongitude()),
-                    //new Coord(position.getLatitude(), position.getLongitude())
-                    new Coord(33.7732938, 10.7536639)
+                    new Coord(s.getCoordonnees().getLatitude(), s.getCoordonnees().getLongitude()),
+                    new Coord(position.getLatitude(), position.getLongitude())
+            //new Coord(33.7732938, 10.7536639)
             );
         } catch (IOException ex) {
             System.out.println(ex);
@@ -132,7 +132,7 @@ public class DetailsSouk extends Layout {
                     System.out.println(duration);
                     f.add(new SpanLabel(distance.substring(6, distance.indexOf(",")) + " km vous séparent de " + s.getLibelle()));
                     Label duree = new Label(duration.substring(6, duration.indexOf(",")));
-                    duree.setIcon(MyApplication.theme.getImage("car.png"));
+                    duree.setIcon(MyApplication.theme.getImage("car_50.png"));
                     f.add(duree);
                 } else {
                     f.add(new SpanLabel("Désolé on n'a pas pu calculer la distance entre vous et " + s.getLibelle()));
@@ -159,7 +159,7 @@ public class DetailsSouk extends Layout {
                         String duration = elements.get(0).get("duration").toString();
                         System.out.println(rows);
                         Label dist = new Label(duration.substring(6, duration.indexOf(",")));
-                        dist.setIcon(MyApplication.theme.getImage("walking.png"));
+                        dist.setIcon(MyApplication.theme.getImage("walking_50.png"));
                         f.add(dist);
                     }
                 } catch (IOException ex) {

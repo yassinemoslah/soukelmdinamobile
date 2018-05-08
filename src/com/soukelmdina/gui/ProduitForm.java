@@ -1,6 +1,3 @@
-
-
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -38,24 +35,20 @@ import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.layouts.FlowLayout;
-import com.codename1.ui.list.DefaultListModel;
-import com.codename1.ui.list.GenericListCellRenderer;
-import com.codename1.ui.list.MultiList;
 import com.codename1.ui.plaf.Border;
 import com.codename1.ui.plaf.Style;
 import com.codename1.ui.plaf.UIManager;
-import com.codename1.ui.util.Resources;
 import com.soukelmdina.app.MyApplication;
-import static com.soukelmdina.app.MyApplication.user;
-import com.soukelmdina.entite.Categorie;
+
 import com.soukelmdina.entite.CommandeProduit;
+
+import com.soukelmdina.entite.Categorie;
+
 import com.soukelmdina.entite.Produit;
 import com.soukelmdina.entite.Rating;
 import com.soukelmdina.entite.Routes;
-import com.soukelmdina.service.ServiceCategorie;
-import com.soukelmdina.service.serviceProduit;
+import static com.soukelmdina.gui.Layout.btq;
 import com.soukelmdina.service.serviceRating;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -65,8 +58,6 @@ import java.util.Map;
  * @author TAOUFIK
  */
 public class ProduitForm extends Layout {
-
-    Label panier = new Label();
 
     public ProduitForm(Produit produit) {
 
@@ -82,32 +73,56 @@ public class ProduitForm extends Layout {
         FontImage icon2 = FontImage.createMaterial(FontImage.MATERIAL_PHOTO, s1);
         FontImage icon22 = FontImage.createMaterial(FontImage.MATERIAL_NAVIGATE_BEFORE, s1);
 
-        overflowMenu.addPointerPressedListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent evt) {
-                try {
-                    f.getToolbar().getMenuBar().showMenu();
-                } catch (Exception e) {
-
-                }
-            }
-        });
-        toolbar.add(BorderLayout.EAST, overflowMenu);
-
         if (MyApplication.user != null) {
-            if (MyApplication.user.getRole().equals("Vendeur"));
-            f.getToolbar().addCommandToOverflowMenu("Editer Détail", icon30, (ev) -> {
-                new EditerProduitForm(produit).getF().show();
-            });
+            if (MyApplication.user.getRole().equals("Vendeur")) {
 
+                Style st = UIManager.getInstance().getComponentStyle("TitleCommand");
+                FontImage ic = FontImage.createMaterial(FontImage.MATERIAL_EDIT, st);
+                Label bnt = new Label(ic);
+                bnt.getAllStyles().setBorder(Border.createEmpty());
+                bnt.getAllStyles().setTextDecoration(Style.TEXT_DECORATION_UNDERLINE);
+
+                toolbar.add(BorderLayout.CENTER, bnt);
+                bnt.addPointerPressedListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent evt) {
+                        new EditerProduitForm(produit).getF().show();
+                    }
+                });
+
+                Style s3 = UIManager.getInstance().getComponentStyle("TitleCommand");
+                FontImage i2 = FontImage.createMaterial(FontImage.MATERIAL_NAVIGATE_BEFORE, s3);
+                Label b2 = new Label(i2);
+                b2.getAllStyles().setBorder(Border.createEmpty());
+                b2.getAllStyles().setTextDecoration(Style.TEXT_DECORATION_UNDERLINE);
+
+                toolbar.add(BorderLayout.EAST, b2);
+                b2.addPointerPressedListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent evt) {
+                        ToastBar.Status status = ToastBar.getInstance().createStatus();
+                        status.setMessage("chargement de liste produits ");
+                        status.setExpires(2000);
+                        status.show();
+                        new ListeProduitsByBoutiqueForm(btq).getF().show();
+                    }
+                });
+            } else{
+                Style s2 = UIManager.getInstance().getComponentStyle("TitleCommand");
+                FontImage i = FontImage.createMaterial(FontImage.MATERIAL_NAVIGATE_BEFORE, s1);
+                Label b = new Label(i);
+                b.getAllStyles().setBorder(Border.createEmpty());
+                b.getAllStyles().setTextDecoration(Style.TEXT_DECORATION_UNDERLINE);
+
+                toolbar.add(BorderLayout.EAST, b);
+                b.addPointerPressedListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent evt) {
+                        new ListeProduitsByBoutiqueForm(btq).getF().show();
+                    }
+                });
+            }
         }
-
-        f.getToolbar().addCommandToOverflowMenu("Revenir", icon22, (ev) -> {
-            new ListeProduitsByBoutiqueForm(btq).getF().show();
-        });
-
-        //Toolbar.setGlobalToolbar(false);
-        EncodedImage placeholder = EncodedImage.createFromImage(Image.createImage(f.getWidth(), f.getHeight(), 0xffff0000), true);
 
         Routes routes = new Routes();
 
@@ -133,6 +148,7 @@ public class ProduitForm extends Layout {
         String categorie = produit.getCategorie().getLibelle();
 
         Border border = Border.createLineBorder(1, 0xfff/*Color.BLUE.hashCode()*/);
+
         Label desc = new Label("Description :");
         desc.getAllStyles().setAlignment(Component.LEFT);
         container1.add(desc);
@@ -151,12 +167,25 @@ public class ProduitForm extends Layout {
         Label prix = new Label("Prix :");
         prix.getAllStyles().setAlignment(Component.LEFT);
         container1.add(prix);
+        
         Label prixval = new Label(produit.getPrix() + " DT");
         prixval.getAllStyles().setBorder(border);
         container1.add(prixval);
+        
+        
+        Label Quantite = new Label("Quantite :");
+        Quantite.getAllStyles().setAlignment(Component.LEFT);
+        container1.add(Quantite);
+        
+        Label Quantiteinterval = new Label(produit.getQuantite()+"");
+        Quantiteinterval.getAllStyles().setBorder(border);
+        container1.add(Quantiteinterval);
+        
+
         prix.getAllStyles().setFgColor(0x01E8C9);
         desc.getAllStyles().setFgColor(0x01E8C9);
         categ.getAllStyles().setFgColor(0x01E8C9);
+        Quantite.getAllStyles().setFgColor(0x01E8C9);
 
         int deviceWidth = Display.getInstance().getDisplayWidth();
         ImageViewer l = new ImageViewer();
@@ -191,19 +220,22 @@ public class ProduitForm extends Layout {
                             rating.setDescription(ratingdesc.getText());
                             rating.setEtoiles(slider.getProgress());
                             showToast("Enregistrement de votre avis ... Merci!");
-                            new serviceRating().addAvis(produit, 2, rating);
+                            new serviceRating().addAvis(produit, MyApplication.user.getId(), rating);
                             new ProduitForm(produit).getF().show();
 
                         }
                     }
                 });
+                
                 container6.add(addavis);
             }
         }
 
         Container container8 = new Container(new BoxLayout(BoxLayout.Y_AXIS));
         Rating[] ratings = new serviceRating().getRatings(produit.getId());
+
         if (ratings.length == 0) {
+
             container8.add(new SpanLabel("Auccun Avis"));
         }
         ArrayList<HashMap<String, Object>> dataavis = new ArrayList<>();
@@ -270,11 +302,15 @@ public class ProduitForm extends Layout {
         f.setScrollable(false);
         f.getAllStyles().setBgImage(MyApplication.theme.getImage("back_2.jpg"));
         t.getAllStyles().setBgImage(MyApplication.theme.getImage("back_2.jpg"));
-      
+
+        //amal 
+        Label panier = new Label();
         panier.setIcon(MyApplication.theme.getImage("panier.png"));
         panier.setText("Ajouter au panier");
-if(MyApplication.user.getRole().equals("Client"))
-        f.add(panier);
+         if (MyApplication.user != null) {
+                    if (MyApplication.user.getRole().equals("Client")) {
+            f.add(panier);
+        }}
         panier.addPointerPressedListener((act) -> {
             int verif = 0;
             for (int i = 0; i < MyApplication.listeCommandep.size(); i++) {
@@ -301,8 +337,6 @@ if(MyApplication.user.getRole().equals("Client"))
                 MyApplication.listeCommandep.add(cmp);
                 Dialog.show("Panier!!", "Produit ajouté au panier ", "OK", null);
             }
-
-            System.out.println("men houné " + MyApplication.listeCommandep.toString());
 
         });
 
@@ -366,11 +400,11 @@ if(MyApplication.user.getRole().equals("Client"))
     }
 
     private void showToast(String text) {
-        Image errorImage = FontImage.createMaterial(FontImage.MATERIAL_ERROR, UIManager.getInstance().getComponentStyle("Title"), 4);
+        Image errorImage = FontImage.createMaterial(FontImage.MATERIAL_MESSAGE, UIManager.getInstance().getComponentStyle("Title"), 4);
         ToastBar.Status status = ToastBar.getInstance().createStatus();
         status.setMessage(text);
         status.setIcon(errorImage);
-        status.setExpires(2000);
+        status.setExpires(3000);
         status.show();
     }
 

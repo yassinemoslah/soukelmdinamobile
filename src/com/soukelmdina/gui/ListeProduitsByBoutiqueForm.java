@@ -8,9 +8,11 @@ package com.soukelmdina.gui;
 import com.codename1.components.ToastBar;
 import com.codename1.io.Storage;
 import com.codename1.notifications.LocalNotification;
+import com.codename1.ui.Button;
 import com.codename1.ui.Container;
 import com.codename1.ui.Display;
 import com.codename1.ui.EncodedImage;
+import com.codename1.ui.FontImage;
 import com.codename1.ui.Image;
 import com.codename1.ui.Label;
 import com.codename1.ui.URLImage;
@@ -20,7 +22,9 @@ import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.list.DefaultListModel;
 import com.codename1.ui.list.MultiList;
+import com.codename1.ui.plaf.Border;
 import com.codename1.ui.plaf.Style;
+import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.util.Resources;
 import com.soukelmdina.app.MyApplication;
 import com.soukelmdina.entite.Boutique;
@@ -41,8 +45,11 @@ public class ListeProduitsByBoutiqueForm extends Layout {
 public ListeProduitsByBoutiqueForm(Boutique boutique) {
     f.setLayout(new BoxLayout(BoxLayout.Y_AXIS));
 
-        toolbar.add(BorderLayout.CENTER, new Label("Liste des Produits "));
-        
+ Label lab = new Label("Liste des Produits");
+        lab.getAllStyles().setFgColor(0xF6E497);
+
+        toolbar.add(BorderLayout.CENTER,lab);
+
         f.removeComponent(main);
         main.removeComponent(toolbar);
         f.add(toolbar);
@@ -63,7 +70,7 @@ public ListeProduitsByBoutiqueForm(Boutique boutique) {
 
         DefaultListModel<HashMap<String, Object>> model = new DefaultListModel<>(data);
         MultiList ml = new MultiList(model);
-        // ml.getStyle().setBgColor(0x01E8C9);
+     
         ml.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
@@ -71,7 +78,9 @@ public ListeProduitsByBoutiqueForm(Boutique boutique) {
                 int i = ml.getSelectedIndex();
               
                 ToastBar.Status status = ToastBar.getInstance().createStatus();
-        status.setMessage("produit" + produits[i].getId());
+
+                status.setMessage("chargement de "+produits[i].getLibelle()+"en cours");
+
         status.setExpires(2000);
         status.show();
                 
@@ -80,31 +89,46 @@ public ListeProduitsByBoutiqueForm(Boutique boutique) {
           
             }
         });
-        
-            
-     Label overflowMenu = new Label(MyApplication.theme.getImage("of_menu.png"));
-         f.getToolbar().addCommandToOverflowMenu("Revenir", null, (ev) -> {
-                 new ListeBoutiqueProd().getF().show();
-            });
-         toolbar.add(BorderLayout.EAST, overflowMenu);
-          overflowMenu.addPointerPressedListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent evt) {
-                try{
-                f.getToolbar().getMenuBar().showMenu();
-                } catch(Exception e){
-                    
-                }
-            }
-        });
-          
+
+      Style s1 = UIManager.getInstance().getComponentStyle("TitleCommand");
+
+    FontImage icon30 = FontImage.createMaterial(FontImage.MATERIAL_NAVIGATE_BEFORE, s1);
+
+    Label a = new Label(icon30);
+    a.getAllStyles().setBorder(Border.createEmpty());
+    a.getAllStyles().setTextDecoration(Style.TEXT_DECORATION_UNDERLINE);
+
+    toolbar.add(BorderLayout.EAST, a);
+    a.addPointerPressedListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent evt) {
+            new ListeBoutiqueProd().getF().show();
+        }
+    });
+    
+      Style sp = UIManager.getInstance().getComponentStyle("TitleCommand");
+
+    FontImage icon305 = FontImage.createMaterial(FontImage.MATERIAL_ADD, s1);
+
+    Label m = new Label(icon305);
+    a.getAllStyles().setBorder(Border.createEmpty());
+    a.getAllStyles().setTextDecoration(Style.TEXT_DECORATION_UNDERLINE);
+    if (MyApplication.user != null) {
+   if (MyApplication.user.getRole().equals("Vendeur")) {
+    toolbar.add(BorderLayout.CENTER_BEHAVIOR_CENTER, m);}}
+    m.addPointerPressedListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent evt) {
+            new AjoutProduitForm().getF().show();
+        }
+    });
+    
+
         Container c = new Container(new BorderLayout());
        
         //ml.getStyle().setBgColor(0x01E8C9);
-        ml.getAllStyles().setBgImage(MyApplication.theme.getImage("back_1.jpg"));
-        
-
-        
+        ml.getAllStyles().setFgColor(0xADCF4F);
+         ml.getAllStyles().setBgImage(MyApplication.theme.getImage("back_5.jpg"));
         c.add(BorderLayout.CENTER,ml);
         c.setScrollableY(true);
 

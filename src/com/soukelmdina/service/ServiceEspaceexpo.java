@@ -36,7 +36,9 @@ public class ServiceEspaceexpo {
         ArrayList<Espace_exposition> listespaces = new ArrayList<>();
         ConnectionRequest con = new ConnectionRequest();
         con.setUrl(Layout.URL + "/soukelmdinaweb/web/app_dev.php/app/tasks/all");
+        Dialog ip = new InfiniteProgress().showInifiniteBlocking();
         con.addResponseListener(e -> {
+            ip.dispose();
             JSONParser jsonp = new JSONParser();
             try {
                 Map<String, Object> espaces = jsonp.parseJSON(new CharArrayReader(new String(con.getResponseData()).toCharArray()));
@@ -77,18 +79,21 @@ public class ServiceEspaceexpo {
             }
 
         });
-        NetworkManager.getInstance().addToQueueAndWait(con); // asynchrone
+          NetworkManager.getInstance().addToQueueAndWait(con); // asynchrone
         if (listespaces.size() == 0) {
             return null;
         }
         return listespaces;
     }
+       
 
     public ArrayList<Souk> getnomssouks() {
+        Dialog ip = new InfiniteProgress().showInifiniteBlocking();
         ArrayList<Souk> listsoukes = new ArrayList<>();
         ConnectionRequest con = new ConnectionRequest();
         con.setUrl(Layout.URL + "/soukelmdinaweb/web/app_dev.php/app/souks/all");
         con.addResponseListener(e -> {
+            ip.dispose();
             JSONParser jsonp = new JSONParser();
             try {
                 Map<String, Object> espaces = jsonp.parseJSON(new CharArrayReader(new String(con.getResponseData()).toCharArray()));
@@ -116,8 +121,10 @@ public class ServiceEspaceexpo {
     public Souk getsouk(int id) {
         ArrayList<Souk> listsouks = new ArrayList<>();
         ConnectionRequest con = new ConnectionRequest();
-        con.setUrl(Layout.URL + "/soukelmdinaweb/web/app_dev.php/app/souk/" + id);
+        con.setUrl(Layout.URL + "/soukelmdinaweb/web/app_dev.php/app/soukes/" + id);
+        Dialog ip = new InfiniteProgress().showInifiniteBlocking();
         con.addResponseListener(e -> {
+            ip.dispose();
             JSONParser jsonp = new JSONParser();
             try {
                 Map<String, Object> utilisateurs = jsonp.parseJSON(new CharArrayReader(new String(con.getResponseData()).toCharArray()));
@@ -140,10 +147,12 @@ public class ServiceEspaceexpo {
     }
 
     public ArrayList<Espace_exposition> getespacevandeur(String cin) {
+        Dialog ip = new InfiniteProgress().showInifiniteBlocking();
         ArrayList<Espace_exposition> listespaces = new ArrayList<>();
         ConnectionRequest con = new ConnectionRequest();
         con.setUrl(Layout.URL + "/soukelmdinaweb/web/app_dev.php/app/espacevendeur/" + cin);
         con.addResponseListener(e -> {
+            ip.dispose();
             JSONParser jsonp = new JSONParser();
             try {
                 Map<String, Object> espaces = jsonp.parseJSON(new CharArrayReader(new String(con.getResponseData()).toCharArray()));
@@ -193,9 +202,13 @@ public class ServiceEspaceexpo {
     }
 
     public void supprimerespace(int idESPACE) {
+        Dialog ip = new InfiniteProgress().showInifiniteBlocking();
         ConnectionRequest con = new ConnectionRequest();
         con.setUrl(Layout.URL + "/soukelmdinaweb/web/app_dev.php/app/supprimerespacevendeur/" + idESPACE);
         NetworkManager.getInstance().addToQueueAndWait(con);
+        con.addResponseListener((e)->{
+        ip.dispose();
+        });
     }
 
     public void updateespace(String photo, String nom, String des, String numtel, double longue, double larg, double prix, int idespace, byte[] bytesdata) {
@@ -239,6 +252,7 @@ public class ServiceEspaceexpo {
         NetworkManager.getInstance().addToQueueAndWait(con);});
         
          con.addResponseListener(e -> {
+             ip.dispose();
             String str = new String(con.getResponseData());
             System.out.println(str);
         });
@@ -256,7 +270,9 @@ public class ServiceEspaceexpo {
         ConnectionRequest con = new ConnectionRequest();
         con.setUrl(Layout.URL + "/soukelmdinaweb/web/app_dev.php/app/ajoutdate/" + String.valueOf(idESPACE) + "/" + date1 + "/" + String.valueOf(MyApplication.user.getSolde() + "/" + String.valueOf(MyApplication.user.getCin())));
         System.out.println(MyApplication.user.getSolde());
+        Dialog ip = new InfiniteProgress().showInifiniteBlocking();
         con.addResponseListener(e -> {
+            ip.dispose();
             JSONParser jsonp = new JSONParser();
             try {
                 Map<String, Object> utilisateurs = jsonp.parseJSON(new CharArrayReader(new String(con.getResponseData()).toCharArray()));
@@ -282,7 +298,9 @@ public class ServiceEspaceexpo {
         ConnectionRequest con = new ConnectionRequest();
         con.setUrl(Layout.URL + "/soukelmdinaweb/web/app_dev.php/app/ajoutdeuxdate/" + String.valueOf(idESPACE) + "/" + date1 + "/" + date2 + "/" + String.valueOf(MyApplication.user.getSolde() + "/" + String.valueOf(MyApplication.user.getCin())));
         System.out.println(MyApplication.user.getSolde());
+        Dialog ip = new InfiniteProgress().showInifiniteBlocking();
         con.addResponseListener(e -> {
+            ip.dispose();
             JSONParser jsonp = new JSONParser();
             try {
                 Map<String, Object> utilisateurs = jsonp.parseJSON(new CharArrayReader(new String(con.getResponseData()).toCharArray()));

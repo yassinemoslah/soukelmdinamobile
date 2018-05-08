@@ -36,6 +36,7 @@ import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.plaf.Border;
 
 import com.codename1.ui.util.ImageIO;
+import com.restfb.BinaryAttachment;
 import com.restfb.DefaultFacebookClient;
 import com.restfb.FacebookClient;
 import com.restfb.Parameter;
@@ -51,7 +52,6 @@ import com.soukelmdina.service.ServiceCafeResto;
 
 import java.io.IOException;
 import java.io.OutputStream;
-
 /**
  *
  * @author Amal Mabrouk
@@ -144,7 +144,7 @@ public class DetailsCafe extends Layout {
         //
 
         content.add(description);
-         Label lab = new Label ("");
+        Label lab = new Label("");
         Label l222 = new Label("");
         content.add(lab);
         content.add(l222);
@@ -219,6 +219,13 @@ public class DetailsCafe extends Layout {
                     Dialog.show("Avis", "Votre avis a été partagé avec succés", "OK", null);
 
                     System.out.println("fb.com" + r.getId());
+                    try {
+                        FacebookType publish = fb.publish("me/photos", FacebookType.class,
+                                BinaryAttachment.with("taswira", FileSystemStorage.getInstance().openInputStream(Layout.URL + c.getPhoto())),
+                                Parameter.with("message", "my myssage"));
+                    } catch (IOException ex) {
+                        System.out.println(ex);
+                    }
 
                 }
             }

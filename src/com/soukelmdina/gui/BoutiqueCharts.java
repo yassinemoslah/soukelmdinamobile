@@ -50,7 +50,7 @@ public class BoutiqueCharts extends Layout {
         //String ss = serviceb.chartss();
         //System.out.println(ss);
         ArrayList<Boutique1> lis = serviceb.getList2();
-        for (int j = 0; j < lis.size() - 1; j++) {
+        for (int j = 0; j < lis.size(); j++) {
             li.add(lis.get(j));
         }
 
@@ -76,7 +76,7 @@ public class BoutiqueCharts extends Layout {
         url = "http://localhost" + e.getPhoto();
         System.out.println(url + "\n");
         //fileNameInStorage
-        Image i = URLImage.createToStorage(placeholder, e.getLibelle(), url, ada);
+        Image i = URLImage.createToStorage(placeholder, e.getPhoto(), Layout.URL+e.getPhoto(), ada);
 
         //Label lbtexte = new Label(String.valueOf(e.getId()));
         Label btn = new Label("Libelle " + e.getLibelle());

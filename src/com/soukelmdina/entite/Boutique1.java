@@ -50,6 +50,17 @@ public class Boutique1 {
         this.photo=s;
     }
     
+     public Boutique1(String libelle, String description, String numtel, int n, String s, int id) {
+        this.libelle = libelle;
+        this.description=description;
+        this.numTel=numtel;
+        this.idSouk=n;
+        this.photo=s;
+        this.idProprio=id;
+    }
+    
+ 
+    
     
 
     public int getId() {

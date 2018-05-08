@@ -55,7 +55,7 @@ public class createespace extends Layout{
 
     public createespace(){
     
-    String [ ] tabsouks = new String[3];
+    String [ ] tabsouks = new String[6];
     List<String> souks = new ArrayList<>();
     ServiceEspaceexpo se=new ServiceEspaceexpo();
       li=se.getnomssouks();
@@ -63,7 +63,7 @@ public class createespace extends Layout{
            
             souks.add(ee.getLibelle());
        }
-    for(int i=0; i < 3; i++){
+    for(int i=0; i < 6; i++){
     tabsouks[i]=souks.get(i);
 }
   

@@ -1,21 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/xampp/htdocs/soukelmdinamobile/src/com/soukelmdina/gui/detailinternaute.java</file>
-            <file>file:/C:/xampp/htdocs/soukelmdinamobile/src/com/soukelmdina/gui/DetailsEvents.java</file>
-            <file>file:/C:/xampp/htdocs/soukelmdinamobile/src/com/soukelmdina/service/Example.java</file>
-            <file>file:/C:/xampp/htdocs/soukelmdinamobile/src/com/soukelmdina/gui/DetailsSouk.java</file>
-            <file>file:/C:/xampp/htdocs/soukelmdinamobile/src/com/soukelmdina/service/ServiceEspaceexpo.java</file>
-            <file>file:/C:/xampp/htdocs/soukelmdinamobile/src/com/soukelmdina/gui/espaceexpohome.java</file>
-            <file>file:/C:/xampp/htdocs/soukelmdinamobile/src/com/soukelmdina/gui/detailespace.java</file>
-            <file>file:/C:/xampp/htdocs/soukelmdinamobile/src/com/soukelmdina/gui/espacevendeur.java</file>
-            <file>file:/C:/xampp/htdocs/soukelmdinamobile/src/com/soukelmdina/gui/HomeForm.java</file>
-            <file>file:/C:/xampp/htdocs/soukelmdinamobile/src/com/soukelmdina/gui/detailvendeur.java</file>
-            <file>file:/C:/xampp/htdocs/soukelmdinamobile/src/com/soukelmdina/gui/ajoutespace.java</file>
-            <file>file:/C:/xampp/htdocs/soukelmdinamobile/src/com/soukelmdina/gui/createespace.java</file>
-            <file>file:/C:/xampp/htdocs/soukelmdinamobile/src/com/soukelmdina/gui/updateespace.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

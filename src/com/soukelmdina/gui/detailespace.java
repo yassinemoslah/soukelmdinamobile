@@ -42,7 +42,7 @@ public class detailespace extends Layout {
     EncodedImage enc;
     URLImage uRLImage;
    private Button btn;
-   private AdMobManager admob;
+   //private AdMobManager admob;
     
    public detailespace(int ides,String s0,String s1,String s2,String s3,double s4,int idsouk,double larg,double longue){
   ServiceEspaceexpo ses=new ServiceEspaceexpo();
@@ -91,13 +91,13 @@ datePicker2.setDate(null);
  //c.setMultipleSelectionEnabled(true);
   
              
- admob = new AdMobManager("ca-app-pub-1385000487471701/2768727905");
+ //admob = new AdMobManager("ca-app-pub-1385000487471701/2768727905");
 
 btn = new Button("Modifier");
 
         btn.addActionListener(
                 (e) -> {
-              admob.loadAndShow();
+             // admob.loadAndShow();
               
                    Date datedebut=(Date) datePicker1.getValue();
                    Date datefin=(Date) datePicker2.getValue();

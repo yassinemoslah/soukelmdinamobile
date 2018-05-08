@@ -5,11 +5,13 @@
  */
 package com.soukelmdina.service;
 
+import com.codename1.components.InfiniteProgress;
 import com.codename1.io.CharArrayReader;
 import com.codename1.io.ConnectionRequest;
 import com.codename1.io.JSONParser;
 import com.codename1.io.NetworkEvent;
 import com.codename1.io.NetworkManager;
+import com.codename1.ui.Dialog;
 import com.codename1.ui.events.ActionListener;
 import com.soukelmdina.entite.Boutique;
 import com.soukelmdina.entite.Routes;
@@ -26,6 +28,7 @@ public class ServiceBoutiqueProd {
     
     public Boutique[] getboutiques() {
         //system.err.println("heeeere");
+        Dialog ip = new InfiniteProgress().showInifiniteBlocking();
         ArrayList<Boutique> boutiqueslist = new ArrayList<>();
         final Boutique[] bs;
 
@@ -37,6 +40,7 @@ public class ServiceBoutiqueProd {
 
             @Override
             public void actionPerformed(NetworkEvent evt) {
+                ip.dispose();
                 String json = new String(con.getResponseData());
                 System.out.println(".actionPerformed() : "+json);
                 try {

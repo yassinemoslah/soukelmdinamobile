@@ -47,7 +47,7 @@ public class DetailsBoutique extends Layout{
         Style ss = UIManager.getInstance().getComponentStyle("MultiLine1");
     FontImage p = FontImage.createMaterial(FontImage.MATERIAL_PORTRAIT, ss);
         enc = EncodedImage.createFromImage(p.scaled(p.getWidth() * 3, p.getHeight() * 3), false);
-        uRLImage = URLImage.createToStorage(enc, e.getLibelle(), "http://localhost" + e.getPhoto(), URLImage.RESIZE_SCALE_TO_FILL);
+        uRLImage = URLImage.createToStorage(enc, e.getPhoto(), Layout.URL + e.getPhoto(), URLImage.RESIZE_SCALE_TO_FILL);
         ImageViewer imgV = new ImageViewer(uRLImage);
         b = new Button("Modifier");       
         toolbar.add(BorderLayout.CENTER, new Label("Toutes les Boutiques"));

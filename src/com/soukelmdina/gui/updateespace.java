@@ -38,20 +38,20 @@ import java.io.IOException;
  *
  * @author marye
  */
-public class updateespace  extends Layout {
+public class updateespace extends Layout {
 
-    private TextField nom, description, numtel, categorie, larg,longu,prix;
-    private SpanLabel lnom, ldescription, lnumtel, lcategorie, llarg, llongu,lprix;
+    private TextField nom, description, numtel, categorie, larg, longu, prix;
+    private SpanLabel lnom, ldescription, lnumtel, lcategorie, llarg, llongu, lprix;
     private ComboBox<String> Soukes;
     private EncodedImage enc;
     private URLImage uRLImage;
     private Button btn;
     private Label changePhoto;
-    private String  photo = "nophoto";
+    private String photo = "nophoto";
     private byte[] bytesdata;
-     Label erreurLibelle, erreurDescription, erreurnumtel, erreurPhoto, erreurSouk,erreurlarg,erreurlong,erreurprix,erreurcat ;
+    Label erreurLibelle, erreurDescription, erreurnumtel, erreurPhoto, erreurSouk, erreurlarg, erreurlong, erreurprix, erreurcat;
 
-    public updateespace(int idespace,String s0,String s1,String urloldphoto,String s3,double s4,double largg,double longue) {
+    public updateespace(int idespace, String s0, String s1, String urloldphoto, String s3, double s4, double largg, double longue) {
         lnom = new SpanLabel("Nom :");
         ldescription = new SpanLabel("Description :");
         lnumtel = new SpanLabel("N° Tel : ");
@@ -61,18 +61,18 @@ public class updateespace  extends Layout {
         lnom.setTextBlockAlign(Component.LEFT);
         ldescription.setTextBlockAlign(Component.LEFT);
         lnumtel.setTextBlockAlign(Component.LEFT);
-        
+
         llarg.setTextBlockAlign(Component.LEFT);
         llongu.setTextBlockAlign(Component.LEFT);
         lprix.setTextBlockAlign(Component.LEFT);
         nom = new TextField(s0);
         description = new TextField(s1);
         numtel = new TextField(s3);
-        larg=new TextField(String.valueOf(largg));
-        longu=new TextField(String.valueOf(longue));
-        prix=new TextField(String.valueOf(s4));
-       
- erreurLibelle = new Label();
+        larg = new TextField(String.valueOf(largg));
+        longu = new TextField(String.valueOf(longue));
+        prix = new TextField(String.valueOf(s4));
+
+        erreurLibelle = new Label();
         erreurLibelle.setVisible(false);
         erreurDescription = new Label();
         erreurDescription.setVisible(false);
@@ -84,20 +84,19 @@ public class updateespace  extends Layout {
         erreurDescription.setVisible(false);
         erreurnumtel.setVisible(false);
         erreurPhoto.setVisible(false);
-         erreurSouk = new Label();
+        erreurSouk = new Label();
         erreurSouk.setVisible(false);
-         erreurlarg = new Label();
+        erreurlarg = new Label();
         erreurlarg.setVisible(false);
-          erreurlong = new Label();
+        erreurlong = new Label();
         erreurlong.setVisible(false);
-          erreurprix = new Label();
+        erreurprix = new Label();
         erreurprix.setVisible(false);
-         erreurcat = new Label();
+        erreurcat = new Label();
         erreurcat.setVisible(false);
-      
-        
+
         enc = EncodedImage.createFromImage(MyApplication.theme.getImage("100x100.png"), false);
-        uRLImage = URLImage.createToStorage(enc,urloldphoto, Layout.URL + urloldphoto, URLImage.RESIZE_SCALE_TO_FILL);
+        uRLImage = URLImage.createToStorage(enc, urloldphoto, Layout.URL + urloldphoto, URLImage.RESIZE_SCALE_TO_FILL);
         ImageViewer imgV = new ImageViewer(uRLImage);
 
         changePhoto = new Label("Changer la photo");
@@ -144,115 +143,94 @@ public class updateespace  extends Layout {
         }
         );
 
-        
-        
-     
-        
-        
-        
-        
-        
-        
-        
-        
         btn = new Button("Modifier");
-controleSaisie ctrl = new controleSaisie();
-       btn.addActionListener(
-               (e) -> {
-                   int nb=0;
-                   if(photo.equals("nophoto")){System.out.println("champs photo vide");
-                  
-                    erreurPhoto.setText("il faut modifier la photo");
-                    erreurPhoto.setVisible(true);
-                   nb++;
-                   }
-                   if(nom.getText().equals("")){System.out.println("champs nom vide");
-                    erreurLibelle.setText("champs nom vide");
-                    erreurLibelle.setVisible(true);
-                   nb++;
-                   }
-                   if(longu.getText().equals("")){System.out.println("champs longeur vide");
-                   erreurlong.setText("champs longeur vide");
-                   erreurlong.setVisible(true);
-                   nb++;
-                   }
+        controleSaisie ctrl = new controleSaisie();
+        btn.addActionListener(
+                (e) -> {
+                    int nb = 0;
                    
-                   if(larg.getText().equals("")){System.out.println("champs largeur vide");
-                    erreurlarg.setText("champs largeur vide");
-                    erreurlarg.setVisible(true);
-                   nb++;
-                   }
-                     if(description.getText().equals("")){System.out.println("champs largeur vide");
-                    erreurDescription.setText("champs description vide");
-                  erreurDescription.setVisible(true);
-                   nb++;
-                   }
-                   
-                   if(prix.getText().equals("")){System.out.println("champs prix vide");
-                    erreurprix.setText("champs prix vide");
-                    erreurprix.setVisible(true);
-                   nb++;
-                   }
-                   
-                   
-                   if(ctrl.controleNumTelLongueur(numtel.getText())){
-                   erreurnumtel.setText("Repllir avec 8 chiffre");
-                    erreurnumtel.setVisible(true);
-                   nb++;
-                   
-                   
-                   }
-                    if(numtel.getText().equals("")){
-                   erreurnumtel.setText("champs N° tel vide");
-                    erreurnumtel.setVisible(true);
-                   nb++;
-                   
-                   
-                   }
-               
-                   
-                  if(!ctrl.isValidFloat(prix.getText())){
-                       erreurprix.setText("remplir avec des chiffres");
-                   erreurprix.setVisible(true);  
-                 nb++;
-                      
-                      
-                  }
-                  if(!ctrl.isValidFloat(longu.getText())){
-                      
-                      
-                       erreurlong.setText("remplir avec des chiffres");
-                   erreurlong.setVisible(true);  
-                 nb++;
-                  }
-                  if(!ctrl.isValidFloat(larg.getText())){
-                       erreurlarg.setText("remplir avec des chiffres");
-                  erreurlarg.setVisible(true);  
-                 nb++;
-                      
-                  }
-                 
-                  
-                 
-                 
-                   if(nb==0)
-                   {
-         
-                   ServiceEspaceexpo ses=new ServiceEspaceexpo();
-                       
-//                       if(photo.equals("nophoto")){
-//                      photo=urloldphoto;
-//                           
-//                       System.out.println(photo);
-//                       }
-             
-                 ses.updateespace(photo, nom.getText(), description.getText(),numtel.getText(),Double.parseDouble(longu.getText()),Double.parseDouble(larg.getText()),Double.parseDouble(prix.getText()),idespace, bytesdata);
-                  Dialog.show("Alerte","espace modifié avec succés", "cancel", "ok");
-               }}
-       );
+                    if (nom.getText().equals("")) {
+                        System.out.println("champs nom vide");
+                        erreurLibelle.setText("champs nom vide");
+                        erreurLibelle.setVisible(true);
+                        nb++;
+                    }
+                    if (longu.getText().equals("")) {
+                        System.out.println("champs longeur vide");
+                        erreurlong.setText("champs longeur vide");
+                        erreurlong.setVisible(true);
+                        nb++;
+                    }
+
+                    if (larg.getText().equals("")) {
+                        System.out.println("champs largeur vide");
+                        erreurlarg.setText("champs largeur vide");
+                        erreurlarg.setVisible(true);
+                        nb++;
+                    }
+                    if (description.getText().equals("")) {
+                        System.out.println("champs largeur vide");
+                        erreurDescription.setText("champs description vide");
+                        erreurDescription.setVisible(true);
+                        nb++;
+                    }
+
+                    if (prix.getText().equals("")) {
+                        System.out.println("champs prix vide");
+                        erreurprix.setText("champs prix vide");
+                        erreurprix.setVisible(true);
+                        nb++;
+                    }
+
+                    if (ctrl.controleNumTelLongueur(numtel.getText())) {
+                        erreurnumtel.setText("Repllir avec 8 chiffre");
+                        erreurnumtel.setVisible(true);
+                        nb++;
+
+                    }
+                    if (numtel.getText().equals("")) {
+                        erreurnumtel.setText("champs N° tel vide");
+                        erreurnumtel.setVisible(true);
+                        nb++;
+
+                    }
+
+                    if (!ctrl.isValidFloat(prix.getText())) {
+                        erreurprix.setText("remplir avec des chiffres");
+                        erreurprix.setVisible(true);
+                        nb++;
+
+                    }
+                    if (!ctrl.isValidFloat(longu.getText())) {
+
+                        erreurlong.setText("remplir avec des chiffres");
+                        erreurlong.setVisible(true);
+                        nb++;
+                    }
+                    if (!ctrl.isValidFloat(larg.getText())) {
+                        erreurlarg.setText("remplir avec des chiffres");
+                        erreurlarg.setVisible(true);
+                        nb++;
+
+                    }
+
+                    if (nb == 0) {
+
+                        ServiceEspaceexpo ses = new ServiceEspaceexpo();
+
+                        if (photo.equals("nophoto")) {                          
+                            ses.updateespace("nophoto", nom.getText(), description.getText(), numtel.getText(), Double.parseDouble(longu.getText()), Double.parseDouble(larg.getText()), Double.parseDouble(prix.getText()), idespace, bytesdata);
+                        }
+                        else{
+                        ses.updateespace(photo, nom.getText(), description.getText(), numtel.getText(), Double.parseDouble(longu.getText()), Double.parseDouble(larg.getText()), Double.parseDouble(prix.getText()), idespace, bytesdata);
+                        }
+                        Dialog.show("Alerte", "espace modifié avec succés", "cancel", "ok");
+                    }
+                }
+        );
         toolbar.add(BorderLayout.CENTER, new Label("Modifier mon espace"));
         content.setLayout(new BoxLayout(BoxLayout.Y_AXIS));
-            content.add(imgV);
+        content.add(imgV);
         content.add(changePhoto);
         content.add(erreurPhoto);
         erreurPhoto.setUIID("RedLabel");
@@ -264,31 +242,27 @@ controleSaisie ctrl = new controleSaisie();
         content.add(description);
         content.add(erreurDescription);
         erreurDescription.setUIID("RedLabel");
-      
-      
+
         content.add(lnumtel);
         content.add(numtel);
         content.add(erreurnumtel);
         erreurnumtel.setUIID("RedLabel");
         content.add(llarg);
-        
+
         content.add(larg);
         content.add(erreurlarg);
         erreurlarg.setUIID("RedLabel");
-        
+
         content.add(llongu);
         content.add(longu);
         content.add(erreurlong);
         erreurlong.setUIID("RedLabel");
         content.add(lprix);
         content.add(prix);
-         content.add(erreurprix);
-         erreurprix.setUIID("RedLabel");
+        content.add(erreurprix);
+        erreurprix.setUIID("RedLabel");
         content.add(btn);
         f.getAllStyles().setBgImage(MyApplication.theme.getImage("back_1.jpg"));
     }
 
-   
-
-    
 }

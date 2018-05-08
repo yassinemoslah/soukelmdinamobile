@@ -40,6 +40,28 @@ public class AffichageBoutique2 extends Layout{
     
 
     public AffichageBoutique2() {
+        Label overflowMenu = new Label(MyApplication.theme.getImage("of_menu.png"));
+        
+        toolbar.add(BorderLayout.EAST, overflowMenu);
+        overflowMenu.addPointerPressedListener((e) -> {
+            f.getToolbar().getMenuBar().showMenu();
+        });
+        
+        
+        f.getToolbar().addCommandToOverflowMenu("Afficher mes boutiques", null,
+                (ev) -> {
+                    BoutiqueParVendeur home = new BoutiqueParVendeur(); home.getF().show();
+                });
+        f.getToolbar().addCommandToOverflowMenu("Ajouter", null,
+                (ev) -> {
+                    AjoutBoutique cf = new AjoutBoutique();
+                    cf.getF().show();
+                });
+        
+        f.getToolbar().addCommandToOverflowMenu("Stat", null,
+                (ev) -> {
+                    ChoixStat home = new ChoixStat(); home.getF().show();
+                });
         
         toolbar.add(BorderLayout.CENTER, new Label("Toutes les Boutiques"));
         
@@ -54,7 +76,7 @@ public class AffichageBoutique2 extends Layout{
         //String ss = serviceb.chartss();
         //System.out.println(ss);
         ArrayList<Boutique1> lis = serviceb.getList2();
-        for (int j = 0; j < lis.size() - 1; j++) {
+        for (int j = 0; j < lis.size(); j++) {
             li.add(lis.get(j));
         }
 
@@ -63,16 +85,7 @@ public class AffichageBoutique2 extends Layout{
         }
                 
         
-        f.getToolbar().addCommandToSideMenu("Mes Boutiques", null,
-             (ev)->{BoutiqueParVendeur home = new BoutiqueParVendeur(); home.getF().show();});
         
-        
-        f.getToolbar().addCommandToSideMenu("Ajouter", null,
-             (ev)->{AjoutBoutique home = new AjoutBoutique(); home.getF().show();
-                });                              
-        
-        f.getToolbar().addCommandToSideMenu("Stat", null,
-             (ev)->{ChoixStat home = new ChoixStat(); home.getF().show();});
         
     }
 
@@ -81,13 +94,13 @@ public class AffichageBoutique2 extends Layout{
     EncodedImage placeholder = EncodedImage.createFromImage(p.scaled(p.getWidth() * 3, p.getHeight() * 3), false);
     Image roundMask = Image.createImage(placeholder.getWidth(), placeholder.getHeight());
     URLImage.ImageAdapter ada = URLImage.createMaskAdapter(roundMask);
-
+//myapp.user.getid()
     public Container addItem(Boutique1 e) {
         //Label lbimage= new Label(theme.getImage("round.png"));
         url = "http://localhost" + e.getPhoto();
         System.out.println(url + "\n");
         //fileNameInStorage
-        Image i = URLImage.createToStorage(placeholder, e.getLibelle(), url, ada);
+        Image i = URLImage.createToStorage(placeholder, e.getPhoto(), Layout.URL+e.getPhoto(), ada);
 
         //Label lbtexte = new Label(String.valueOf(e.getId()));
         SpanLabel btn = new SpanLabel("Libelle " + e.getLibelle());

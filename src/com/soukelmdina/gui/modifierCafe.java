@@ -126,9 +126,9 @@ public class modifierCafe extends Layout {
                 c.setNumtel(numtel.getText());
                 c.setAccept(1);
                 c.setIdSouk(1);
-              
+                c.setPhoto(photo);
                 c.setIdprprio(MyApplication.user.getId());
-                sc.ModifierCafe(c,bytesdata);
+                sc.ModifierCafe(c, bytesdata);
                 Dialog.show("Modification", "Le caféresto est modifié avec succés", "OK", null);
 
                 ListeCafeRestoVendeur l = new ListeCafeRestoVendeur();

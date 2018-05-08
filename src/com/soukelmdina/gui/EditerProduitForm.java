@@ -53,9 +53,11 @@ public class EditerProduitForm extends Layout {
 
     public EditerProduitForm(Produit produit) {
         f.setLayout(new BoxLayout(BoxLayout.Y_AXIS));
-        Label a = new Label(produit.getLibelle());
-        a.getAllStyles().setBgColor(0x01E8C9);
-        toolbar.add(BorderLayout.CENTER,a);
+
+        Label lab = new Label(produit.getLibelle());
+        lab.getAllStyles().setFgColor(0xF6E497);
+
+        toolbar.add(BorderLayout.CENTER, lab);
 
         TextField nomProduit = new TextField(produit.getLibelle(), "Libelle Produits", 25, TextArea.ANY);
         nomProduit.getSelectedStyle().setFgColor(0xfff/*Color.BLUE.hashCode()*/);
@@ -66,7 +68,7 @@ public class EditerProduitForm extends Layout {
         EncodedImage enc;
         URLImage uRLImage;
         enc = EncodedImage.createFromImage(MyApplication.theme.getImage("100x100.png"), false);
-            uRLImage = URLImage.createToStorage(enc, MyApplication.user.getPhoto(), Layout.URL + MyApplication.user.getPhoto(), URLImage.RESIZE_SCALE_TO_FILL);
+            uRLImage = URLImage.createToStorage(enc, Routes.getPhotoProduits() + "/img", Routes.getPhotoProduits() + "/img", URLImage.RESIZE_SCALE_TO_FILL);
             
             Routes routes = new Routes();
             Image image = URLImage.createToStorage(enc, produit.getPhoto() ,
@@ -108,20 +110,6 @@ public class EditerProduitForm extends Layout {
 
         combocategories.setRenderer(new GenericListCellRenderer<>(new MultiButton(), new MultiButton()));
 
-        ComboBox<HashMap<String, Object>> comboboutiques = new ComboBox<>();
-
-        Boutique[] boutiques = new ServiceBoutiqueProd().getboutiques();
-
-        index = 0;
-        for (Boutique boutique : boutiques) {
-            comboboutiques.addItem(createListEntry(boutique.getNomBoutique(), boutique.getId()));
-            if (boutique.getId() == produit.getIdboutique()) {
-                comboboutiques.setSelectedIndex(index);
-            }
-            index++;
-        }
-
-        comboboutiques.setRenderer(new GenericListCellRenderer<>(new MultiButton(), new MultiButton()));
 
         Button submit = new Button("Modifier");
         Button reset = new Button("Annuler");
@@ -170,11 +158,7 @@ public class EditerProduitForm extends Layout {
         cate.add(x).add(combocategories);
         content.add(cate);
 
-        x = new Label("Boutique :");
-        x.getAllStyles().setFgColor(0x01E8C9);
-        x.setAlignment(Component.LEFT);
-        btk.add(x).add(comboboutiques);
-        content.add(btk);
+       
 
         Container cn = new Container(BoxLayout.x());
         cn.add(reset).add(submit);
@@ -192,7 +176,7 @@ public class EditerProduitForm extends Layout {
         submit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-                int idboutique = (int) comboboutiques.getModel().getItemAt(comboboutiques.getModel().getSelectedIndex()).get("id");
+                int idboutique = btq.getId();
                 int idcategorie = (int) combocategories.getModel().getItemAt(combocategories.getModel().getSelectedIndex()).get("id");
                 Produit produitSave = new Produit();
                 produitSave.setLibelle(nomProduit.getText());
