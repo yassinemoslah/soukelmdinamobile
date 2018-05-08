@@ -50,7 +50,7 @@ public class HomeEventsInternaure extends Layout {
         Label lblib = new Label(e.getLibelle());
         //btn.addActionListener((act)->{System.out.println(e);});
         lblib.addPointerPressedListener((act) -> {
-            DetailsEvents intdesc = new DetailsEvents(e);
+            DetailEventsInternaute intdesc = new DetailEventsInternaute(e);
             intdesc.getF().show();
         });
         Container cnt1 = new Container(BoxLayout.y());

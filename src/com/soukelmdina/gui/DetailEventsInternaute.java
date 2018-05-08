@@ -49,7 +49,12 @@ public class DetailEventsInternaute extends Layout {
         content.add("Prix ticket " + e.getPrixTicket());
         content.add("Lieu " + e.getLieu());
         f.getAllStyles().setBgImage(MyApplication.theme.getImage("back_2.jpg"));
-        sp.add("Connectez vous pour réserver un ticket");
+        Button btn = new Button("Connectez vous par ici pour réserver un ticket");
+        btn.addActionListener(z -> {
+            Login l = new Login();
+            l.getF().show();
+        });
+        f.add(btn);
          
     }
     
